@@ -1,8 +1,9 @@
-<?php 
+<?php
 
-  require_once('/var/www/shared/PHPMailer/class.phpmailer.php'); 
+  require_once('/var/www/shared/PHPMailer/class.phpmailer.php');
   include "/usr/local/noble/db_config/db_info.php";
   include "list_functions.php";
+  //include "../common/CopyRec.php";
   include "CopyRec.php";
   include "CopyList.php";
   include "LibCopyList.php";
@@ -10,109 +11,132 @@
   include "BibList.php";
   include "Filters.php";
   include "Output_Options.php";
-  
+  include "GroupCounts.php";
+
   $filters = new Filters();
   $output = new Output_Options();
-  
+
   //Run Filters->SQL to get records
-  $eg_db = pg_connect("host=$dbro_host port=5432 dbname=$dbro_database user=$dbro_user password=$dbro_password");
-  if (!$eg_db) 
+  $eg_db = pg_connect("host=$eg_host port=$eg_port dbname=$eg_database user=$eg_user password=$eg_password");
+  if (!$eg_db)
   {
      die("Error in connection to circulation DB: " . pg_last_error());
   }
-  
+
   $filters->SetDB($eg_db);
-  
+
   //Create Filters from command line
   $filters->CreateFilters($argv);
-  
+
   $domain =$filters->GetDomain();
   $scope = $filters->GetScope();
-  
+
   //Create Filters from command line
   $output->CreateOutputOptions($argv);
-  
+
+  $update_report_link = MakeUpdateReportLink($argv);
+
   if ($filters->GetFilterByCircDate())
   {
      //make sure circs between is set in the output
      $output->SetCircsBetween($filters->GetCircAfter(), $filters->GetCircBefore());
   }
 
-  $update_report_link = MakeUpdateReportLink($argv);
+  if ($output->WriteBucket())
+  {
+     $output->SetWriteDB($eg_db);
+  }
+
+  //make sure there are filters set or the location contains less then 50000 items
+  if ($filters->RequireCopyLocatonCheck())
+  {
+      $item_count = $filters->CheckFilters();
+      if ($item_count > 50000)
+      {
+         $output->SendTooBigToRunEmail($item_count, $filters->GetTypeForEmail(), $filters->GetTextForEmail(), $filters->GetScheduled(), $update_report_link);
+         exit(1);
+      }
+  }
 
   //Create a new bib list
   $bib_list = new BibList();
-  
+
   $bib_list->SetDB($eg_db);
-  
+
   $bib_list->SetLibrary($filters->GetLibrary());
-  
+
   $bib_list->SetGroupCopies($output->GetGroupCopies());
-  
+
   $bib_list->SetOneBibOneCopy($output->GetUngroupCopies());
-  
-  if ($filters->GetFilterByCircDate())$bib_list->SetCircBetween();
-  
+
+  if ($filters->GetFilterByCircDate() || $output->GetCircsBetween())$bib_list->SetCircBetween();
+
+  if ($filters->GetFilterByCourse())$output->SetTermData($filters->GetTermName(), $filters->GetTermStart(), $filters->GetTermEnd());
+
+  $bib_list->SetGroupData($output);
+
   $result = pg_query($eg_db,$filters->CreateSQL());
-  
-  $count = 1;
-            
+
+  //exit(1);
+
+  $count = 0;
+
   while($row = pg_fetch_row($result))
-  {  
+  {
       if (!$filters->LookForPhysicalCopies())
       {
          break;
       }
      //Loop through results
-     /*            0         reporter.materialized_simple_record.title //not used but needed for sorting 
+     /*            0         reporter.materialized_simple_record.title //not used but needed for sorting
                    1          asset.call_number.record,
                    2          asset.copy.cost,
                    3          asset.copy.active_date,
                    4          asset.copy.create_date,
-                   5          asset.copy.age_protect, 
-                   6          asset.copy.alert_message, 
+                   5          asset.copy.age_protect,
+                   6          *,
                    7          asset.copy.barcode,
-                   8          asset.copy.id, 
-                   9          asset.call_number.label, 
+                   8          asset.copy.id,
+                   9          asset.call_number.label,
                   10          asset.call_number.label_class,
-                  11          asset.call_number.prefix, 
-                  12          asset.call_number.suffix, 
+                  11          asset.call_number.prefix,
+                  12          asset.call_number.suffix,
                   13          asset.call_number.label_sortkey,
                   14          asset.copy.circ_modifier,
                   15          asset.copy.circ_lib,
                   16          asset.copy.location,
                   17          asset.copy.deleted,
                   18          asset.copy.edit_date,
-                  19          asset.copy.deposit, 
-                  20          asset.copy.fine_level, 
+                  19          asset.copy.deposit,
+                  20          asset.copy.fine_level,
                   21          asset.copy.floating,
-                  22          asset.copy.loan_duration, 
+                  22          asset.copy.loan_duration,
                   23          asset.call_number.owning_lib
                   24          asset.copy.price,
                   25          asset.copy.ref,
                   26          asset.copy.status,
                   27          asset.copy.status_changed_time,
                   28          reporter.materialized_simple_record.author,
-                  29          reporter.materialized_simple_record.isbn, 
-                  30          reporter.materialized_simple_record.issn, 
+                  29          reporter.materialized_simple_record.isbn,
+                  30          reporter.materialized_simple_record.issn,
                   31          reporter.materialized_simple_record.publisher
-                  32          asset.call_number.id  
+                  32          asset.call_number.id
      */
-     
-     
+
+
      //echo "/****************** COPY #".$count."********************/\n";
-     
+
      $count++;
-     
+
      $bib_id = $row[1];
 
      $curr_copy = new CopyRec();
      $curr_copy->SetDB($eg_db);
-        
+
      $curr_copy->SetAcqCost($row[2]);
      $curr_copy->SetActiveDate($row[3], $row[4]);
      $curr_copy->SetAgeProtect($row[5]);
-     $curr_copy->SetAlertMessage($row[6]);
+     //$curr_copy->SetAlertMessage($row[6]);
      $curr_copy->SetBarcode($row[7]);
      $curr_copy->SetCopyId($row[8]);
      $curr_copy->SetCallNumber($row[9]);
@@ -134,23 +158,28 @@
      $curr_copy->SetStatus($row[26]);
      $curr_copy->SetStatusChange($row[27]);
      $curr_copy->SetCallNumberId($row[32]);
-     
+
      $curr_copy->SetLifetimeCircs();//always get this data
-     
+
      //Calculated from individual queiries - only do if care if need in output?
-     if($output->GetDueDate()) $curr_copy->SetDueDate();
+     if($output->GetAlertMessage()) $curr_copy->SetAlertMessage();
+     if($output->GetCopyTag() || $filters->GetFilterByItemTag()) $curr_copy->SetCopyTag();
+     if($output->GetDueDate() || $filters->GetFilterByDueDate()) $curr_copy->SetDueDate();
      if($output->GetInHouseUse()) $curr_copy->SetInHouseUse();
+     if($output->GetInventory() || $filters->GetFilterByInventoryDate()) $curr_copy->SetInventoryDate();
      if($output->GetLastCheckin() || $filters->GetUseShelfSitter()) $curr_copy->SetLastCheckin();
-     if($output->GetLastCheckout()) $curr_copy->SetLastCheckout(); //do after checkin if that's chosen
+     if($output->GetLastCheckout()|| $output->GetLastCheckoutLib()) $curr_copy->SetLastCheckout(); //do after checkin if that's chosen
      if($output->GetLastFYCirc()) $curr_copy->SetLastFyCirc();
      if($output->GetOnlyHolder() || $filters->GetOnlyHolder() || $output->GetOtherLibraryCount()) $curr_copy->SetOnlyHolder($bib_id);
      if($output->GetPart()) $curr_copy->SetPart();
      if($output->GetPublicNote()) $curr_copy->SetPublicNote();
      if($output->GetStaffNote()) $curr_copy->SetStaffNote();
-     if($output->GetStatCats()) $curr_copy->SetStatCats();
+     if($output->GetStatCats() || $filters->GetFilterByStatCats()) $curr_copy->SetStatCats();
      if($output->GetYTDCircs()) $curr_copy->SetYTDCirc();
-     
-     
+
+     //acquisitions
+     if($output->GetAcquisitionsInfo()) $curr_copy->SetAcquisitionsInfo();
+
      if ($filters->GetFilterByCircDate())
      {
         $curr_copy->SetCircsBetween($filters->GetCircAfter(), $filters->GetCircBefore());
@@ -160,11 +189,22 @@
         $curr_copy->SetCircsBetween($output->GetCircsBetweenStart(), $output->GetCircsBetweenEnd());
      }
 
+     if($output->GetCourseCirc())
+     {
+        $curr_copy->SetCourseCirc($filters->GetTermStart(), $filters->GetTermEnd());
+     }
+
+     if ($output->GetCourse())
+     {
+        if ($filters->GetFilterByCourse() ) $curr_copy->SetCourseByTerm($filters->GetTermId(),$filters->GetCourseArray());
+        else $curr_copy->SetCourse();
+     }
+
      $curr_bib = new BibRec();
-        
+
      $curr_bib->SetBibId($bib_id, $domain, $scope);
      $curr_bib->SetDB($eg_db);
-        
+
      $curr_bib->SetISBN($row[29], $row[30]);
      $curr_bib->SetPublisher($row[31]);
      $curr_bib->SetAuthor(); //always get this
@@ -174,39 +214,57 @@
      if($output->GetFingerprint())$curr_bib->SetFingerprint();
      //$curr_bib->SetNovelistLink();
      //$curr_bib->SetGoogleLink();
-     
+
      if ($filters->GetSearchLinks()) $curr_bib->SetSearchLink($domain, $scope);
-       
-     //Calculated from individual queiries - only do if care if need in output?   
+
+     //Calculated from individual queiries - only do if care if need in output?
      if($output->GetOCLCNumber()) $curr_bib->SetOCLCNumber();
-     if($output->GetSummary()) $curr_bib->SetSummary();  
-     if($output->GetHolds()) 
+     if($output->GetSummary()) $curr_bib->SetSummary();
+     if ($output->GetMarcField())$curr_bib->SetMarc($output->GetMarcTag(), $output->GetMarcSubfield());
+
+     if($output->GetHolds() || $filters->GetFilterByHolds())
      {
         $curr_bib->SetHolds($curr_copy->GetCircLibId());
         $curr_copy->SetHolds();
      }
-        
+
      //execute filters that can't be done in the filter SQL
      if ($filters->ExcludeRecByAddedDate($curr_copy->GetActiveDate()) )
      {
         continue;
      }
-     
+
+    if ($filters->ExcludeRecByDueDate($curr_copy->GetDueDate()) )
+     {
+        continue;
+     }
+
+
+     if ( $filters->ExcludeRecByInventoryDate($curr_copy->GetInventoryDate()) )
+     {
+        continue;
+     }
+
      if ( $filters->ExcludeRecByPubDate($curr_bib->GetPubYear()) )
      {
         continue;
      }
-     
-     if ( $filters->ExcludeRecByStatCats($curr_copy->GetCopyId()))
+
+     if ( $filters->ExcludeRecByCheckinDate($curr_copy->GetLastCheckin(), $curr_copy->GetActiveDate()) )
      {
         continue;
      }
-     
-     if ( $filters->ExcludeRecByCheckinDate($curr_copy->GetLastCheckin(), $curr_copy->GetActiveDate()) )
+
+     if ($filters->GetOrderDateNull())
      {
-        continue; 
+        if ($filters->ExcludeRecByOrderDate($curr_copy->GetOrderDate())) continue;
      }
-     
+
+     if ($filters->GetInvoiceClosedNull())
+     {
+        if ($filters->ExcludeRecByInvoiceClosedDate($curr_copy->GetInvoiceClosedDate()) ) continue;
+     }
+
      if ($filters->GetFilterByCircCount())
      {
         //if dates not set then use lifetime circ caount
@@ -214,46 +272,57 @@
         {
            if ($filters->ExcludeRecByCircCount($curr_copy->GetCircsBetween())) continue;
         }
-        else 
+        else
         {
            if ($filters->ExcludeRecByCircCount($curr_copy->GetLifetimeCircs())) continue;
         }
      }
-     
+
      if ( $filters->ExcludeRecByOnlyHolder($curr_copy->GetOnlyHolder()) )
      {
         continue;
      }
-     
+
+     if($filters->GetFilterByHolds())
+     {
+        $my_holds = $curr_copy->GetMyHolds() + $curr_bib->GetMyHolds();
+        $other_holds = $curr_copy->GetOtherHolds() + $curr_bib->GetOtherHolds();
+        if ( $filters->ExcludeRecByHoldCount($my_holds, $other_holds ) )
+        {
+           continue;
+        }
+     }
+
      //send the bib and copy to Bib list to add where it needs to go in the stored lists
      $bib_list->AddItem($curr_bib, $curr_copy);
   }
-  
+
   //NOw get any Online Records
   if ($filters->LookForOnlineRecords())
   {
      $result = pg_query($eg_db,$filters->CreateOnlineSQL());
-       
+
      while($row = pg_fetch_row($result))
-     {   
-        /*  0 = reporter.materialized_simple_record.title,  
+     {
+        /*  0 = reporter.materialized_simple_record.title,
 				1 = reporter.materialized_simple_record.author,
-				2 = reporter.materialized_simple_record.isbn, 
-				3 = reporter.materialized_simple_record.issn, 
-				4 = reporter.materialized_simple_record.publisher, 
-				5 = asset.call_number.record 
+				2 = reporter.materialized_simple_record.isbn,
+				3 = reporter.materialized_simple_record.issn,
+				4 = reporter.materialized_simple_record.publisher,
+				5 = asset.call_number.record
 				6 = asset.uri.href
-				7 = asset.uri.label             
-				8 = actor.org_unit.shortname   */
-				
-		
+				7 = asset.uri.label
+				8 = actor.org_unit.shortname
+				9 = asset.call_number.create_date*/
+
+
 	     $bib_id = $row[5];
 	     $curr_bib = new BibRec();
-        
+
         $curr_bib->SetOnline();
         $curr_bib->SetBibId($bib_id, $domain, $scope);
         $curr_bib->SetDB($eg_db);
-        
+
         $curr_bib->SetAuthor();
         $curr_bib->SetISBN($row[2], $row[3]);
         $curr_bib->SetPublisher($row[4]);
@@ -261,18 +330,22 @@
         $curr_bib->SetOnlineSubY($row[7]);
         $curr_bib->SetOnlineSub9($row[8]);
         $curr_bib->SetPubYear(); //always get this
-        $curr_bib->SetTitle(); //always get this 
+        $curr_bib->SetTitle(); //always get this
         $curr_bib->SetAuthor(); //always get this
         $curr_bib->SetGoodreadsLink();
+        $curr_bib->SetOnlineCreateDate($row[9]);
+        $curr_bib->SetOverdriveReserveID();
         //$curr_bib->SetNovelistLink();
         //$curr_bib->SetGoogleLink();
-        
+
+
         if ($filters->GetSearchLinks()) $curr_bib->SetSearchLink($domain, $scope);
-       
-        //Calculated from individual queiries - only do if care if need in output?   
+
+        //Calculated from individual queiries - only do if care if need in output?
         if($output->GetOCLCNumber()) $curr_bib->SetOCLCNumber();
-        if($output->GetSummary()) $curr_bib->SetSummary();  
-        
+        if($output->GetSummary()) $curr_bib->SetSummary();
+        if ($output->GetMarcField())$curr_bib->SetMarc($output->GetMarcTag(), $output->GetMarcSubfield());
+
         if ( $filters->ExcludeRecByPubDate($curr_bib->GetPubYear()) )
         {
            continue;
@@ -284,17 +357,17 @@
         }
      }//end while
   }//end online
-  
+
  // var_dump($bib_list->one_bib_one_copy_recs);
-  
+
   //check size of bib list. If too big return.
   $count = $bib_list->GetNumCopies();
   $bib_count = $bib_list->GetNumBibs();
   $online_bib_count = $bib_list->GetNumOnlineBibs();
   $online_link_count = $bib_list->GetNumOnlineLinks();
-  
+
   echo "Num Copies = ".$count."\n";
-  
+
   if($output->GetCollection())
   {
      $output->WriteCollectionOutputFiles($bib_list, $filters->GetLibrary(), $filters->GetSystemName(), $filters->GetFilterByCollection(""), $count);
@@ -313,12 +386,12 @@
 	  {
 		  echo "Writing out Files\n";
 		  //Write out files
-		  $output->WriteOutputFiles($bib_list, $filters->GetLibrary(), $filters->GetShowDeleted());
-	
+		  $output->WriteOutputFiles($bib_list, $filters->GetLibrary(), $filters->GetSystemId(), $filters->GetShowDeleted());
+
 		  //Write email
-		  $output->SendCompletedEmail($count, $bib_count, $online_bib_count, $online_link_count, $filters->GetTypeForEmail(), $filters->GetTextForEmail(), $filters->GetScheduled(), $update_report_link);
-	  } 
+		  $output->SendCompletedEmail($count, $bib_count, $online_bib_count, $online_link_count, $filters->GetTypeForEmail(), $filters->GetTextForEmail(), $filters->GetScheduled(), $update_report_link, $filters->GetDomain());
+	  }
   }
 
-  
+
   ?>

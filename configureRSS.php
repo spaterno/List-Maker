@@ -53,11 +53,11 @@ function cancelRSS()
 <div id="rss_form">
      <p class="weeding">
         
-        List Name: &nbsp;&nbsp;<input type="text" name="rss_list_name" id="rss_list_name" required>
+        List Name: &nbsp;&nbsp;<input type="text" name="rss_list_name" id="rss_list_name" class="stats" required>
         <span class="note">(Title in RSS file)</span><br />
         
         Description:  <span class="note"> (Description of the list to display in the RSS)</span> 
-        <br /> <span class="rss"><textarea rows="2" cols="30" id="rss_description"></textarea></span>
+        <br /> <span class="rss"><textarea rows="2" cols="30" id="rss_description" class="stats"></textarea></span>
  </p>
 
 <div id="done">

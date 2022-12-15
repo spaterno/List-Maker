@@ -1,27 +1,26 @@
 
 var ajax = new sack();
-var working = false;
 
 function SetCheckbox(value, checkbox_name)
 {
    if (value.length > 0 && value != "NOBLE")   document.getElementById(checkbox_name).checked = true;
    else  document.getElementById(checkbox_name).checked = false;
-
+   
    if (checkbox_name =="use_active")
    {
-       if (value.length > 0)
-       {
+       if (value.length > 0) 
+       {   
           document.getElementById('electronic').disabled = false;
        }
        else
        {
           //check to see if file being used\
 			 var file = $(document.getElementById("file_name")).text();
-			 if (file.length > 0)
+			 if (file.length > 0) 
 			 {
 				 document.getElementById('electronic').disabled = false;
 			 }
-			 else
+			 else 
 			 {
 				 document.getElementById('electronic').disabled = true;
 				 document.getElementById('electronic').value="physical_only";
@@ -30,28 +29,21 @@ function SetCheckbox(value, checkbox_name)
    }
 }
 
-function SetNoneCheckbox(value, checkbox_name)
-{
-   if (value == "none") document.getElementById(checkbox_name).checked = true;
-   else  document.getElementById(checkbox_name).checked = false;
-}
-
-
 function SetElectronic(checked)
 {
-   if (checked)
+   if (checked) 
    {
       document.getElementById('electronic').disabled = false;
    }
-   else
+   else 
    {
        //check to see if file being used\
        var file = $(document.getElementById("file_name")).text();
-	    if (file.length > 0)
+	    if (file.length > 0) 
 	    {
 	       document.getElementById('electronic').disabled = false;
 	    }
-	    else
+	    else 
 	    {
 	       document.getElementById('electronic').disabled = true;
 	       document.getElementById('electronic').value="physical_only";
@@ -98,9 +90,9 @@ function UpdateCircDates(checked)
 			 //if circs between there remove it and add this one instaed
 			 if(sheet_display.includes("Circs Between"))
 			 {
-			    var pos = sheet_display.indexOf("<li>Circs Between");
-                var circ_between = sheet_display.substr(pos, 46);
-                sheet_display = sheet_display.replace(circ_between, "");
+			     var pos = sheet_display.indexOf("<li>Circs Between");
+              var circ_between = sheet_display.substr(pos, 46);
+              sheet_display = sheet_display.replace(circ_between, "");
 
 			 }
 
@@ -151,22 +143,24 @@ function SetCircDates(checked)
    }
 }
 
-
 function SetLinkOptions(checked)
 {
-   if (document.getElementById('html').checked == false && document.getElementById('spreadsheet').checked == false && document.getElementById('rss').checked == false)
-	{
-		//set the link boxes to inactive
-		document.getElementById('scope_links').disabled = true;
-		document.getElementById('search_links').disabled = true;
-		document.getElementById('use_domain').disabled = true;
-	}
-	else
-	{
-		document.getElementById('scope_links').disabled = false;
-		document.getElementById('search_links').disabled = false;
-		document.getElementById('use_domain').disabled = false;
-	}
+   if (checked)
+   {
+      if (document.getElementById('html').checked == false && document.getElementById('spreadsheet').checked == false && document.getElementById('rss').checked == false)
+      {
+         //set the link boxes to inactive
+         document.getElementById('scope_links').disabled = true;
+         document.getElementById('search_links').disabled = true;
+         document.getElementById('use_domain').disabled = true;
+      }
+   }
+   else
+   {
+        document.getElementById('scope_links').disabled = true;
+        document.getElementById('search_links').disabled = true;
+        document.getElementById('use_domain').disabled = true;
+   }
 }
 
 function getCopyLocationsList(LibName)
@@ -256,8 +250,6 @@ function getCopyLocationsList(LibName)
    document.getElementById('stat_cat_text').innerHTML= "";
    document.getElementById('funds').value = "";
    document.getElementById('fund_text').innerHTML= "";
-   document.getElementById('course').value = "";
-   document.getElementById('course_text').innerHTML= "";
    document.getElementById('file_name').innerHTML= "";
    document.getElementById('data_type').innerHTML= "";
    document.getElementById('file_type').innerHTML= "";
@@ -299,7 +291,7 @@ function getCopyLocationsList(LibName)
       prev_out = prev_out.replace("<li>Call Number</li>", "");
       document.getElementById("preview_display").innerHTML = prev_out;
       document.getElementById("preview_order").innerHTML ="Author";
-
+      
    }
    else
    {
@@ -311,7 +303,7 @@ function getCopyLocationsList(LibName)
       document.getElementById("html_display").innerHTML = "<ul> <li>Author</li> <li>Call Number</li> <li>Cover Image</li><li>Title</li></ul>";
       document.getElementById("html_order").innerHTML ="Call Number";
 
-      var sheet_display = "<ul><li>Author</li><li>Barcode</li><li>Bib Id</li><li>Call Number</li><li>Shelving Location</li><li>Last Checkin</li>";
+      var sheet_display = "<ul><li>Author</li><li>Barcode</li><li>Bib Id</li><li>Call Number</li><li>Copy Location</li><li>Last Checkin</li>";
       sheet_display += "<li>Lifetime Circs</li><li>Only Holder</li><li>Part</li><li>Prefix</li><li>Pub Date</li><li>Suffix</li><li>Title</li></ul>";
 
       document.getElementById("spreadsheet_display").innerHTML = sheet_display;
@@ -344,13 +336,13 @@ function UpdateCopyLocations(BranchName)
 
    if(BranchName == "ALL")
    {
-      ajax.requestFile = "getCopyLocations.php?lib="+LibName;	// Specifying which file to get
+      ajax.requestFile = "../common/getCopyLocations.php?lib="+LibName;	// Specifying which file to get
       ajax.onCompletion = createCopyLocations;	// Specify function that will be executed after file has been found
       ajax.runAJAX();		// Execute AJAX function
    }
    else
    {
-      ajax.requestFile = "getCopyLocations.php?lib="+LibName+"&branch="+BranchName;	// Specifying which file to get
+      ajax.requestFile = "../common/getCopyLocations.php?lib="+LibName+"&branch="+BranchName;	// Specifying which file to get
       ajax.onCompletion = createCopyLocations;	// Specify function that will be executed after file has been found
       ajax.runAJAX();		// Execute AJAX function
    }
@@ -374,18 +366,18 @@ function CheckCopyLocation(value)
 			   return;
 			}//end if
 		}//end for
-
-		//no copy location is checked so check all
+		
+		//no copy location is checked so check all 
 		document.getElementById('all_locations').checked = true;
 		document.getElementById('create_report').disabled = false;
-
-	}//end if electronic only
+		
+	}//end if electronic only	
 }
 
 
 function getCollManTopics(topic)
 {
-    ajax.requestFile = "getCollManTopics.php?topic="+topic;	// Specifying which file to get
+    ajax.requestFile = "../common/getCollManTopics.php?topic="+topic;	// Specifying which file to get
     ajax.onCompletion = createCollManTopics;	// Specify function that will be executed after file has been found
     ajax.runAJAX();		// Execute AJAX function
 }
@@ -412,7 +404,7 @@ function getBISACLevel1(call_class)
          document.getElementById('level2').options.length = 0;	// Empty level 1 select box
          document.getElementById('level3').options.length = 0;
 
-         ajax.requestFile = "getBISAC.php?lib="+BranchName+"&level=1";	// Specifying which file to get
+         ajax.requestFile = "../common/getBISAC.php?lib="+BranchName+"&level=1";	// Specifying which file to get
          ajax.onCompletion = createBISACLevel1;	// Specify function that will be executed after file has been found
          ajax.runAJAX();		// Execute AJAX function
       }
@@ -436,7 +428,7 @@ function getBISACLevel2(level1)
    document.getElementById('level2').options.length = 0;	// Empty level 1 select box
    document.getElementById('level3').options.length = 0;
 
-   ajax.requestFile = "getBISAC.php?level=2&parent="+level1;	// Specifying which file to get
+   ajax.requestFile = "../common/getBISAC.php?level=2&parent="+level1;	// Specifying which file to get
    ajax.onCompletion = createBISACLevel2;	// Specify function that will be executed after file has been found
    ajax.runAJAX();		// Execute AJAX function
 }
@@ -451,7 +443,7 @@ function getBISACLevel3(level2)
 {
    document.getElementById('level3').options.length = 0;	// Empty level 1 select box
 
-   ajax.requestFile = "getBISAC.php?level=3&parent="+level2;	// Specifying which file to get
+   ajax.requestFile = "../common/getBISAC.php?level=3&parent="+level2;	// Specifying which file to get
    ajax.onCompletion = createBISACLevel3;	// Specify function that will be executed after file has been found
    ajax.runAJAX();		// Execute AJAX function
 }
@@ -524,13 +516,13 @@ function getCircModifierList(is_group)
    {
       if (BranchName == "ALL" || BranchName == "NONE")
       {
-         if(is_group)ajax.requestFile = "getCircModStatusAndPrefixSuffix.php?lib="+LibName+"&loc_grp="+loc_grp;
-         else ajax.requestFile = "getCircModStatusAndPrefixSuffix.php?lib="+LibName+"&location="+locations;	// Specifying which file to get
+         if(is_group)ajax.requestFile = "../common/getCircModStatusAndPrefixSuffix.php?lib="+LibName+"&loc_grp="+loc_grp;
+         else ajax.requestFile = "../common/getCircModStatusAndPrefixSuffix.php?lib="+LibName+"&location="+locations;	// Specifying which file to get
       }
       else
       {
-         if(is_group)ajax.requestFile = "getCircModStatusAndPrefixSuffix.php?lib="+LibName+"&branch="+BranchName+"&loc_grp="+loc_grp;
-         else ajax.requestFile = "getCircModStatusAndPrefixSuffix.php?lib="+LibName+"&branch="+BranchName+"&location="+locations;	// Specifying which file to get
+         if(is_group)ajax.requestFile = "../common/getCircModStatusAndPrefixSuffix.php?lib="+LibName+"&branch="+BranchName+"&loc_grp="+loc_grp;
+         else ajax.requestFile = "../common/getCircModStatusAndPrefixSuffix.php?lib="+LibName+"&branch="+BranchName+"&location="+locations;	// Specifying which file to get
       }
 
       ajax.onCompletion = createCircModStatusAndPrefixSuffix;	// Specify function that will be executed after file has been found
@@ -542,7 +534,7 @@ function getAllCircPreSuffix(all_loc)
 {
 
    if (all_loc.checked == false)
-   {
+   {f
       document.getElementById('circ_mods').innerHTML="NONE";
       document.getElementById('prefixes').innerHTML="NONE";
       document.getElementById('suffixes').innerHTML="NONE";
@@ -585,11 +577,11 @@ function getAllCircPreSuffix(all_loc)
    {
       if (BranchName == "ALL" || BranchName == "NONE")
       {
-         ajax.requestFile = "getCircModStatusAndPrefixSuffix.php?lib="+LibName+"&location=all";	// Specifying which file to get
+         ajax.requestFile = "../common/getCircModStatusAndPrefixSuffix.php?lib="+LibName+"&location=all";	// Specifying which file to get
       }
       else
       {
-         ajax.requestFile = "getCircModStatusAndPrefixSuffix.php?lib="+LibName+"&branch="+BranchName+"&location=all";	// Specifying which file to get
+         ajax.requestFile = "../common/getCircModStatusAndPrefixSuffix.php?lib="+LibName+"&branch="+BranchName+"&location=all";	// Specifying which file to get
       }
 
       ajax.onCompletion = createCircModStatusAndPrefixSuffix;	// Specify function that will be executed after file has been found
@@ -642,11 +634,11 @@ function updateAllCircPreSuffix(scheduled)
 		{
 			if (BranchName == "ALL" || BranchName == "NONE")
 			{
-				ajax.requestFile = "getCircModStatusAndPrefixSuffix.php?lib="+LibName+"&location=all";	// Specifying which file to get
+				ajax.requestFile = "../common/getCircModStatusAndPrefixSuffix.php?lib="+LibName+"&location=all";	// Specifying which file to get
 			}
 			else
 			{
-				ajax.requestFile = "getCircModStatusAndPrefixSuffix.php?lib="+LibName+"&branch="+BranchName+"&location=all";	// Specifying which file to get
+				ajax.requestFile = "../common/getCircModStatusAndPrefixSuffix.php?lib="+LibName+"&branch="+BranchName+"&location=all";	// Specifying which file to get
 			}
 
 			ajax.onCompletion = createCircModStatusAndPrefixSuffix;	// Specify function that will be executed after file has been found
@@ -749,17 +741,17 @@ function configureStatCat()
       if (document.getElementById('stat_cats').value.length > 0)
       {
          var stat = document.getElementById('stat_cats').value;
-
+         
          stat = stat.substring(0, stat.length - 1);
 
-         //var myWindow =window.open('stat_cat.php?lib='+LibName+'&branch='+BranchName+'&stat='+stat+'&entry='+stat_entry,'name','height=350,width=800,left=10,top=10,resizable=yes,scrollbars=yes,toolbar=no,menubar=yes,location=no,directories=no,status=yes');
+         //var myWindow =window.open('../common/stat_cat.php?lib='+LibName+'&branch='+BranchName+'&stat='+stat+'&entry='+stat_entry,'name','height=350,width=800,left=10,top=10,resizable=yes,scrollbars=yes,toolbar=no,menubar=yes,location=no,directories=no,status=yes');
          var myWindow =window.open('stat_cat.php?lib='+LibName+'&branch='+BranchName+'&stat='+stat,'name','height=800,width=1100,left=10,top=10,resizable=yes,scrollbars=yes,toolbar=no,menubar=yes,location=no,directories=no,status=yes');
 
       }
       else
       {
          document.getElementById('stat_cat_text').innerHTML="";
-	      //var myWindow =window.open('stat_cat.php?lib='+LibName+'&branch='+BranchName+'&stat=0','name','height=350,width=800,left=10,top=10,resizable=yes,scrollbars=yes,toolbar=no,menubar=no,location=no,directories=no,status=yes');
+	      //var myWindow =window.open('../common/stat_cat.php?lib='+LibName+'&branch='+BranchName+'&stat=0','name','height=350,width=800,left=10,top=10,resizable=yes,scrollbars=yes,toolbar=no,menubar=no,location=no,directories=no,status=yes');
 	      var myWindow =window.open('stat_cat.php?lib='+LibName+'&branch='+BranchName,'name','height=800,width=1100,left=10,top=10,resizable=yes,scrollbars=yes,toolbar=no,menubar=no,location=no,directories=no,status=yes');
 
 	   }
@@ -767,9 +759,9 @@ function configureStatCat()
 }
 
 function HandleStatCatResult(stat_vals, stat_words)
-{
+{  
    document.getElementById('stat_cat_text').innerHTML="";
-
+   
    if (!stat_words)
    {
       document.getElementById("stat_cats").value = "";
@@ -778,7 +770,7 @@ function HandleStatCatResult(stat_vals, stat_words)
    else
    {
       document.getElementById("stat_cats").value =""+stat_vals;
-
+      
       var words = stat_words.split("%");
       for (var i=0; i < words.length-1; i++)
       {
@@ -810,17 +802,17 @@ function configureFunds()
       if (document.getElementById('funds').value.length > 0)
       {
          var fund = document.getElementById('funds').value;
-
+         
          fund = fund.substring(0, fund.length - 1);
 
-         //var myWindow =window.open('stat_cat.php?lib='+LibName+'&branch='+BranchName+'&stat='+stat+'&entry='+stat_entry,'name','height=350,width=800,left=10,top=10,resizable=yes,scrollbars=yes,toolbar=no,menubar=yes,location=no,directories=no,status=yes');
+         //var myWindow =window.open('../common/stat_cat.php?lib='+LibName+'&branch='+BranchName+'&stat='+stat+'&entry='+stat_entry,'name','height=350,width=800,left=10,top=10,resizable=yes,scrollbars=yes,toolbar=no,menubar=yes,location=no,directories=no,status=yes');
          var myWindow =window.open('funds.php?lib='+LibName+'&branch='+BranchName+'&fund='+fund,'name','height=800,width=1100,left=10,top=10,resizable=yes,scrollbars=yes,toolbar=no,menubar=yes,location=no,directories=no,status=yes');
 
       }
       else
       {
          document.getElementById('fund_text').innerHTML="";
-	      //var myWindow =window.open('stat_cat.php?lib='+LibName+'&branch='+BranchName+'&stat=0','name','height=350,width=800,left=10,top=10,resizable=yes,scrollbars=yes,toolbar=no,menubar=no,location=no,directories=no,status=yes');
+	      //var myWindow =window.open('../common/stat_cat.php?lib='+LibName+'&branch='+BranchName+'&stat=0','name','height=350,width=800,left=10,top=10,resizable=yes,scrollbars=yes,toolbar=no,menubar=no,location=no,directories=no,status=yes');
 	      var myWindow =window.open('funds.php?lib='+LibName+'&branch='+BranchName,'name','height=800,width=1100,left=10,top=10,resizable=yes,scrollbars=yes,toolbar=no,menubar=no,location=no,directories=no,status=yes');
 
 	   }
@@ -828,9 +820,9 @@ function configureFunds()
 }
 
 function HandleFundResult(fund_vals, fund_words)
-{
+{  
    document.getElementById('fund_text').innerHTML="";
-
+   
    if (!fund_words)
    {
       document.getElementById("funds").value = "";
@@ -839,7 +831,7 @@ function HandleFundResult(fund_vals, fund_words)
    else
    {
       document.getElementById("funds").value =""+fund_vals;
-
+      
       var words = fund_words.split("%");
       for (var i=0; i < words.length-1; i++)
       {
@@ -847,138 +839,6 @@ function HandleFundResult(fund_vals, fund_words)
       }
    }
 }
-
-function configureCopyTags()
-{
-   var lib = document.getElementById('library');
-   var LibName = lib.options[lib.selectedIndex].value;
-
-   var branch = document.getElementById('branch_filter');
-   var BranchName = branch.options[branch.selectedIndex].value;
-
-   if (BranchName == "ALL" || BranchName == "NONE")
-   {
-      BranchName = "none";
-   }
-
-
-   if(LibName=="NONE")
-   {
-      swal("Error", "You must first select a Library before Configuring a Copy Tag", 'error');
-   }
-   else
-   {
-      if (document.getElementById('tag_ids').value.length > 0)
-      {
-         var tag = document.getElementById('tag_ids').value;
-
-         tag = tag.substring(0, tag.length);
-
-         //var myWindow =window.open('stat_cat.php?lib='+LibName+'&branch='+BranchName+'&stat='+stat+'&entry='+stat_entry,'name','height=350,width=800,left=10,top=10,resizable=yes,scrollbars=yes,toolbar=no,menubar=yes,location=no,directories=no,status=yes');
-         var myWindow =window.open('tags.php?lib='+LibName+'&branch='+BranchName+'&tags='+tag,'name','height=800,width=1100,left=10,top=10,resizable=yes,scrollbars=yes,toolbar=no,menubar=yes,location=no,directories=no,status=yes');
-
-      }
-      else
-      {
-         document.getElementById('copy_tag_text').innerHTML="";
-	      //var myWindow =window.open('stat_cat.php?lib='+LibName+'&branch='+BranchName+'&stat=0','name','height=350,width=800,left=10,top=10,resizable=yes,scrollbars=yes,toolbar=no,menubar=no,location=no,directories=no,status=yes');
-	      var myWindow =window.open('tags.php?lib='+LibName+'&branch='+BranchName,'name','height=800,width=1100,left=10,top=10,resizable=yes,scrollbars=yes,toolbar=no,menubar=no,location=no,directories=no,status=yes');
-
-	   }
-	}
-}
-
-function HandleCopyTagResult(copy_tag_vals, copy_tag_words)
-{
-   document.getElementById('copy_tag_text').innerHTML="";
-
-   if (!copy_tag_words)
-   {
-      document.getElementById("tag_ids").value = "";
-      document.getElementById('copy_tag_text').innerHTML="<span class=\"stat\">None Selected</span>";
-   }
-   else
-   {
-      document.getElementById("tag_ids").value =""+copy_tag_vals;
-
-      var words = copy_tag_words.split("%");
-      for (var i=0; i < words.length-1; i++)
-      {
-         document.getElementById('copy_tag_text').innerHTML+="<span class=\"stat\">"+words[i].replace("*","'")+"<br /></span>";
-      }
-   }
-}
-
-function configureCourses()
-{
-   var lib = document.getElementById('library');
-   var LibName = lib.options[lib.selectedIndex].value;
-
-   var branch = document.getElementById('branch_filter');
-   var BranchName = branch.options[branch.selectedIndex].value;
-
-   if (BranchName == "ALL" || BranchName == "NONE")
-   {
-      BranchName = "none";
-   }
-
-
-   if(LibName=="NONE")
-   {
-      swal("Error", "You must first select a Library before Configuring Courses", 'error');
-   }
-   else
-   {
-      if (document.getElementById('course').value.length > 0)
-      {
-         var course = document.getElementById('course').value;
-
-         course = course.substring(0, course.length - 1);
-
-         var myWindow =window.open('courses.php?lib='+LibName+'&branch='+BranchName+'&course='+course,'name','height=800,width=1100,left=10,top=10,resizable=yes,scrollbars=yes,toolbar=no,menubar=yes,location=no,directories=no,status=yes');
-
-      }
-      else
-      {
-         document.getElementById('course_text').innerHTML="";
-	     var myWindow =window.open('courses.php?lib='+LibName+'&branch='+BranchName,'name','height=800,width=1100,left=10,top=10,resizable=yes,scrollbars=yes,toolbar=no,menubar=no,location=no,directories=no,status=yes');
-
-	   }
-	}
-}
-
-function HandleCourseResult(course_vals, course_words)
-{
-   document.getElementById('course_text').innerHTML="";
-
-   if (!course_words)
-   {
-      document.getElementById("course").value = "";
-      document.getElementById('course_text').innerHTML="<span class=\"stat\">None Selected</span>";
-   }
-   else
-   {
-      document.getElementById("course").value =""+course_vals;
-
-      var words = course_words.split("%");
-      for (var i=0; i < words.length-1; i++)
-      {
-         document.getElementById('course_text').innerHTML+="<span class=\"stat\">"+words[i].replace("*","'")+"<br /></span>";
-      }
-
-      var sheet_display = document.getElementById("spreadsheet_display").innerHTML;
-
-      if(!sheet_display.includes("Course Circulation"))
-      {
-	     sheet_display = sheet_display.substring(0, sheet_display.indexOf("</ul>"));
-
-		 sheet_display += "<li>Course Circulation</li></ul>";
-		 document.getElementById("spreadsheet_display").innerHTML = sheet_display;
-      }
-
-   }
-}
-
 
 
 function configureHTML()
@@ -1008,20 +868,7 @@ function HandleHTMLResult(order=null, display=null, layout=null, options=null)
    if (!order && !display && !layout && !options) return;
 
    if (order) document.getElementById("html_order").innerHTML = order.toString();
-   if (layout)
-   {
-      var values = layout.split('*');
-
-      var html_layout="";
-
-      for(var i = 0; i< values.length; i++)
-      {
-         html_layout += values[i];
-         if (i < (values.length-1) ) html_layout += "<br/>";
-      }
-      document.getElementById("html_layout").innerHTML = html_layout;
-
-   }
+   if (layout) document.getElementById("html_layout").innerHTML = layout.toString();
 
    if (display)
    {
@@ -1069,10 +916,10 @@ function HandleHTMLResult(order=null, display=null, layout=null, options=null)
               html_display +="<li>Circ Modifier</li>";
               break;
             case 'copyloc':
-              html_display +="<li>Shelving Location</li>";
+              html_display +="<li>Copy Location</li>";
               break;
             case 'copystatus':
-              html_display +="<li>Item Status</li>";
+              html_display +="<li>Copy Status</li>";
               break;
             case 'goodreads':
               html_display +="<li>Goodreads Link</li>";
@@ -1153,18 +1000,13 @@ function HandleHTMLResult(order=null, display=null, layout=null, options=null)
               html_options +="<li>Image Size Large</li>";
               break;
            case 'groupfirst':
-              html_options +="<li>Group Items First</li>";
+              html_options +="<li>Group Copies First</li>";
               break;
             case 'groupall':
-              html_options +="<li>Group Items All</li>";
+              html_options +="<li>Group Copies All</li>";
               break;
            case 'wordpress':
-              html_options +="<li>WordPress</li>";
-              break;
-            case 'savehtml':
-              html_options +="<li>Embeddable URL</li>";
-              //check if this is scheduled, if so check run now
-              if(document.getElementById("schedule_report").checked) document.getElementById("run_now").checked = true;
+              html_options +="<li>Word Press</li>";
               break;
          }
       }
@@ -1179,20 +1021,10 @@ function HandleHTMLResult(order=null, display=null, layout=null, options=null)
 
 }
 
-function SetRunNow(checked)
-{
-   if (checked)
-   {
-      if(document.getElementById("schedule_report").checked)
-      {
-         document.getElementById("run_now").checked = true;
-      }
-   }
-}
 
 function configureSpreadsheet()
 {
-    var php_file = 'configureSpreadsheet.php';
+   var php_file = 'configureSpreadsheet.php';
 
     var order= $(document.getElementById("spreadsheet_order")).text();
     php_file +="?order="+order.trim();
@@ -1207,10 +1039,6 @@ function configureSpreadsheet()
     var options = $(document.getElementById("spreadsheet_options")).text();
     options = options.replace(/\s+/g, '');
     php_file +="&options="+options;
-
-    var course = document.getElementById('course').value;
-	if (course.length > 0) php_file +="&course=yes";
-	else php_file +="&course=no";
 
     window.open(php_file,'name','height=800,width=1100,left=10,top=10,resizable=yes,scrollbars=yes,toolbar=no,menubar=no,location=no,directories=no,status=yes');
 }
@@ -1231,9 +1059,6 @@ function HandleSpreadsheetResult(order=null, display=null, format=null, options=
       {
          switch(vals[j])
          {
-            case 'itemsheet':
-              sheet_options +="<li>Item Sheet</li>";
-              break;
             case 'circsbylib':
               sheet_options +="<li>Circs By Library</li>";
               break;
@@ -1282,7 +1107,7 @@ function HandleSpreadsheetResult(order=null, display=null, format=null, options=
               sheet_display +="<li>Call Number</li>";
               break;
             case 'copyloc':
-              sheet_display +="<li>Shelving Location</li>";
+              sheet_display +="<li>Copy Location</li>";
               break;
             case 'lastcheckin':
               sheet_display +="<li>Last Checkin</li>";
@@ -1363,19 +1188,10 @@ function HandleSpreadsheetResult(order=null, display=null, format=null, options=
               sheet_display +="<li>Circ Modifier</li>";
               break;
             case 'copyid':
-              sheet_display +="<li>Item Id</li>";
+              sheet_display +="<li>Copy Id</li>";
               break;
             case 'copystatus':
-              sheet_display +="<li>Item Status</li>";
-              break;
-            case 'copytag':
-              sheet_display +="<li>Item Tag</li>";
-              break;
-            case 'course':
-              sheet_display +="<li>Course</li>";
-              break;
-             case 'coursecirc':
-              sheet_display +="<li>Course Circulation</li>";
+              sheet_display +="<li>Copy Status</li>";
               break;
              case 'coverimage':
               sheet_display +="<li>Cover Image</li>";
@@ -1454,11 +1270,6 @@ function HandleSpreadsheetResult(order=null, display=null, format=null, options=
               break;
             case 'loanduration':
               sheet_display +="<li>Loan Duration</li>";
-              break;
-            case 'marc':
-              var tag = values[++i];
-              var subfield = values[++i];
-              sheet_display +="<li>MARC "+tag+" $"+subfield+"</li>";
               break;
             case 'oclc':
               sheet_display +="<li>OCLC Number</li>";
@@ -1547,135 +1358,37 @@ function HandleRSSResult(list=null, description=null)
    document.getElementById('rss').checked = true; 
 }
 
-function configureJSON()
-{
-    var php_file = 'configureJSON.php';
-
-    var data_type = $(document.getElementById("json_data_type")).text().trim();
-    if (data_type =="Bib Id") data_type = "bib_id";
-    else if (data_type =="ISBN") data_type = "isbn";
-    php_file +="?data_type="+data_type;
-
-    window.open(php_file,'name','height=350,width=800,left=10,top=10,resizable=yes,scrollbars=yes,toolbar=no,menubar=no,location=no,directories=no,status=yes');
-
-}
-
-function HandleJSONResult(data_type=null)
-{
-   if (!data_type) return;
-
-   if (data_type == "bib_id") document.getElementById("json_data_type").innerHTML = "Bib Id";
-   else if (data_type == "isbn") document.getElementById("json_data_type").innerHTML = "ISBN";
-
-   document.getElementById('json').checked = true; 
-}
-
 function configureBookbag()
 {
-    var php_file = 'configureBucket.php';
-
-    php_file +="?type=bookbag";
+    var php_file = 'configureBookbag.php';
 
     var bookbag_name = $(document.getElementById("bookbag_name")).text().trim();
     if ( !bookbag_name.includes('Not Set'))
     {
-       php_file +="&name="+bookbag_name;
+       if (php_file.includes('?')) php_file +="&name="+bookbag_name;
+       else php_file +="?name="+bookbag_name;
     }
 
     var bookbag_description = $(document.getElementById("bookbag_description")).text().trim();
     if ( !bookbag_description.includes('Not Set'))
     {
-        php_file +="&desc="+bookbag_description;
+       if (php_file.includes('?')) php_file +="&desc="+bookbag_description;
+       else php_file +="?desc="+bookbag_description;
     }
 
-    var bookbag_update = $(document.getElementById("bookbag_update")).text().trim();
-    if ( !bookbag_update.includes('Not Set'))
-    {
-       php_file +="&update="+bookbag_update;
-    }
-
-   var bookbag_owner = $(document.getElementById("bookbag_owner")).text().trim();
-    if ( !bookbag_owner.includes('Not Set'))
-    {
-       php_file +="&owner="+bookbag_owner;
-    }
-
-    var bookbag_id = $(document.getElementById("bookbag_id")).text().trim();
-    if ( !bookbag_id.includes('Not Set'))
-    {
-        php_file +="&id="+bookbag_id;
-    }
-
-    var carousel = $(document.getElementById("make_carousel")).text().trim();
-    php_file +="&carousel="+carousel;
-
-    window.open(php_file,'name','height=500,width=800,left=10,top=10,resizable=yes,scrollbars=yes,toolbar=no,menubar=no,location=yes,directories=no,status=yes');
+    window.open(php_file,'name','height=350,width=800,left=10,top=10,resizable=yes,scrollbars=yes,toolbar=no,menubar=no,location=yes,directories=no,status=yes');
 
 }
 
-function HandleBookbagResult(name=null, description=null, update=null, owner=null, id=null, carousel=null)
+function HandleBookbagResult(name=null, description=null)
 {
+   if (!name && !description) return;
+
    if (name) document.getElementById("bookbag_name").innerHTML = name.toString();
    if (description) document.getElementById("bookbag_description").innerHTML = description.toString();
-   if (update) document.getElementById("bookbag_update").innerHTML = update.toString();
-   if (owner) document.getElementById("bookbag_owner").innerHTML = owner.toString();
-   if (id) document.getElementById("bookbag_id").innerHTML = id.toString();
-   if (carousel) document.getElementById("make_carousel").innerHTML = carousel.toString();
 
    document.getElementById('bookbag').checked = true; 
 }
-
-function configureCopyBucket()
-{
-    var php_file = 'configureBucket.php';
-
-    php_file +="?type=copy";
-
-    var copy_bucket_name = $(document.getElementById("copy_bucket_name")).text().trim();
-    if ( !copy_bucket_name.includes('Not Set'))
-    {
-       php_file +="&name="+copy_bucket_name;
-    }
-
-    var copy_bucket_description = $(document.getElementById("copy_bucket_description")).text().trim();
-    if ( !copy_bucket_description.includes('Not Set'))
-    {
-        php_file +="&desc="+copy_bucket_description;
-    }
-
-    var copy_bucket_update = $(document.getElementById("copy_bucket_update")).text().trim();
-    if ( !copy_bucket_update.includes('Not Set'))
-    {
-       php_file +="&update="+copy_bucket_update;
-    }
-
-   var copy_bucket_owner = $(document.getElementById("copy_bucket_owner")).text().trim();
-    if ( !copy_bucket_owner.includes('Not Set'))
-    {
-       php_file +="&owner="+copy_bucket_owner;
-    }
-
-    var copy_bucket_id = $(document.getElementById("copy_bucket_id")).text().trim();
-    if ( !copy_bucket_id.includes('Not Set'))
-    {
-        php_file +="&id="+copy_bucket_id;
-    }
-
-    window.open(php_file,'name','height=500,width=800,left=10,top=10,resizable=yes,scrollbars=yes,toolbar=no,menubar=no,location=yes,directories=no,status=yes');
-
-}
-
-function HandleCopyBucketResult(name=null, description=null, update=null, owner=null, id=null)
-{
-   if (name) document.getElementById("copy_bucket_name").innerHTML = name.toString();
-   if (description) document.getElementById("copy_bucket_description").innerHTML = description.toString();
-   if (update) document.getElementById("copy_bucket_update").innerHTML = update.toString();
-   if (owner) document.getElementById("copy_bucket_owner").innerHTML = owner.toString();
-   if (id) document.getElementById("copy_bucket_id").innerHTML = id.toString();
-
-   document.getElementById('copy_bucket').checked = true; 
-}
-
 
 
 function configurePreview()
@@ -1786,11 +1499,11 @@ function HandlePreviewResult(order=null, display=null, layout=null, options=null
               preview_text += "circ_mod ";
               break;
             case 'copyloc':
-              preview_display +="<li>Shelving Location</li>";
+              preview_display +="<li>Copy Location</li>";
               preview_text += "copy_loc ";
               break;
             case 'copystatus':
-              preview_display +="<li>Item Status</li>";
+              preview_display +="<li>Copy Status</li>";
               preview_text += "status ";
               break;
             case 'goodreads':
@@ -1856,11 +1569,11 @@ function HandlePreviewResult(order=null, display=null, layout=null, options=null
               preview_text += "image_size large ";
               break;
            case 'groupfirst':
-              preview_options +="<li>Group Items First</li>";
+              preview_options +="<li>Group Copies First</li>";
               preview_text += "group_copy 1 ";
               break;
             case 'groupall':
-              preview_options +="<li>Group Items All</li>";
+              preview_options +="<li>Group Copies All</li>";
               preview_text += "group_copy all ";
               break;
          }
@@ -2022,7 +1735,7 @@ function CheckPreviewForm()
    if (all_loc == false && locations.length < 1 && loc_grp == '-1')
    {
       //select a copy location
-      swal('Error', "Please select a Shelving Location or Group.", "error");
+      swal('Error', "Please select a Copy Location or Group.", "error");
       return false;
    }
 
@@ -2271,12 +1984,6 @@ function CheckPreviewForm()
    var stat_cat = document.getElementById('stat_cats').value;
 	if (stat_cat.length > 0)
 	{
-	    var num_stats = stat_cat.split('*').length - 1;
-	    if (num_stats > 1)
-	    {
-	       swal('Error', "Only one stat cat can be used with Preview.", 'error');
-          return false;
-	    }
 	    if (stat_cat != -1)using_filters = true;
 	}
 
@@ -2293,7 +2000,7 @@ function CheckPreviewForm()
    }
 }
 
-function CreateReport(update, copy_report)
+function CreateReport(update)
 {
 
    //check that all that required boxes have been filled
@@ -2301,7 +2008,6 @@ function CreateReport(update, copy_report)
    var using_filters = false;
    var lib = document.getElementById('library');
    var LibName = lib.options[lib.selectedIndex].value;
-   var ignore_out_name = false;
    var is_noble = false;
    var has_ok_noble_filter = false;
    var noble_filter_count = 0;
@@ -2313,7 +2019,7 @@ function CreateReport(update, copy_report)
       swal('Error', "Please Select a Library.", 'error');
       return false;
    }
-
+   
    if (LibName == "NOBLE") is_noble = true;
 
    var all_loc = document.getElementById('all_locations').checked;
@@ -2335,7 +2041,7 @@ function CreateReport(update, copy_report)
    if (all_loc == false && locations.length < 1 && loc_grp == '-1')
    {
       //select a copy location
-      swal('Error', "Please select a Shelving Location or Group.", "error");
+      swal('Error', "Please select a Copy Location or Group.", "error");
       return false;
    }
 
@@ -2366,8 +2072,7 @@ function CreateReport(update, copy_report)
    }
 
    if (!document.getElementById('spreadsheet').checked && !document.getElementById('html').checked &&
-       !document.getElementById('rss').checked && !document.getElementById('bookbag').checked  && !document.getElementById('copy_bucket').checked
-       && !document.getElementById('json').checked)
+       !document.getElementById('rss').checked && !document.getElementById('bookbag').checked  )
    {
       swal('Error', "Please Select an Output Format", 'error');
       return false;
@@ -2428,7 +2133,7 @@ function CreateReport(update, copy_report)
       ajax.setVar("report_type","weeding");
 
    }
-   else if (document.getElementById("inventory_report").checked || document.getElementById("new_items").checked
+   else if (document.getElementById("inventory_report").checked || document.getElementById("new_items").checked 
             || document.getElementById("file_upload").checked || document.getElementById("status_change").checked)
    {
       ajax.setVar("report_type","inventory");
@@ -2726,26 +2431,14 @@ function CreateReport(update, copy_report)
       var pub_time =  pub.options[pub.selectedIndex].value;
 
       var pubdate = document.getElementById('pub_date').value;
-      if (pub_time != "none" && pubdate.length < 4 )
+      if (pubdate.length < 4 )
       {
          swal('Error', "Please enter a 4 digit pub date.", 'error');
          return false;
       }
 
-      if (pub_time == "none")
-      {
-          ajax.setVar("include_null_pub_date", "include_null_pub_date");
-      }
-      else if (pub_time == "before")
-      {
-         ajax.setVar("pub_before",pubdate);
-         if (document.getElementById("include_null_pub_date").checked) ajax.setVar("include_null_pub_date", "include_null_pub_date");
-
-      }
-      else if (pub_time == "after")
-      {
-         ajax.setVar("pub_after",pubdate);
-      }
+      if (pub_time == "before") ajax.setVar("pub_before",pubdate);
+      else if (pub_time == "after") ajax.setVar("pub_after",pubdate);
       else if (pub_time == "between")
       {
          var pubdate2 = document.getElementById('pub_date2').value;
@@ -2759,8 +2452,6 @@ function CreateReport(update, copy_report)
          ajax.setVar("pub_between_end",pubdate2);
 
       }
-
-
       using_filters = true;
       if (is_noble) noble_filter_count++;
    }
@@ -2771,7 +2462,7 @@ function CreateReport(update, copy_report)
        var added_date_type = document.getElementById('added_date_type').value;
        var add = document.getElementById('added_time_type');
        var added_time =  add.options[add.selectedIndex].value;
-
+       
        var ele = document.getElementById('electronic');
        var phy_ele = ele.options[ele.selectedIndex].value;
        ajax.setVar("electronic",phy_ele);
@@ -2807,7 +2498,6 @@ function CreateReport(update, copy_report)
 			 ajax.setVar("active_start",active_start);
 			 ajax.setVar("active_time_type", added_time);
 			 if( added_time == "between")ajax.setVar("active_end",active_end);
-
        }
        else if(added_date_type == "relative")
        {
@@ -3182,38 +2872,6 @@ function CreateReport(update, copy_report)
 	    }
 	}
 
-   //figure out what it says in the course box
-   var course = document.getElementById('course').value;
-	if (course.length > 0)
-	{
-	    ajax.setVar("courses",course);
-	    if (course != -1)
-	    {
-	       using_filters = true;
-	       if (is_noble)
-           {
-              noble_filter_count++;
-              has_ok_noble_filter = true;
-           }
-	    }
-	}
-
-  //figure out what it says in the  tag box
-   var tags = document.getElementById('tag_ids').value;
-	if (tags.length > 0)
-	{
-	    ajax.setVar("tags",tags);
-	    if (tags != -1)
-	    {
-	       using_filters = true;
-	       if (is_noble)
-           {
-              noble_filter_count++;
-              has_ok_noble_filter = true;
-           }
-	    }
-	}
-
 
 	var temp = $(document.getElementById("file_name")).text();
 	if (temp.length > 0)
@@ -3252,7 +2910,7 @@ function CreateReport(update, copy_report)
 
 	var use_lifetime_count = false;
 
-   if (document.getElementById("use_circ_count").checked)
+	if (document.getElementById("use_circ_count").checked)
    {
       var circ_count = document.getElementById('circ_count').value;
       if (isNaN(circ_count) )
@@ -3260,7 +2918,7 @@ function CreateReport(update, copy_report)
          swal('Error', "Please use a number for Filter by Circulation Count.", 'error');
          return false;
       }
-
+		
       ajax.setVar("circ_count", circ_count);
 
       var compare = document.getElementById('circ_count_compare');
@@ -3411,159 +3069,6 @@ function CreateReport(update, copy_report)
       using_filters = true;
    }
 
-   if (document.getElementById("use_due_date").checked)
-   {
-       var due_date_type = document.getElementById('due_date_type').value;
-       var due = document.getElementById('due_time_type');
-       var due_time =  due.options[due.selectedIndex].value;
-
-       //checked for errors before
-       if(due_date_type == "absolute")
-       {
-			 var due_start = document.getElementById('due_start').value;
-			 if (!isValidDate(due_start))
-			 {
-				 swal('Error', "Please format due date as MM/DD/YYYY or use datepicker. Dates cannot be before 2012 and cannot be in the future.", 'error');
-				 return false;
-			 }
-
-			 var due_end = document.getElementById('due_end').value;
-			 if (due_time == "between" && !isValidDate(due_end))
-			 {
-				 swal('Error', "Please format due date as MM/DD/YYYY or use datepicker. Dates cannot be before 2012 and cannot be in the future.", 'error');
-			  	 return false;
-			 }
-
-			 var start = new Date(due_start);
-			 var end = new Date(due_end);
-
-			 if (due_time == "between" && start > end )
-			 {
-		   	 swal('Error', "The range of due dates is invalid. Please set first date earlier than the second.", 'error');
-			 	 return false;
-			 }
-
-
-			 ajax.setVar("due_date_type", "absolute");
-			 ajax.setVar("due_start",due_start);
-			 ajax.setVar("due_time_type", due_time);
-			 if( due_time == "between")ajax.setVar("due_end",due_end);
-       }
-       else if(due_date_type == "relative")
-       {
-          var due_start = document.getElementById('due_start_relative').value;
-          var time1 = document.getElementById('due_start_time');
-          var start_time =  time1.options[time1.selectedIndex].value;
-          var start_out = due_start+"_"+start_time;
-
-          var due_end = document.getElementById('due_end_relative').value;
-          var time2 = document.getElementById('due_end_time');
-          var end_time =  time2.options[time2.selectedIndex].value;
-          var end_out = due_end+"_"+end_time;
-
-          if (due_start.length < 1 || (due_time =="between" && due_end.length < 1 ) )
-          {
-             swal('Error', "Please complete all values for filter by due date .", 'error');
-			 	 return false;
-          }
-
-          if (due_time =="between")
-          {
-				 if (start_time == end_time)
-				 {
-					 if (due_start > due_end)
-					 {
-						 ajax.setVar("due_start",start_out);
-						 ajax.setVar("due_end",end_out);
-					 }
-					 else
-					 {
-						 ajax.setVar("due_start",end_out);
-						 ajax.setVar("due_end",start_out);
-					 }
-				 }
-				 else //they are not the same unit
-				 {
-					 if (start_time == "days")
-					 {
-						 //the end time is weeks or months so end is really start cause it's further in past
-						 ajax.setVar("due_start",end_out);
-						 ajax.setVar("due_end",start_out);
-					 }
-					 else if (start_time == "weeks")
-					 {
-						 if (end_time == "days")
-						 {
-							 //the end time is days so the start time of weeks is further in past
-							 ajax.setVar("due_start",start_out);
-							 ajax.setVar("due_end",end_out);
-						 }
-						 else if (end_time == "months" || end_time == "years" )
-						 {
-							 //weeks is less than months so end time is really start cause it's further in past
-							 ajax.setVar("due_start",end_out);
-							 ajax.setVar("due_end",start_out);
-						 }
-					 }
-					 else if (start_time == "months")
-					 {
-						 if (end_time == "days" || end_time == "weeks")
-						 {
-							 //the end time is days so the start time of weeks is further in past
-							 ajax.setVar("due_start",start_out);
-							 ajax.setVar("due_end",end_out);
-						 }
-						 else if (end_time == "years" )
-						 {
-							 //weeks is less than months so end time is really start cause it's further in past
-							 ajax.setVar("due_start",end_out);
-							 ajax.setVar("due_end",start_out);
-						 }
-					 }
-					 else if (start_time == "years")
-					 {
-						 //the end time is days or weeks so the start time is further in past
-						 ajax.setVar("due_start",start_out);
-						 ajax.setVar("due_end",end_out);
-					 }
-				 }
-          }
-          else
-          {
-             ajax.setVar("due_start",start_out);
-          }
-
-          ajax.setVar("due_time_type", due_time);
-          ajax.setVar("due_date_type", "relative");
-       }
-
-      using_filters = true;
-   }
-
-   if (document.getElementById("use_hold_count").checked)
-   {
-      var hold_count = document.getElementById('hold_count').value;
-      if (isNaN(hold_count))
-      {
-         swal('Error', "Please use a number for Filter by Hold Count.", 'error');
-         return false;
-      }
-
-      ajax.setVar("hold_count", hold_count);
-
-	  var hold_location = document.getElementById('hold_loc');
-      var hold_loc= hold_location.options[hold_location.selectedIndex].value;
-      if (!hold_loc )
-      {
-         swal('Error', "Please select a Library for Filter by Hold Count.", 'error');
-         return false;
-      }
-	   ajax.setVar("hold_loc", hold_loc);
-
-	   using_filters = true;
-
-   }
-
    if (document.getElementById("use_inventory_dates").checked)
    {
        var inventory_date_type = document.getElementById('inventory_date_type').value;
@@ -3573,47 +3078,34 @@ function CreateReport(update, copy_report)
        //checked for errors before
        if(inventory_date_type == "absolute")
        {
-             if (inventory_time == "none")
-             {
-                ajax.setVar("include_null_inventory", "include_null_inventory");
-             }
-             else
-             {
-				 var inventory_start = document.getElementById('inventory_start').value;
-				 if (!isValidDate(inventory_start))
-				 {
-					 swal('Error', "Please format Inventory date as MM/DD/YYYY or use datepicker. Dates cannot be before 2018 and cannot be in the future.", 'error');
-					 return false;
-				 }
-
-				 var inventory_end = document.getElementById('inventory_end').value;
-				 if (inventory_time == "between" && !isValidDate(inventory_end))
-				 {
-					 swal('Error', "Please format Inventory date as MM/DD/YYYY or use datepicker. Dates cannot be before 2018 and cannot be in the future.", 'error');
-					 return false;
-				 }
-
-				 var start = new Date(inventory_start);
-				 var end = new Date(inventory_end);
-
-				 if (inventory_time == "between" && start > end )
-				 {
-					 swal('Error', "The range of Inventory dates is invalid. Please set first date earlier than the second.", 'error');
-					 return false;
-				 }
-
-				 if (inventory_time == "before")
-				 {
-					if (document.getElementById("include_null_inventory").checked) ajax.setVar("include_null_inventory", "include_null_inventory");
-				 }
-
-
-					ajax.setVar("inventory_date_type", "absolute");
-					ajax.setVar("inventory_start",inventory_start);
-					ajax.setVar("inventory_time_type", inventory_time);
-					if( inventory_time == "between")ajax.setVar("inventory_end",inventory_end);
+			 var inventory_start = document.getElementById('inventory_start').value;
+			 if (!isValidDate(inventory_start))
+			 {
+				 swal('Error', "Please format Inventory date as MM/DD/YYYY or use datepicker. Dates cannot be before 2018 and cannot be in the future.", 'error');
+				 return false;
 			 }
 
+			 var inventory_end = document.getElementById('inventory_end').value;
+			 if (inventory_time == "between" && !isValidDate(inventory_end))
+			 {
+				 swal('Error', "Please format Inventory date as MM/DD/YYYY or use datepicker. Dates cannot be before 2018 and cannot be in the future.", 'error');
+			  	 return false;
+			 }
+
+			 var start = new Date(inventory_start);
+			 var end = new Date(inventory_end);
+
+			 if (inventory_time == "between" && start > end )
+			 {
+		   	 swal('Error', "The range of Inventory dates is invalid. Please set first date earlier than the second.", 'error');
+			 	 return false;
+			 }
+
+
+			 ajax.setVar("inventory_date_type", "absolute");
+			 ajax.setVar("inventory_start",inventory_start);
+			 ajax.setVar("inventory_time_type", inventory_time);
+			 if( inventory_time == "between")ajax.setVar("inventory_end",inventory_end);
        }
        else if(inventory_date_type == "relative")
        {
@@ -3627,97 +3119,85 @@ function CreateReport(update, copy_report)
           var end_time =  time2.options[time2.selectedIndex].value;
           var end_out = inventory_end+"_"+end_time;
 
-          if (inventory_time =="none")
+          if (inventory_start.length < 1 || (inventory_time =="between" && inventory_end.length < 1 ) )
           {
-             ajax.setVar("include_null_inventory", "include_null_inventory");
+             swal('Error', "Please complete all values for filter by inventory date .", 'error');
+			 	 return false;
+          }
+
+          if (inventory_time =="between")
+          {
+				 if (start_time == end_time)
+				 {
+					 if (inventory_start > inventory_end)
+					 {
+						 ajax.setVar("inventory_start",start_out);
+						 ajax.setVar("inventory_end",end_out);
+					 }
+					 else
+					 {
+						 ajax.setVar("inventory_start",end_out);
+						 ajax.setVar("inventory_end",start_out);
+					 }
+				 }
+				 else //they are not the same unit
+				 {
+					 if (start_time == "days")
+					 {
+						 //the end time is weeks or months so end is really start cause it's further in past
+						 ajax.setVar("inventory_start",end_out);
+						 ajax.setVar("inventory_end",start_out);
+					 }
+					 else if (start_time == "weeks")
+					 {
+						 if (end_time == "days")
+						 {
+							 //the end time is days so the start time of weeks is further in past
+							 ajax.setVar("inventory_start",start_out);
+							 ajax.setVar("inventory_end",end_out);
+						 }
+						 else if (end_time == "months" || end_time == "years" )
+						 {
+							 //weeks is less than months so end time is really start cause it's further in past
+							 ajax.setVar("inventory_start",end_out);
+							 ajax.setVar("inventory_end",start_out);
+						 }
+					 }
+					 else if (start_time == "months")
+					 {
+						 if (end_time == "days" || end_time == "weeks")
+						 {
+							 //the end time is days so the start time of weeks is further in past
+							 ajax.setVar("inventory_start",start_out);
+							 ajax.setVar("inventory_end",end_out);
+						 }
+						 else if (end_time == "years" )
+						 {
+							 //weeks is less than months so end time is really start cause it's further in past
+							 ajax.setVar("inventory_start",end_out);
+							 ajax.setVar("inventory_end",start_out);
+						 }
+					 }
+					 else if (start_time == "years")
+					 {
+						 //the end time is days or weeks so the start time is further in past
+						 ajax.setVar("inventory_start",start_out);
+						 ajax.setVar("inventory_end",end_out);
+					 }
+				 }
           }
           else
           {
-			  if (inventory_start.length < 1 || (inventory_time =="between" && inventory_end.length < 1 ) )
-			  {
-				 swal('Error', "Please complete all values for filter by inventory date .", 'error');
-				 return false;
-			  }
-
-			  if (inventory_time == "before")
-			  {
-				 if (document.getElementById("include_null_inventory").checked) ajax.setVar("include_null_inventory", "include_null_inventory");
-			  }
-
-			  if (inventory_time =="between")
-			  {
-					 if (start_time == end_time)
-					 {
-						 if (inventory_start > inventory_end)
-						 {
-							 ajax.setVar("inventory_start",start_out);
-							 ajax.setVar("inventory_end",end_out);
-						 }
-						 else
-						 {
-							 ajax.setVar("inventory_start",end_out);
-							 ajax.setVar("inventory_end",start_out);
-						 }
-					 }
-					 else //they are not the same unit
-					 {
-						 if (start_time == "days")
-						 {
-							 //the end time is weeks or months so end is really start cause it's further in past
-							 ajax.setVar("inventory_start",end_out);
-							 ajax.setVar("inventory_end",start_out);
-						 }
-						 else if (start_time == "weeks")
-						 {
-							 if (end_time == "days")
-							 {
-								 //the end time is days so the start time of weeks is further in past
-								 ajax.setVar("inventory_start",start_out);
-								 ajax.setVar("inventory_end",end_out);
-							 }
-							 else if (end_time == "months" || end_time == "years" )
-							 {
-								 //weeks is less than months so end time is really start cause it's further in past
-								 ajax.setVar("inventory_start",end_out);
-								 ajax.setVar("inventory_end",start_out);
-							 }
-						 }
-						 else if (start_time == "months")
-						 {
-							 if (end_time == "days" || end_time == "weeks")
-							 {
-								 //the end time is days so the start time of weeks is further in past
-								 ajax.setVar("inventory_start",start_out);
-								 ajax.setVar("inventory_end",end_out);
-							 }
-							 else if (end_time == "years" )
-							 {
-								 //weeks is less than months so end time is really start cause it's further in past
-								 ajax.setVar("inventory_start",end_out);
-								 ajax.setVar("inventory_end",start_out);
-							 }
-						 }
-						 else if (start_time == "years")
-						 {
-							 //the end time is days or weeks so the start time is further in past
-							 ajax.setVar("inventory_start",start_out);
-							 ajax.setVar("inventory_end",end_out);
-						 }
-					 }
-			  }
-			  else
-			  {
-				 ajax.setVar("inventory_start",start_out);
-			  }
-
-			  ajax.setVar("inventory_time_type", inventory_time);
-			  ajax.setVar("inventory_date_type", "relative");
+             ajax.setVar("inventory_start",start_out);
           }
+
+          ajax.setVar("inventory_time_type", inventory_time);
+          ajax.setVar("inventory_date_type", "relative");
        }
 
       using_filters = true;
    }
-
+   
    if (document.getElementById("use_invoice_dates").checked)
    {
        var invoice_date_type = document.getElementById('invoice_date_type').value;
@@ -3856,46 +3336,34 @@ function CreateReport(update, copy_report)
        //checked for errors before
        if(invoice_closed_date_type == "absolute")
        {
-             if (invoice_closed_time == "none")
-             {
-                ajax.setVar("include_null_invoice_closed", "include_null_invoice_closed");
-             }
-             else
-             {
-				 var invoice_closed_start = document.getElementById('invoice_closed_start').value;
-				 if (!isValidDate(invoice_closed_start))
-				 {
-					 swal('Error', "Please format invoice_closed date as MM/DD/YYYY or use datepicker. Dates cannot be before 2018 and cannot be in the future.", 'error');
-					 return false;
-				 }
-
-				 var invoice_closed_end = document.getElementById('invoice_closed_end').value;
-				 if (invoice_closed_time == "between" && !isValidDate(invoice_closed_end))
-				 {
-					 swal('Error', "Please format invoice_closed date as MM/DD/YYYY or use datepicker. Dates cannot be before 2018 and cannot be in the future.", 'error');
-					 return false;
-				 }
-
-				 var start = new Date(invoice_closed_start);
-				 var end = new Date(invoice_closed_end);
-
-				 if (invoice_closed_time == "between" && start > end )
-				 {
-					 swal('Error', "The range of invoice_closed dates is invalid. Please set first date earlier than the second.", 'error');
-					 return false;
-				 }
-
-				 if (invoice_closed_time == "before")
-				 {
-					if (document.getElementById("include_null_invoice_closed").checked) ajax.setVar("include_null_invoice_closed", "include_null_invoice_closed");
-				 }
-
-
-					ajax.setVar("invoice_closed_date_type", "absolute");
-					ajax.setVar("invoice_closed_start",invoice_closed_start);
-					ajax.setVar("invoice_closed_time_type", invoice_closed_time);
-					if( invoice_closed_time == "between")ajax.setVar("invoice_closed_end",invoice_closed_end);
+			 var invoice_closed_start = document.getElementById('invoice_closed_start').value;
+			 if (!isValidDate(invoice_closed_start))
+			 {
+				 swal('Error', "Please format invoice_closed date as MM/DD/YYYY or use datepicker. Dates cannot be before 2018 and cannot be in the future.", 'error');
+				 return false;
 			 }
+
+			 var invoice_closed_end = document.getElementById('invoice_closed_end').value;
+			 if (invoice_closed_time == "between" && !isValidDate(invoice_closed_end))
+			 {
+				 swal('Error', "Please format invoice_closed date as MM/DD/YYYY or use datepicker. Dates cannot be before 2018 and cannot be in the future.", 'error');
+			  	 return false;
+			 }
+
+			 var start = new Date(invoice_closed_start);
+			 var end = new Date(invoice_closed_end);
+
+			 if (invoice_closed_time == "between" && start > end )
+			 {
+		   	 swal('Error', "The range of invoice_closed dates is invalid. Please set first date earlier than the second.", 'error');
+			 	 return false;
+			 }
+
+
+			 ajax.setVar("invoice_closed_date_type", "absolute");
+			 ajax.setVar("invoice_closed_start",invoice_closed_start);
+			 ajax.setVar("invoice_closed_time_type", invoice_closed_time);
+			 if( invoice_closed_time == "between")ajax.setVar("invoice_closed_end",invoice_closed_end);
        }
        else if(invoice_closed_date_type == "relative")
        {
@@ -3909,97 +3377,85 @@ function CreateReport(update, copy_report)
           var end_time =  time2.options[time2.selectedIndex].value;
           var end_out = invoice_closed_end+"_"+end_time;
 
-          if (invoice_closed_time =="none")
+          if (invoice_closed_start.length < 1 || (invoice_closed_time =="between" && invoice_closed_end.length < 1 ) )
           {
-             ajax.setVar("include_null_invoice_closed", "include_null_invoice_closed");
+             swal('Error', "Please complete all values for filter by invoice_closed date .", 'error');
+			 	 return false;
+          }
+
+          if (invoice_closed_time =="between")
+          {
+				 if (start_time == end_time)
+				 {
+					 if (invoice_closed_start > invoice_closed_end)
+					 {
+						 ajax.setVar("invoice_closed_start",start_out);
+						 ajax.setVar("invoice_closed_end",end_out);
+					 }
+					 else
+					 {
+						 ajax.setVar("invoice_closed_start",end_out);
+						 ajax.setVar("invoice_closed_end",start_out);
+					 }
+				 }
+				 else //they are not the same unit
+				 {
+					 if (start_time == "days")
+					 {
+						 //the end time is weeks or months so end is really start cause it's further in past
+						 ajax.setVar("invoice_closed_start",end_out);
+						 ajax.setVar("invoice_closed_end",start_out);
+					 }
+					 else if (start_time == "weeks")
+					 {
+						 if (end_time == "days")
+						 {
+							 //the end time is days so the start time of weeks is further in past
+							 ajax.setVar("invoice_closed_start",start_out);
+							 ajax.setVar("invoice_closed_end",end_out);
+						 }
+						 else if (end_time == "months" || end_time == "years" )
+						 {
+							 //weeks is less than months so end time is really start cause it's further in past
+							 ajax.setVar("invoice_closed_start",end_out);
+							 ajax.setVar("invoice_closed_end",start_out);
+						 }
+					 }
+					 else if (start_time == "months")
+					 {
+						 if (end_time == "days" || end_time == "weeks")
+						 {
+							 //the end time is days so the start time of weeks is further in past
+							 ajax.setVar("invoice_closed_start",start_out);
+							 ajax.setVar("invoice_closed_end",end_out);
+						 }
+						 else if (end_time == "years" )
+						 {
+							 //weeks is less than months so end time is really start cause it's further in past
+							 ajax.setVar("invoice_closed_start",end_out);
+							 ajax.setVar("invoice_closed_end",start_out);
+						 }
+					 }
+					 else if (start_time == "years")
+					 {
+						 //the end time is days or weeks so the start time is further in past
+						 ajax.setVar("invoice_closed_start",start_out);
+						 ajax.setVar("invoice_closed_end",end_out);
+					 }
+				 }
           }
           else
           {
-			  if (invoice_closed_start.length < 1 || (invoice_closed_time =="between" && invoice_closed_end.length < 1 ) )
-			  {
-					 swal('Error', "Please complete all values for filter by invoice_closed date .", 'error');
-					 return false;
-			  }
+             ajax.setVar("invoice_closed_start",start_out);
+          }
 
-			  if (invoice_closed_time == "before")
-			  {
-				 if (document.getElementById("include_null_invoice_closed").checked) ajax.setVar("include_null_invoice_closed", "include_null_invoice_closed");
-			  }
-
-			  if (invoice_closed_time =="between")
-			  {
-					 if (start_time == end_time)
-					 {
-						 if (invoice_closed_start > invoice_closed_end)
-						 {
-							 ajax.setVar("invoice_closed_start",start_out);
-							 ajax.setVar("invoice_closed_end",end_out);
-						 }
-						 else
-						 {
-							 ajax.setVar("invoice_closed_start",end_out);
-							 ajax.setVar("invoice_closed_end",start_out);
-						 }
-					 }
-					 else //they are not the same unit
-					 {
-						 if (start_time == "days")
-						 {
-							 //the end time is weeks or months so end is really start cause it's further in past
-							 ajax.setVar("invoice_closed_start",end_out);
-							 ajax.setVar("invoice_closed_end",start_out);
-						 }
-						 else if (start_time == "weeks")
-						 {
-							 if (end_time == "days")
-							 {
-								 //the end time is days so the start time of weeks is further in past
-								 ajax.setVar("invoice_closed_start",start_out);
-								 ajax.setVar("invoice_closed_end",end_out);
-							 }
-							 else if (end_time == "months" || end_time == "years" )
-							 {
-								 //weeks is less than months so end time is really start cause it's further in past
-								 ajax.setVar("invoice_closed_start",end_out);
-								 ajax.setVar("invoice_closed_end",start_out);
-							 }
-						 }
-						 else if (start_time == "months")
-						 {
-							 if (end_time == "days" || end_time == "weeks")
-							 {
-								 //the end time is days so the start time of weeks is further in past
-								 ajax.setVar("invoice_closed_start",start_out);
-								 ajax.setVar("invoice_closed_end",end_out);
-							 }
-							 else if (end_time == "years" )
-							 {
-								 //weeks is less than months so end time is really start cause it's further in past
-								 ajax.setVar("invoice_closed_start",end_out);
-								 ajax.setVar("invoice_closed_end",start_out);
-							 }
-						 }
-						 else if (start_time == "years")
-						 {
-							 //the end time is days or weeks so the start time is further in past
-							 ajax.setVar("invoice_closed_start",start_out);
-							 ajax.setVar("invoice_closed_end",end_out);
-						 }
-					 }
-			  }
-			  else
-			  {
-				 ajax.setVar("invoice_closed_start",start_out);
-			  }
-
-			  ajax.setVar("invoice_closed_time_type", invoice_closed_time);
-			  ajax.setVar("invoice_closed_date_type", "relative");
-		   }
+          ajax.setVar("invoice_closed_time_type", invoice_closed_time);
+          ajax.setVar("invoice_closed_date_type", "relative");
        }
 
       using_filters = true;
    }
-
+   
    if (document.getElementById("use_order_dates").checked)
    {
        var order_date_type = document.getElementById('order_date_type').value;
@@ -4009,40 +3465,34 @@ function CreateReport(update, copy_report)
        //checked for errors before
        if(order_date_type == "absolute")
        {
-             if (order_time == "none")
-             {
-                ajax.setVar("include_null_order_date", "include_null_order_date");
-             }
-             else
-             {
-				 var order_start = document.getElementById('order_start').value;
-				 if (!isValidDate(order_start))
-				 {
-					 swal('Error', "Please format order date as MM/DD/YYYY or use datepicker. Dates cannot be before 2018 and cannot be in the future.", 'error');
-					 return false;
-				 }
-
-				 var order_end = document.getElementById('order_end').value;
-				 if (order_time == "between" && !isValidDate(order_end))
-				 {
-					 swal('Error', "Please format order date as MM/DD/YYYY or use datepicker. Dates cannot be before 2018 and cannot be in the future.", 'error');
-					 return false;
-				 }
-
-				 var start = new Date(order_start);
-				 var end = new Date(order_end);
-
-				 if (order_time == "between" && start > end )
-				 {
-					 swal('Error', "The range of order dates is invalid. Please set first date earlier than the second.", 'error');
-					 return false;
-				 }
-
-			    ajax.setVar("order_date_type", "absolute");
-			    ajax.setVar("order_start",order_start);
-			    ajax.setVar("order_time_type", order_time);
-			    if( order_time == "between")ajax.setVar("order_end",order_end);
+			 var order_start = document.getElementById('order_start').value;
+			 if (!isValidDate(order_start))
+			 {
+				 swal('Error', "Please format order date as MM/DD/YYYY or use datepicker. Dates cannot be before 2018 and cannot be in the future.", 'error');
+				 return false;
 			 }
+
+			 var order_end = document.getElementById('order_end').value;
+			 if (order_time == "between" && !isValidDate(order_end))
+			 {
+				 swal('Error', "Please format order date as MM/DD/YYYY or use datepicker. Dates cannot be before 2018 and cannot be in the future.", 'error');
+			  	 return false;
+			 }
+
+			 var start = new Date(order_start);
+			 var end = new Date(order_end);
+
+			 if (order_time == "between" && start > end )
+			 {
+		   	 swal('Error', "The range of order dates is invalid. Please set first date earlier than the second.", 'error');
+			 	 return false;
+			 }
+
+
+			 ajax.setVar("order_date_type", "absolute");
+			 ajax.setVar("order_start",order_start);
+			 ajax.setVar("order_time_type", order_time);
+			 if( order_time == "between")ajax.setVar("order_end",order_end);
        }
        else if(order_date_type == "relative")
        {
@@ -4056,92 +3506,85 @@ function CreateReport(update, copy_report)
           var end_time =  time2.options[time2.selectedIndex].value;
           var end_out = order_end+"_"+end_time;
 
-          if (order_time =="none")
+          if (order_start.length < 1 || (order_time =="between" && order_end.length < 1 ) )
           {
-             ajax.setVar("include_null_order_date", "include_null_order_date");
+             swal('Error', "Please complete all values for filter by order date .", 'error');
+			 	 return false;
+          }
+
+          if (order_time =="between")
+          {
+				 if (start_time == end_time)
+				 {
+					 if (order_start > order_end)
+					 {
+						 ajax.setVar("order_start",start_out);
+						 ajax.setVar("order_end",end_out);
+					 }
+					 else
+					 {
+						 ajax.setVar("order_start",end_out);
+						 ajax.setVar("order_end",start_out);
+					 }
+				 }
+				 else //they are not the same unit
+				 {
+					 if (start_time == "days")
+					 {
+						 //the end time is weeks or months so end is really start cause it's further in past
+						 ajax.setVar("order_start",end_out);
+						 ajax.setVar("order_end",start_out);
+					 }
+					 else if (start_time == "weeks")
+					 {
+						 if (end_time == "days")
+						 {
+							 //the end time is days so the start time of weeks is further in past
+							 ajax.setVar("order_start",start_out);
+							 ajax.setVar("order_end",end_out);
+						 }
+						 else if (end_time == "months" || end_time == "years" )
+						 {
+							 //weeks is less than months so end time is really start cause it's further in past
+							 ajax.setVar("order_start",end_out);
+							 ajax.setVar("order_end",start_out);
+						 }
+					 }
+					 else if (start_time == "months")
+					 {
+						 if (end_time == "days" || end_time == "weeks")
+						 {
+							 //the end time is days so the start time of weeks is further in past
+							 ajax.setVar("order_start",start_out);
+							 ajax.setVar("order_end",end_out);
+						 }
+						 else if (end_time == "years" )
+						 {
+							 //weeks is less than months so end time is really start cause it's further in past
+							 ajax.setVar("order_start",end_out);
+							 ajax.setVar("order_end",start_out);
+						 }
+					 }
+					 else if (start_time == "years")
+					 {
+						 //the end time is days or weeks so the start time is further in past
+						 ajax.setVar("order_start",start_out);
+						 ajax.setVar("order_end",end_out);
+					 }
+				 }
           }
           else
           {
-			  if (order_start.length < 1 || (order_time =="between" && order_end.length < 1 ) )
-			  {
-					swal('Error', "Please complete all values for filter by order date .", 'error');
-					return false;
-			  }
-
-			  if (order_time =="between")
-			  {
-					 if (start_time == end_time)
-					 {
-						 if (order_start > order_end)
-						 {
-							 ajax.setVar("order_start",start_out);
-							 ajax.setVar("order_end",end_out);
-						 }
-						 else
-						 {
-							 ajax.setVar("order_start",end_out);
-							 ajax.setVar("order_end",start_out);
-						 }
-					 }
-					 else //they are not the same unit
-					 {
-						 if (start_time == "days")
-						 {
-							 //the end time is weeks or months so end is really start cause it's further in past
-							 ajax.setVar("order_start",end_out);
-							 ajax.setVar("order_end",start_out);
-						 }
-						 else if (start_time == "weeks")
-						 {
-							 if (end_time == "days")
-							 {
-								 //the end time is days so the start time of weeks is further in past
-								 ajax.setVar("order_start",start_out);
-								 ajax.setVar("order_end",end_out);
-							 }
-							 else if (end_time == "months" || end_time == "years" )
-							 {
-								 //weeks is less than months so end time is really start cause it's further in past
-								 ajax.setVar("order_start",end_out);
-								 ajax.setVar("order_end",start_out);
-							 }
-						 }
-						 else if (start_time == "months")
-						 {
-							 if (end_time == "days" || end_time == "weeks")
-							 {
-								 //the end time is days so the start time of weeks is further in past
-								 ajax.setVar("order_start",start_out);
-								 ajax.setVar("order_end",end_out);
-							 }
-							 else if (end_time == "years" )
-							 {
-								 //weeks is less than months so end time is really start cause it's further in past
-								 ajax.setVar("order_start",end_out);
-								 ajax.setVar("order_end",start_out);
-							 }
-						 }
-						 else if (start_time == "years")
-						 {
-							 //the end time is days or weeks so the start time is further in past
-							 ajax.setVar("order_start",start_out);
-							 ajax.setVar("order_end",end_out);
-						 }
-					 }
-			  }
-			  else
-			  {
-				 ajax.setVar("order_start",start_out);
-			  }
-
-			  ajax.setVar("order_time_type", order_time);
-			  ajax.setVar("order_date_type", "relative");
+             ajax.setVar("order_start",start_out);
           }
+
+          ajax.setVar("order_time_type", order_time);
+          ajax.setVar("order_date_type", "relative");
        }
 
       using_filters = true;
    }
-
+   
    var selected_lineitem_status = new Array();
    var lineitem_status = document.getElementsByName('line_item_status_checkboxes[]');
    for(var i=0; i<lineitem_status.length; i++)
@@ -4157,26 +3600,20 @@ function CreateReport(update, copy_report)
       ajax.setVar("lineitem_status",selected_lineitem_status);
       using_filters = true;
    }
-
+   
    var funds = document.getElementById('funds').value;
 	if (funds.length > 0)
 	{
 	    ajax.setVar("fund",funds);
 	    if (funds != -1)using_filters = true;
 	}
-
+   
 	if (all_loc && !using_filters)
 	{
 	    swal('ERROR!', "When using all copy locations, a filter must be used. ", 'error');
        return false;
 	}
-
-	if (loc_grp != '-1' && !using_filters)
-	{
-	    swal('ERROR!', "When using a copy location group, a filter must be used. ", 'error');
-        return false;
-	}
-
+	
 	if (is_noble)
 	{
 	   if (has_ok_noble_filter == false && noble_filter_count < 2)
@@ -4211,6 +3648,13 @@ function CreateReport(update, copy_report)
 	   ajax.setVar("search_links","search_links");
 	}
 
+	var out_file = document.getElementById('out_file').value;
+
+	if (out_file.length > 1)
+	{
+	    ajax.setVar("out_file",out_file);
+	}
+
 	//Spreadsheet
 	if (document.getElementById('spreadsheet').checked)
 	{
@@ -4234,14 +3678,11 @@ function CreateReport(update, copy_report)
 		else if (format.includes('CSV')) ajax.setVar("sheet_format","csv");
 
       var sheet_options='';
-        if (!options.includes('Item'))  sheet_options += "no_item_sheet ";
-        if (options.includes('Bib'))  sheet_options += "bib_sheet ";
-		if (options.includes('Count'))  sheet_options += "count_sheet ";
-		if (options.includes('Summary')) sheet_options += "summary_sheet ";
 		if (options.includes('Circs')) sheet_options += "circs_by_lib ";
+		if (options.includes('Summary')) sheet_options += "summary_sheet ";
 		if (options.includes('Single'))  sheet_options += "single_sheet ";
-
-
+		if (options.includes('Bib'))  sheet_options += "bib_sheet ";
+		if (options.includes('Count'))  sheet_options += "count_sheet ";
 
 		if (sheet_options.length > 1 )
 		{
@@ -4291,12 +3732,9 @@ function CreateReport(update, copy_report)
          ajax.setVar("circ_between_end", between_end);
 
 		}
-		if (display.includes('ItemId')) sheet_display +="copy_id*";
-		if (display.includes('ShelvingLocation')) sheet_display +="copy_loc*";
-		if (display.includes('ItemStatus')) sheet_display +="status*";
-		if (display.includes('ItemTag')) sheet_display +="tag*";
-		if (display.includes('Course')) sheet_display +="course*";
-		if (display.includes('CourseCirculation')) sheet_display +="course_circ*";
+		if (display.includes('CopyId')) sheet_display +="copy_id*";
+		if (display.includes('CopyLocation')) sheet_display +="copy_loc*";
+		if (display.includes('CopyStatus')) sheet_display +="status*";
 		if (display.includes('CoverImage')) sheet_display +="cover*";
 		if (display.includes('CreateDate')) sheet_display +="create_date*";
 		if (display.includes('DebitAmount')) sheet_display +="fund_debit*";
@@ -4323,20 +3761,6 @@ function CreateReport(update, copy_report)
 		if (display.includes('LineitemStatus')) sheet_display +="line_item_status*";
 		if (display.includes('SortKey')) sheet_display +="sortkey*";
 		if (display.includes('LoanDuration')) sheet_display +="loan_dur*";
-		if (display.includes('MARC'))
-		{
-		   //get the tag and subfield
-		   var pos = display.indexOf("MARC");
-           pos +=4;
-
-           var tag = display.substring(pos, pos+3);
-           var sub_pos = pos+4;
-           var subfield = display.substring(sub_pos, sub_pos+3);
-
-           if (subfield != "ALL" )subfield = display.substring(sub_pos, sub_pos+1);
-
-           sheet_display +="marc*"+tag+"*"+subfield+"*";
-		}
 		if (display.includes('OCLCNumber')) sheet_display +="oclc*";
 		if (display.includes('OrderDate')) sheet_display +="order_date*";
 		if (display.includes('OtherLibraryCount')) sheet_display +="other_lib_count*";
@@ -4356,7 +3780,7 @@ function CreateReport(update, copy_report)
 
    }
 
-    if (document.getElementById('html').checked)
+   if (document.getElementById('html').checked)
 	{
 	   ajax.setVar("html","html");
 
@@ -4374,11 +3798,11 @@ function CreateReport(update, copy_report)
 		else if (order.includes('Lifetime')) ajax.setVar("html_order","circ_sort");
 		else if (order.includes('YTD')) ajax.setVar("html_order","ytd_sort");
 
-		if (layout.includes('Block')) ajax.setVar("block_layout","block");
-		if (layout.includes('Inline')) ajax.setVar("inline_layout","inline");
-		if (layout.includes('Grid'))
+		if (layout.includes('Block')) ajax.setVar("html_layout","block");
+		else if (layout.includes('Inline')) ajax.setVar("html_layout","inline");
+		else if (layout.includes('Grid'))
 		{
-		   ajax.setVar("grid_layout","grid");
+		   ajax.setVar("html_layout","grid");
 		   //get and set grid width
          var pos = layout.indexOf("Grid");
          pos +=5;
@@ -4387,19 +3811,15 @@ function CreateReport(update, copy_report)
          ajax.setVar("html_grid_width", width);
 		}
 
-		if (options.includes('GroupItemsFirst')) ajax.setVar("html_group",1);
-		else if (options.includes('GroupItemsAll')) ajax.setVar("html_group","all");
+		if (options.includes('GroupCopiesFirst')) ajax.setVar("html_group",1);
+		else if (options.includes('GroupCopiesAll')) ajax.setVar("html_group","all");
 
 		if(options.includes('ImageSizeSmall')) ajax.setVar("image_size", "small");
 		else if (options.includes('ImageSizeMedium')) ajax.setVar("image_size", "medium");
 		else if (options.includes('ImageSizeLarge')) ajax.setVar("image_size", "large");
 
 		if (options.includes('WordPress')) ajax.setVar("html_word_press",1);
-      if (options.includes('EmbeddableURL'))
-      {
-         ajax.setVar("save_html",1);
-         if (copy_report) ignore_out_name = true;
-      }
+
 
 		//pull apart the display string and figure out what needs to be checked
 		var html_display ='';
@@ -4418,8 +3838,8 @@ function CreateReport(update, copy_report)
 		if (display.includes('BibId')) html_display +="bib_id*";
 		if (display.includes('CircLib')) html_display +="circ_lib*";
 		if (display.includes('CircModifier')) html_display +="circ_mod*";
-		if (display.includes('ShelvingLocation')) html_display +="copy_loc*";
-		if (display.includes('ItemStatus')) html_display +="status*";
+		if (display.includes('CopyLocation')) html_display +="copy_loc*";
+		if (display.includes('CopyStatus')) html_display +="status*";
 		if (display.includes('Goodreads')) html_display +="goodreads*";
 		if (display.includes('InHouse')) html_display +="in_house*";
 		if (display.includes('ISBN')) html_display +="isbn*";
@@ -4439,9 +3859,9 @@ function CreateReport(update, copy_report)
 
    }
 
-    if (document.getElementById('rss').checked)
+   if (document.getElementById('rss').checked)
 	{
-	    ajax.setVar("rss","rss");
+	   ajax.setVar("rss","rss");
 
 		var listname = $(document.getElementById("rss_list")).text();
 		var description =  $(document.getElementById("rss_description")).text();
@@ -4451,185 +3871,30 @@ function CreateReport(update, copy_report)
 
    }
 
-    if (document.getElementById('bookbag').checked)
+   if (document.getElementById('bookbag').checked)
 	{
 	   ajax.setVar("bookbag","bookbag");
-
-	   var bagupdate = $(document.getElementById("bookbag_update")).text();
-	   bagupdate = bagupdate.trim();
-       ajax.setVar("bag_update",bagupdate);
 
 		var bagname =$(document.getElementById("bookbag_name")).text();
 		bagname = bagname.trim();
 		//Make sure there's a bag name
-		if ( bagupdate.includes("new") && bagname.includes('Not Set'))
+		if ( bagname.includes('Not Set'))
 		{
-		   swal('ERROR!', "New Bookbag must be given a name. ", 'error');
+		   swal('ERROR!', "Bookbag must be given a name. ", 'error');
          return false;
 		}
-		else
-		{
-		   if (!bagname.includes('Not Set'))ajax.setVar("bag_name",bagname);
-		}
-
-		var id =  $(document.getElementById("bookbag_id")).text();
-		id = id.trim();
-		var orig_bag_id = document.getElementById("input_bag_id").value;
-
-		if (copy_report)
-		{
-		    //let code generate a new bag id
-		    if (bagupdate != "new")
-		    {
-		       //if this is a copy make sure the user changed the bag id or it will overwrite the original bucket
-		       if (id == orig_bag_id)
-		       {
-		          swal('ERROR!', "Bookbag id identical to orignal report. Configure Bookbag to prevent overwriting original report bookbag. ", 'error').then((value) => {configureBookbag();});
-                  return false;
-		       }
-		    }
-		}
-		else if (update)
-		{
-
-           //check that that not switching from carosel to non-carousel
-           var carousel =  $(document.getElementById("make_carousel")).text();
-		   carousel = carousel.trim();
-		   if (carousel == "yes") carousel = 1;
-		   else carousel = 0;
-		   var orig_carousel = document.getElementById("input_carousel").value;
-
-		   if (carousel != orig_carousel)
-		   {
-		      swal('ERROR!', "Lists cannot be changed from carousel to bookbag or vice versa. Please choose Schedule New Report. ", 'error');
-              return false;
-		   }
-
-		   ajax.setVar("bag_id",orig_bag_id);
-		}
-		else if (bagupdate != "new" &&  id.includes('Not Set'))
-		{
-		   swal('ERROR!', "Need an id to update Bookbag. ", 'error');
-         return false;
-		}
-		else
-		{
-		   if (!id.includes('Not Set'))ajax.setVar("bag_id",id);
-		}
-
 
 		var description =  $(document.getElementById("bookbag_description")).text();
 		description = description.trim();
-		if ( !description.includes('Not Set'))
+		if ( description.includes('Not Set'))
 		{
-		   ajax.setVar("bag_desc",description);
+		   description = "none";
 		}
 
-		var owner =  $(document.getElementById("bookbag_owner")).text();
-		owner = owner.trim();
-		if ( !owner.includes('Not Set'))
-		{
-		    ajax.setVar("bag_owner",owner);
-		}
-
-		var carousel = $(document.getElementById("make_carousel")).text();
-		carousel = carousel.trim();
-		if ( carousel == "yes")
-		{
-		   ajax.setVar("carousel","yes");
-		}
+		ajax.setVar("bag_name",bagname);
+		ajax.setVar("bag_desc",description);
 
    }
-
-   if (document.getElementById('copy_bucket').checked)
-	{
-	   ajax.setVar("copy_bucket","copy_bucket");
-
-	   var copy_update = $(document.getElementById("copy_bucket_update")).text();
-	   copy_update = copy_update.trim();
-      ajax.setVar("copy_bucket_update",copy_update);
-
-		var copy_bucket_name =$(document.getElementById("copy_bucket_name")).text();
-		copy_bucket_name = copy_bucket_name.trim();
-		//Make sure there's a bag name
-		if ( copy_update.includes("new") && copy_bucket_name.includes('Not Set'))
-		{
-		   swal('ERROR!', "New Item Bucket must be given a name. ", 'error');
-         return false;
-		}
-		else
-		{
-		   if (!copy_bucket_name.includes('Not Set')) ajax.setVar("copy_bucket_name",copy_bucket_name);
-		}
-
-		var description =  $(document.getElementById("copy_bucket_description")).text();
-		description = description.trim();
-		if ( !description.includes('Not Set'))
-		{
-		   ajax.setVar("copy_bucket_desc",description);
-		}
-
-		var owner =  $(document.getElementById("copy_bucket_owner")).text();
-		owner = owner.trim();
-		if ( !owner.includes('Not Set'))
-		{
-		    ajax.setVar("copy_bucket_owner",owner);
-		}
-
-		var id =  $(document.getElementById("copy_bucket_id")).text();
-		id = id.trim();
-		var orig_bucket_id = document.getElementById("input_copy_bucket_id").value;
-
-		if (copy_report)
-		{
-		    //let code generate a new bag id
-		    if (copy_update != "new")
-		    {
-		       //if this is a copy make sure the user changed the bag id or it will overwrite the original bucket
-		       if (id == orig_bucket_id)
-		       {
-		          swal('ERROR!', "Item Bucket id identical to orignal report. Configure Item Bucket to prevent overwriting original report bookbag. ", 'error').then((value) => {configureCopyBucket();});
-                return false;
-		       }
-		    }
-		}
-		else if (update)
-		{
-		   ajax.setVar("copy_bucket_id",orig_bucket_id);
-		}
-		else if (copy_update != "new" &&  id.includes('Not Set'))
-		{
-		   swal('ERROR!', "Need an id to update Item Bucket. ", 'error');
-         return false;
-		}
-		else
-		{
-		   if (!id.includes('Not Set'))ajax.setVar("copy_bucket_id",id);
-		}
-   }
-
-   if (document.getElementById('json').checked)
-	{
-	   ajax.setVar("json","json");
-	   if (copy_report) ignore_out_name = true;
-
-	   var json_data_type = $(document.getElementById("json_data_type")).text();
-	   json_data_type = json_data_type.trim();
-
-	   ajax.setVar("json_data_type", json_data_type);
-	}
-
-
-	var out_file = document.getElementById('out_file').value;
-
-	if (out_file.length > 1)
-	{
-	    if (!(copy_report && ignore_out_name))
-	    {
-	       ajax.setVar("out_file",out_file);
-	    }
-	}
-
 
 
    //if not scheduled call run_list_report
@@ -4643,17 +3908,10 @@ function CreateReport(update, copy_report)
 
       ajax.requestFile = "run_list_report.php";
       ajax.runAJAX();
+      
 
-
-      if (working)
-      {
-         swal('Success!', "Your Report has been configured. You will receive an email with the report shortly.", 'success');
-      }
-      else
-      {
-         swal('Success!', "Your Report has been configured. You will receive an email with the report shortly.", 'success').then((value) => { var url = window.location.href.split('?')[0]; window.location = url; });
-      }
-
+      swal('Success!', "Your Report has been configured. You will receive an email with the report shortly.", 'success').then((value) => { var url = window.location.href.split('?')[0]; window.location = url; });
+      //swal('Success!', "Your Report has been configured. You will receive an email with the report shortly.", 'success');
    }
    else if (document.getElementById("schedule_report").checked)
    {
@@ -4661,7 +3919,7 @@ function CreateReport(update, copy_report)
       var often = document.getElementById('how_often');
       var how_often = often.options[often.selectedIndex].value;
 
-       if (update == true && copy_report == false)
+       if (update == true)
        {
            //get db_id
            var db_id = document.getElementById('use_db').value;
@@ -4751,7 +4009,7 @@ function CreateReport(update, copy_report)
 
             ajax.setVar('run_configure', config_out);
 
-               var run_start = document.getElementById('relative_start_date').value;
+            var run_start = document.getElementById('relative_start_date').value;
 			   if (!isValidDate(run_start, true))
 			   {
 			   	 swal('Error', "Please format start date as MM/DD/YYYY or use datepicker.", 'error');
@@ -4782,18 +4040,12 @@ function CreateReport(update, copy_report)
       ajax.requestFile = "add_scheduled_report.php";
       ajax.runAJAX();
 
-       if (working)
-       {
-          swal('Success!', "Your Report has been scheduled.", 'success');
-       }
-       else
-       {
-          if (db_id) swal('Updated!', "Your Report has been updated.", 'success').then((value) => { var url = window.location.href.split('?')[0]; window.location = url; });
-          else swal('Success!', "Your Report has been scheduled.", 'success').then((value) => { var url = window.location.href.split('?')[0]; window.location = url; });
-       }
-
+      if (db_id) swal('Updated!', "Your Report has been updated.", 'success').then((value) => { var url = window.location.href.split('?')[0]; window.location = url; });
+      else swal('Success!', "Your Report has been scheduled.", 'success').then((value) => { var url = window.location.href.split('?')[0]; window.location = url; });
 
    }
+
+   //location.reload();
 }
 
 

@@ -1,0 +1,937 @@
+BibList.php:         echo "In Circ Between -- Single .\n";
+BibList.php:         echo "In Circ Between-- Multiple .\n";
+BibList.php:         echo "In Lifetime circ-- Single .\n";
+BibList.php:         echo "In Lifetime circ-- Multiple .\n";
+BibRec.php:       //echo $branches;
+Bucket_Output_Options.php:      //echo "bucket id=".$this->bucket_id.".\n";
+Bucket_Output_Options.php:      //echo "Owner =".$this->owner."\n";
+Bucket_Output_Options.php:            echo $sql."\n";
+Bucket_Output_Options.php:            echo $sql."\n";
+Bucket_Output_Options.php:         echo "Bag id =".$this->GetBucketId()."\n";
+Bucket_Output_Options.php:            //echo "System id = ".$system_id." Carousel= ".$lib_id."\n";
+Bucket_Output_Options.php:         echo $sql."\n";
+Bucket_Output_Options.php:         echo "Bag id =".$this->GetBucketId()."\n";
+Bucket_Output_Options.php:            echo $sql."\n";;
+Bucket_Output_Options.php:            echo $sql."\n";
+Bucket_Output_Options.php:            echo $sql."\n";
+Bucket_Output_Options.php:         echo "Bag id =".$this->GetBucketId()."\n";
+Bucket_Output_Options.php:         echo $sql."\n";
+Bucket_Output_Options.php:         echo "Bag id =".$this->GetBucketId()."\n";
+checkBucket.php:       echo "document.getElementById('bucket_exists').value=\"true\";";
+checkBucket.php:      echo "document.getElementById('bucket_exists').value=\"false\";";
+configureBucket.php:   var name = "<?php echo $_GET['name'] ?>";
+configureBucket.php:   var desc = "<?php echo $_GET['desc'] ?>";
+configureBucket.php:   var update = "<?php echo $_GET['update'] ?>";
+configureBucket.php:   var owner = "<?php echo $_GET['owner'] ?>";
+configureBucket.php:   var id = "<?php echo $_GET['id'] ?>";
+configureBucket.php:   var type = "<?php echo $_GET['type'] ?>";
+configureBucket.php:      var carousel = "<?php echo $_GET['carousel'] ?>";
+configureBucket.php:             echo "<h4> Helper words </h4>";
+configureBucket.php:             echo "<h4> Copy Bucket Helper words </h4>";
+configureHTML.php:   var order = "<?php echo $_GET['order'] ?>";
+configureHTML.php:   var display = "<?php echo $_GET['display'] ?>";
+configureHTML.php:   var layout = "<?php echo $_GET['layout'] ?>";
+configureHTML.php:   var options = "<?php echo $_GET['options'] ?>";
+configureJSON.php:   var data_type= "<?php echo $_GET['data_type'] ?>";
+configurePreview.php:   var order = "<?php echo $_GET['order'] ?>";
+configurePreview.php:   var display = "<?php echo $_GET['display'] ?>";
+configurePreview.php:   var layout = "<?php echo $_GET['layout'] ?>";
+configurePreview.php:   var options = "<?php echo $_GET['options'] ?>";
+configureRSS.php:   var list = "<?php echo $_GET['list'] ?>";
+configureRSS.php:   var desc = "<?php echo $_GET['desc'] ?>";
+configureSpreadsheet.php:   var order = "<?php echo $_GET['order'] ?>";
+configureSpreadsheet.php:   var display = "<?php echo $_GET['display'] ?>";
+configureSpreadsheet.php:   var format = "<?php echo $_GET['format'] ?>";
+configureSpreadsheet.php:   var options = "<?php echo $_GET['options'] ?>";
+create_list.php:     //echo "/****************** COPY #".$count."********************/\n";
+create_list.php:  echo "Num Copies = ".$count."\n";
+create_list.php:		  echo "Writing out Files\n";
+edit_scheduled_out.php:   echo "<h2>".$count." scheduled lists have been found for ";
+edit_scheduled_out.php:   if ($use_library) echo $library; 
+edit_scheduled_out.php:   if ($use_library && $use_email) echo " and ";
+edit_scheduled_out.php:   if ($use_email) echo $email;
+edit_scheduled_out.php:   if ($include_inactive) echo " including inactive";
+edit_scheduled_out.php:   echo  ".</h2>";
+edit_scheduled_out.php:   echo "<div class=\"\">";
+edit_scheduled_out.php:      echo "<div class=\"scheduled_list\">\n";
+edit_scheduled_out.php:      echo "<div id=\"activate_status_".$db_id."\" class=\"active_box\">";
+edit_scheduled_out.php:         echo "<h3 style=\"color:green;\">Active";
+edit_scheduled_out.php:         echo "<input type=\"button\" name=\"active\" id=\"active\" class=\"stats on_button\" value=\"Turn Off\" onclick=\"ActivateReport(".$db_id.",false);\">";
+edit_scheduled_out.php:         echo "</h3>";
+edit_scheduled_out.php:         echo "<h3 style=\"color:red;\">Inactive";
+edit_scheduled_out.php:         echo "<input type=\"button\" name=\"active\" id=\"active\" class=\"stats on_button\" value=\"Turn On\" onclick=\"ActivateReport(".$db_id.",true);\">";
+edit_scheduled_out.php:         echo "</h3>";
+edit_scheduled_out.php:                echo "<tr>";
+edit_scheduled_out.php:                echo "<td class=\"bold\">Library:</td>";
+edit_scheduled_out.php:                echo "<td>".$lib."</td>";
+edit_scheduled_out.php:                echo "</tr>";
+edit_scheduled_out.php:             <td> <?php echo $name; ?></td>
+edit_scheduled_out.php:             <td> <?php echo str_replace(",", "<br />", $email); ?></td>
+edit_scheduled_out.php:             <td> <?php echo date("m/d/Y", strtotime($create_date)); ?></td>
+edit_scheduled_out.php:                   echo "Daily";
+edit_scheduled_out.php:                   echo "Weekly On ".ucwords($weekly);
+edit_scheduled_out.php:                      echo "Monthly On ".ucwords(rtrim($specific_days, ","));
+edit_scheduled_out.php:                      if ($rel_days) echo " And ".ucwords(rtrim($rel_days,","));
+edit_scheduled_out.php:                      if ($rel_days) echo "Monthly On ".ucwords($rel_days);
+edit_scheduled_out.php:                   echo "Runs every ".$interval."<br />";
+edit_scheduled_out.php:                   echo "Starting ".date("m/d/Y", strtotime($start_date))."<br />";
+edit_scheduled_out.php:                   if ($last_run)echo "Last Run ".date("m/d/Y", strtotime($last_run))."<br />";
+edit_scheduled_out.php:                   else echo "Not yet run <br />";
+edit_scheduled_out.php:      echo "<div class=\"list_filters\">\n";
+edit_scheduled_out.php:      echo $filters->GetHTMLText()."<br />";
+edit_scheduled_out.php:      echo "</div>\n";
+edit_scheduled_out.php:      echo "<div class=\"list_output\">\n";
+edit_scheduled_out.php:      echo $output->GetHTMLText()."<br />";
+edit_scheduled_out.php:      echo "</div>\n";
+edit_scheduled_out.php:            echo $output_string."<br/>";
+edit_scheduled_out.php:            echo $output_string."<br/>";
+edit_scheduled_out.php:            echo $output_string."<br/>";
+edit_scheduled_out.php:	   //echo $get_params."<br/>";
+edit_scheduled_out.php:      echo "<input type=\"button\" onclick=\"window.open('list_form.php?".$get_params."');\" value=\"Edit This Report\" class=\"stats edit_button\"/>";
+edit_scheduled_out.php:      echo "</div>\n";
+edit_scheduled_out.php:   echo "</div>";
+Excel_Output_Options.php:      echo "use limit of ". $this->bib_sheet_limit;
+Excel_Output_Options.php:         echo "Writing List Report  -- ".$write_filename."\n";
+Excel_Output_Options.php:         echo "Writing Online List Report  -- ".$write_filename."\n";
+Excel_Output_Options.php:      echo "Writing List Report  -- ".$write_filename."\n";
+Excel_Output_Options.php:         echo "Writing Online List Report  -- ".$write_filename."\n";
+Excel_Output_Options.php:      echo "Writing List Report  -- ".$write_filename."\n";
+Excel_Output_Options.php:         //echo "last_col = ".$last_col."\n";
+Excel_Output_Options.php:      echo "Writing Single sheet\n";
+Excel_Output_Options.php:      echo "Writing List Report  -- ".$write_filename."\n";
+Excel_Output_Options.php:		echo "last_col = ".$last_col."\n";
+Excel_Output_Options.php:		echo "Bib Sheet last_col = ".$last_col."\n";
+Excel_Output_Options.php:		echo "Count last col = ".$last_col."\n";
+Excel_Output_Options.php:		echo "Online last_col = ".$last_col."\n";
+Filters.php:            // echo "InExcludeByCheckin: excluded by active date ".date('Y-m-d', strtotime($active_date)).">".date('Y-m-d',strtotime($this->shelf_sitting_date))."\n";
+Filters.php:             //echo "InExcludeByCheckin: excluded by checkin date ".date('Y-m-d', strtotime($checkin))."<". date('Y-m-d',strtotime($this->shelf_sitting_date))."\n";
+Filters.php:       //echo $sql."\n\n";
+Filters.php:       //echo "Bisac is ".$category."\n";
+Filters.php:		 //echo $sql."\n\n";
+Filters.php:		 //echo $sql."\n\n";
+funds.php:   var LibName = "<?php echo $_GET['lib'] ?>";
+funds.php:   var Branch = "<?php echo $_GET['branch'] ?>";
+funds.php:   var preset_fund = "<?php echo $_GET['fund'] ?>";
+getCircModStatusAndPrefixSuffix.php:      echo "circ_mod.innerHTML = \"NONE\";\n";  
+getCircModStatusAndPrefixSuffix.php:       echo "circ_mod.innerHTML = \"".$circ_mods."\";\n"; 
+getCircModStatusAndPrefixSuffix.php:      echo "prefix.innerHTML = \"NONE\";\n";  
+getCircModStatusAndPrefixSuffix.php:       echo "prefix.innerHTML = \"".$prefixes."\";\n"; 
+getCircModStatusAndPrefixSuffix.php:      echo "suffix.innerHTML = \"NONE\";\n";  
+getCircModStatusAndPrefixSuffix.php:       echo "suffix.innerHTML = \"".$suffixes."\";\n"; 
+getCircModStatusAndPrefixSuffix.php:      echo "status.innerHTML = \"NONE\";\n";  
+getCircModStatusAndPrefixSuffix.php:       echo "status.innerHTML = \"".$statuses."\";\n"; 
+getCollManTopics.php:         echo "obj.options[obj.options.length] = new Option(\"".$row[1]."\",\"".$row[0]."\");\n";
+getCollManTopics.php:         echo "obj.options[obj.options.length-1].selected = true;\n";
+getCollManTopics.php:         echo "obj.options[obj.options.length] = new Option(\"".$row[1]."\",\"".$row[0]."\");\n";
+getCopyLocations.php:		echo "copy_loc.innerHTML = \"".$copy_locs."\";\n"; 
+getCopyLocations.php:   echo "copy_loc_group.options[copy_loc_group.options.length] = new Option('','-1');\n";   
+getCopyLocations.php:		   echo "copy_loc_group.options[copy_loc_group.options.length] = new Option(\"".$row[1]."\",\"".$row[0]."\");\n";
+getFunds.php:         echo "var checkbox = \"<input type='checkbox' name='fund_checkboxes' value='".$cb_val."' id='".$cb_val."_cb' ";
+getFunds.php:         if ($check_funds && in_array($row[0], $fund_list)) echo "checked=checked ";
+getFunds.php:         echo "onClick='AddFund(this)'/>\";";
+getFunds.php:         echo "checkbox_div.innerHTML+=checkbox +\"".$row[1]."\"+ \"<br/>\";";
+getFundYears.php:   echo "obj.options[obj.options.length] = new Option('Select','-1');\n";       
+getFundYears.php:         echo "obj.options[obj.options.length] = new Option(\"".$row[0]."\",\"".$row[0]."***".$branch_id."\");\n";
+getStatCatEntryList.php:         echo "var checkbox = \"<input type='checkbox' name='SC_entries' value='".$cb_val."' id='".$cb_val."_cb' ";
+getStatCatEntryList.php:         if (in_array($row[0], $entries)) echo "checked=checked ";
+getStatCatEntryList.php:         echo "onClick='AddStatCat(this)'/>\";";
+getStatCatEntryList.php:         echo "checkbox_div.innerHTML+=checkbox +\"".$row[1]."\"+ \"<br/>\";";
+getStatCats.php:   echo "obj.options[obj.options.length] = new Option('Select','-1');\n";       
+getStatCats.php:         echo "obj.options[obj.options.length] = new Option(\"".$row[1]."\",\"".$row[1]."***".$row[0]."\");\n";
+HTML_Output_Options.php:				 echo "Writing HTML Report  -- ".$write_filename."\n";
+HTML_Output_Options.php:				 echo "Writing HTML Report  -- ".$write_filename."\n";
+HTML_Output_Options.php:				 echo "Writing HTML Report  -- ".$write_filename."\n";
+index.php:<body onLoad="JavaScript:getCollManTopics(<?php echo "'".$coll_topic."'";?>)">
+index.php:   <input type="hidden" id="use_filters" name="use_filters" <?php echo"value=\"".$use_filters."\"";?> />
+index.php:   <input type="hidden" id="use_db" name="use_db" <?php echo"value=\"".$db_id."\"";?> />
+index.php:      <input type="radio" name="report_type" id="new_items" class="report_type" value="new_items" <?php if ($report_type == "new") echo "checked";?>  >
+index.php:      <input type="radio" name="report_type" id="inventory_report" class="report_type" value="inventory" <?php if ($report_type == "inventory") echo "checked";?> >
+index.php:       <span class="no-noble"><input type="radio" name="report_type" id="weeding_report" class="report_type" value="weeding" <?php if ($report_type == "shelf") echo "checked";?> >
+index.php:  <input type="radio" name="frequency" id="one_report" class="frequency" value="once" class="frequency" onchange="JavaScript:updateAllCircPreSuffix(this.value)" <?php if (!$use_schedule) echo "checked";?>>
+index.php:  <input type="radio" name="frequency" id="schedule_report" class="frequency" value="schedule"  class="frequency" onchange="JavaScript:updateAllCircPreSuffix(this.value)" <?php if ($use_schedule) echo "checked";?>>
+index.php:             <option value="daily" <?php if ($use_schedule && $schedule=="daily") echo selected;?> > Daily</option>
+index.php:             <option value="weekly" <?php if ($use_schedule && $schedule=="weekly") echo selected;?> > Weekly</option>
+index.php:             <option value="monthly" <?php if ($use_schedule && $schedule=="monthly") echo selected;?> > Monthly</option>
+index.php:             <option value="configure" <?php if ($use_schedule && $schedule=="relative") echo selected;?> >Relative</option>
+index.php:                Pick specific days: <input type="text" id="specific_days" class="stats" <?php if($use_schedule && $use_spec_days) echo "value=\"".$spec_days."\"";?> /> <span class="note">separate days (1-31) with commas</span>
+index.php:                   <option value="first" <?php if ($use_schedule && $use_rel_days && $rel_time=="first") echo selected;?> >First</option>
+index.php:                   <option value="second" <?php if ($use_schedule && $use_rel_days && $rel_time=="second")echo selected;?> >Second</option>
+index.php:                   <option value="third" <?php if ($use_schedule && $use_rel_days && $rel_time=="third") echo selected;?> >Third</option>
+index.php:                   <option value="fourth" <?php if ($use_schedule && $use_rel_days && $rel_time=="fourth") echo selected;?> >Fourth</option>
+index.php:                   <option value="last" <?php if ($use_schedule && $use_rel_days && $rel_time=="last") echo selected;?> >Last</option>
+index.php:                   <option value="monday" <?php if ($use_schedule && $use_rel_days && $rel_day=="monday") echo selected;?> >Monday</option>
+index.php:                   <option value="tuesday" <?php if ($use_schedule && $use_rel_days && $rel_day=="tuesday") echo selected;?> >Tuesday</option>
+index.php:                   <option value="wednesday" <?php if ($use_schedule && $use_rel_days && $rel_day=="wednesday") echo selected;?> >Wednesday</option>
+index.php:                   <option value="thursday" <?php if ($use_schedule && $use_rel_days && $rel_day=="thursday") echo selected;?> >Thursday</option>
+index.php:                   <option value="friday" <?php if ($use_schedule && $use_rel_days && $rel_day=="friday") echo selected;?> >Friday</option>
+index.php:                   <option value="saturday" <?php if ($use_schedule && $use_rel_days && $rel_day=="saturday") echo selected;?> >Saturday</option>
+index.php:                   <option value="sunday" <?php if ($use_schedule && $use_rel_days && $rel_day=="sunday") echo selected;?> >Sunday</option>
+index.php:                <td><input type="checkbox" id="monday" name="monday" value="monday" class="stats" <?php if ($use_schedule && $schedule=="weekly" && in_array("monday", $days)) echo checked;?> >
+index.php:                <td><input type="checkbox" id="tuesday" name="tuesday" value="tuesday" class="stats"  <?php if ($use_schedule && $schedule=="weekly" && in_array("tuesday", $days)) echo checked;?> >
+index.php:                <td><input type="checkbox" id="wednesday" name="wednesday" value="wednesday" class="stats"  <?php if ($use_schedule && $schedule=="weekly" && in_array("wednesday", $days)) echo checked;?> >
+index.php:                <td><input type="checkbox" id="thursday" name="thursday" value="thursday" class="stats"  <?php if ($use_schedule && $schedule=="weekly" && in_array("thursday", $days)) echo checked;?> >
+index.php:                <td><input type="checkbox" id="friday" name="friday" value="friday" class="stats"  <?php if ($use_schedule && $schedule=="weekly" && in_array("friday", $days)) echo checked;?> >
+index.php:                <td><input type="checkbox" id="saturday" name="saturday" value="saturday" class="stats"  <?php if ($use_schedule && $schedule=="weekly" && in_array("saturday", $days)) echo checked;?> >
+index.php:                <td><input type="checkbox" id="sunday" name="sunday" value="sunday" class="stats"  <?php if ($use_schedule && $schedule=="weekly" && in_array("sunday", $days)) echo checked;?> >
+index.php:              Every <input type="text" id="relative_time" size="3" class="stats" <?php if ($use_schedule && $schedule=="relative" ) echo "value=\"".$rel_day."\"";?> />
+index.php:                <option value="days" <?php if ($use_schedule && $schedule=="relative" && $rel_time=="days" ) echo selected;?> >Days</option>
+index.php:                <option value="weeks" <?php if ($use_schedule && $schedule=="relative" && $rel_time=="weeks" ) echo selected;?> >Weeks</option>
+index.php:                <option value="months" <?php if ($use_schedule && $schedule=="relative" && $rel_time=="months" ) echo selected;?> >Months</option>
+index.php:              Starting On  <input type="text" name="relative_start_date" id ="relative_start_date" maxlength="10" size="10" class="stats" <?php if ($use_schedule && $schedule=="relative" ) echo "value=\"".$start_date."\"";?>>
+index.php:         <input type="checkbox" id="run_now" name="run_now" class="stats" <?php if ($use_schedule && $use_json) echo checked; ?>/>
+index.php:               echo "<option value=\"".$shortname."\"";
+index.php:							 echo " selected";
+index.php:               echo ">".$name."</option>\n";
+index.php:               echo "<select name=\"branch_filter\" id=\"branch_filter\" class=\"stats\" onchange=\"JavaScript:UpdateCopyLocations(this.value)\" >\n";
+index.php:              echo " <option value=\"ALL\"";
+index.php:              if($has_branches)echo " selected";
+index.php:              echo ">ALL</option>\n";
+index.php:                 echo "<option value=\"".$shortname."\"";
+index.php:                 if($is_branch && $shortname == $library) echo " selected";
+index.php:                 echo ">".$display_name."</option>\n";
+index.php:              echo "</select>\n";
+index.php:       <select id="copy_loc_group" name="copy_loc_group" class="stats"  onchange="JavaScript:getCircModifierList(true)" <?php if ($use_all_loc) echo "disabled";?>>
+index.php:			   echo "<option value=\"-1\"></option>\n";
+index.php:				   echo "<option value=\"".$loc_id."\"";
+index.php:				      echo " selected";
+index.php:				   echo ">".$loc_name."</option>\n";
+index.php:             echo "<option value=\"-1\"> NONE </option>\n";
+index.php:				      echo "<input type=\"checkbox\" id=\"".$loc_id."\" name=\"copy_loc_checkboxes[]\" value=\"".$loc_id."\" class=\"multi_check\" ";
+index.php:				         echo " checked";
+index.php:				      echo " onclick=\"JavaScript:getCircModifierList(false)\" /><label for=\"".$loc_name."\" class=\"multi_cb_label\">".$loc_name."</label><br/>\n";
+index.php:             echo "NONE\n";
+index.php:         <input type="checkbox" id="all_locations" name="all_locations" value="all" onchange="JavaScript:getAllCircPreSuffix(this)" <?php if ($use_all_loc) echo "checked";?>>
+index.php:          <option value="absolute" <?php if($shelf_type == "absolute") echo "selected"; ?> >Absolute</option>
+index.php:          <option value="relative" <?php if($shelf_type == "relative") echo "selected"; ?>>Relative</option>
+index.php:       <input type="text" name="last_checkin_date" maxlength="10" size="10" id="last_checkin_date" class="stats checkin_absolute" <?php if($shelf_type == "absolute") echo "value=\"".$shelf_date."\""; ?>>
+index.php:       <input type="text" name="checkin_date_relative" size="3" id="checkin_date_relative" class=" stats checkin_relative" <?php if($shelf_type == "relative") echo "value=\"".$shelf_value."\""; ?>>
+index.php:           <option value="days" <?php if($shelf_time == "days") echo "selected"; ?> >Days</option>
+index.php:           <option value="weeks" <?php if($shelf_time == "weeks") echo "selected"; ?>>Weeks</option>
+index.php:           <option value="months" <?php if($shelf_time == "months") echo "selected"; ?>>Months</option>
+index.php:           <option value="years" <?php if($shelf_time == "years") echo "selected"; ?>>Years</option>
+index.php:       <span id="file_name"><?php if($file_data_type != "none") echo "File: ".$file_name."<br />"; ?></span>
+index.php:       <span id="data_type"><?php if($file_data_type != "none") echo "Data: ".$file_data_type."<br />"; ?></span>
+index.php:       <span id="file_type"><?php if($file_data_type != "none") echo "Format: ".$file_type."<br />"; ?></span>
+index.php:       <input type="hidden" id="input_file_name" name="input_file_name" <?php if($file_data_type != "none") echo "value=\"".$file_name."\""; else echo"value=\"-1\"";?> />
+index.php:	    <input type="hidden" id="input_data_type" name="input_data_type" <?php if($file_data_type != "none") echo "value=\"".$file_data_type."\""; else echo"value=\"-1\"";?> />
+index.php:	    <input type="hidden" id="input_file_type" name="input_file_type" <?php if($file_data_type != "none") echo "value=\"".$file_type."\""; else echo"value=\"-1\"";?> />
+index.php:      <input type="checkbox" id="use_active" name="use_active" value="use_active" onChange="JavaScript:SetElectronic(this.checked)" <?php if ($add_date_type !="none") echo "checked";?>>
+index.php:        <option value="absolute" <?php if($add_date_type == "absolute") echo "selected"; ?> >Absolute</option>
+index.php:        <option value="relative" <?php if($add_date_type == "relative") echo "selected"; ?> >Relative</option>
+index.php:           <option value="between" <?php if($add_time_type == "between") echo "selected"; ?>>Between</option>
+index.php:           <option value="before" <?php if($add_time_type == "before") echo "selected"; ?> >Before</option>
+index.php:           <option value="after" <?php if($add_time_type == "after") echo "selected"; ?> >After</option>
+index.php:         <input type="text" name="active_start" maxlength="10" size="10" id="active_start" onChange="JavaScript:SetCheckbox(this.value, 'use_active')" class="stats added_absolute" <?php if($add_date_type == "absolute") echo "value=\"".$add_date."\""; ?>>
+index.php:         <input type="text" name="active_start_relative" size="3" id="active_start_relative" onchange="JavaScript:SetCheckbox(this.value, 'use_active')" class="stats added_relative" <?php if($add_date_type == "relative" ) echo "value=\"".$add_value."\""; ?>>
+index.php:            <option value="days" <?php if($add_time == "days") echo "selected"; ?> >Days</option>
+index.php:            <option value="weeks" <?php if($add_time == "weeks") echo "selected"; ?> >Weeks</option>
+index.php:            <option value="months" <?php if($add_time == "months") echo "selected"; ?> >Months</option>
+index.php:            <option value="years" <?php if($add_time == "years") echo "selected"; ?> >Years</option>
+index.php:         <input type="text" name="active_end" maxlength="10" size="10" id="active_end" class="stats added_absolute " <?php if($add_date_type == "absolute" && $add_time_type == "between") echo "value=\"".$add_date2."\""; ?>>
+index.php:         <input type="text" name="active_end_relative" size="3" id="active_end_relative" class=" stats added_relative " <?php if($add_date_type == "relative" && $add_time_type == "between") echo "value=\"".$add_value2."\""; ?>>
+index.php:           <option value="days" <?php if($add_time2 == "days") echo "selected"; ?> >Days</option>
+index.php:           <option value="weeks" <?php if($add_time2 == "weeks") echo "selected"; ?> >Weeks</option>
+index.php:           <option value="months" <?php if($add_time2 == "months") echo "selected"; ?> >Months</option>
+index.php:           <option value="years" <?php if($add_time2 == "years") echo "selected"; ?> >Years</option>
+index.php:             <option value="active_only" <?php if($del_type == "active") echo "selected"; ?> >Active Items Only</option>
+index.php:             <option value="active_deleted" <?php if($del_type == "both") echo "selected"; ?> >All Items (active AND deleted)</option>
+index.php:             <option value="deleted_only" <?php if($del_type == "deleted") echo "selected"; ?> >Deleted Items Only</option>
+index.php:           <input type="checkbox" id="use_deleted_date" name="use_deleted_date" value="use_deleted_date" <?php if ($del_date_type !="none") echo "checked";?>>
+index.php:             <option value="absolute" <?php if($del_date_type == "absolute") echo "selected"; ?> >Absolute</option>
+index.php:             <option value="relative" <?php if($del_date_type == "relative") echo "selected"; ?> >Relative</option>
+index.php:              <option value="after" <?php if($del_time_type == "after") echo "selected"; ?> >After</option>
+index.php:              <option value="before" <?php if($del_time_type == "before") echo "selected"; ?> >Before</option>
+index.php:              <option value="between" <?php if($del_time_type == "between") echo "selected"; ?>>Between</option>
+index.php:            <input type="text" name="deleted_date_start" maxlength="10" size="10" id="deleted_date_start" onchange="JavaScript:SetCheckbox(this.value, 'use_deleted_date')" class="stats deleted_absolute" <?php if($del_date_type == "absolute") echo "value=\"".$del_date."\""; ?>>
+index.php:            <input type="text" name="deleted_date_start_relative" size="3" id="deleted_date_start_relative" onchange="JavaScript:SetCheckbox(this.value, 'use_deleted_date')" class=" stats deleted_relative" <?php if($del_date_type == "relative" ) echo "value=\"".$del_value."\""; ?>>
+index.php:              <option value="days" <?php if($del_time == "days") echo "selected"; ?> >Days</option>
+index.php:              <option value="weeks" <?php if($del_time == "weeks") echo "selected"; ?> >Weeks</option>
+index.php:              <option value="months" <?php if($del_time == "months") echo "selected"; ?> >Months</option>
+index.php:              <option value="years" <?php if($del_time == "years") echo "selected"; ?> >Years</option>
+index.php:             <input type="text" name="deleted_date_end" maxlength="10" size="10" id="deleted_date_end" class="stats deleted_absolute " <?php if($del_date_type == "absolute" && $del_time_type == "between") echo "value=\"".$del_date2."\""; ?>>
+index.php:            <input type="text" name="deleted_date_end_relative" size="3" id="deleted_date_end_relative" class=" stats deleted_relative " <?php if($del_date_type == "relative" && $del_time_type == "between") echo "value=\"".$del_value2."\""; ?>>
+index.php:              <option value="days" <?php if($del_time2 == "days") echo "selected"; ?>>Days</option>
+index.php:              <option value="weeks" <?php if($del_time2 == "weeks") echo "selected"; ?>>Weeks</option>
+index.php:              <option value="months" <?php if($del_time2 == "months") echo "selected"; ?>>Months</option>
+index.php:              <option value="years" <?php if($del_time2 == "years") echo "selected"; ?>>Years</option>
+index.php:        <select id="electronic" name="electronic" class="stats" onChange = "JavaScript:CheckCopyLocation(this.value)" <?php if( !($file_data_type == "bib" || $add_date_type !="none")) echo "disabled"; ?> >
+index.php:           <option value="physical_only" <?php if($elec_type =="physical") echo "selected"; ?> >Physical Items Only</option>
+index.php:           <option value="physical_electronic" <?php if($elec_type =="both") echo "selected"; ?> >All Items (physical AND electronic)</option>
+index.php:           <option value="electronic_only" <?php if($elec_type =="electronic") echo "selected"; ?>>Electronic Items Only</option>
+index.php:					   echo "NONE\n";
+index.php:							echo "<input type=\"checkbox\" id=\"".$stat_id."\" name=\"status_checkboxes[]\" value=\"".$stat_id."\" class=\"multi_check\" ";
+index.php:								echo " checked";
+index.php:							echo " /><label for=\"".$stat_name."\" class=\"multi_cb_label\">".$stat_name."</label><br/>\n";
+index.php:             echo "NONE\n";
+index.php:      <input type="checkbox" id="status_change_check" name="status_change_check" value="status_change_check" <?php if ($stat_date_type !="none") echo "checked";?>>
+index.php:          <option value="absolute" <?php if($stat_date_type == "absolute") echo "selected"; ?> >Absolute</option>
+index.php:          <option value="relative" <?php if($stat_date_type == "relative") echo "selected"; ?> >Relative</option>
+index.php:           <option value="before" <?php if($stat_time_type == "before") echo "selected"; ?> >Before</option>
+index.php:           <option value="after" <?php if($stat_time_type == "after") echo "selected"; ?> >After</option>
+index.php:           <option value="between" <?php if($stat_time_type == "between") echo "selected"; ?>  >Between</option>
+index.php:         <input type="text" name="status_date_start" maxlength="10" size="10" id="status_date_start" onchange="JavaScript:SetCheckbox(this.value, 'status_change_check')" class="stats stat_absolute" <?php if($stat_date_type == "absolute") echo "value=\"".$stat_date."\""; ?>>
+index.php:         <input type="text" name="status_date_start_relative" size="3" id="status_date_start_relative" onchange="JavaScript:SetCheckbox(this.value, 'status_change_check')" class=" stats stat_relative" <?php if($stat_date_type == "relative" ) echo "value=\"".$stat_value."\""; ?>>
+index.php:           <option value="days" <?php if($stat_time == "days") echo "selected"; ?>>Days</option>
+index.php:           <option value="weeks" <?php if($stat_time == "weeks") echo "selected"; ?> >Weeks</option>
+index.php:           <option value="months" <?php if($stat_time == "months") echo "selected"; ?>>Months</option>
+index.php:           <option value="years" <?php if($stat_time == "years") echo "selected"; ?>>Years</option>
+index.php:         <input type="text" name="status_date_end" maxlength="10" size="10" id="status_date_end" class="stats stat_absolute" <?php if($stat_date_type == "absolute" && $stat_time_type == "between") echo "value=\"".$stat_date2."\""; ?>>
+index.php:         <input type="text" name="status_date_end_relative" size="3" id="status_date_end_relative" class=" stats stat_relative" <?php if($stat_date_type == "relative" && $stat_time_type == "between") echo "value=\"".$stat_value2."\""; ?>>
+index.php:           <option value="days" <?php if($stat_time2 == "days") echo "selected"; ?>>Days</option>
+index.php:           <option value="weeks" <?php if($stat_time2 == "weeks") echo "selected"; ?> >Weeks</option>
+index.php:           <option value="months" <?php if($stat_time2 == "months") echo "selected"; ?>>Months</option>
+index.php:           <option value="years" <?php if($stat_time2 == "years") echo "selected"; ?>>Years</option>
+index.php:				   echo "<span class =\"stat\">".$stat_cat_row[0]." / ".$stat_cat_row[1]." <br /></span>\n";
+index.php:             echo "</div>";
+index.php:	          echo "<input type=\"hidden\" id=\"stat_cats\" name=\"stat_cats\" value=\"".$stat_cat."\"/>";
+index.php:            <option value="1" <?php if ($call_class== "1") echo "selected";?> > Generic </option>
+index.php:            <option value="2" <?php if ($call_class== "2") echo "selected";?>  > Dewey </option>
+index.php:            <option value="3" <?php if ($call_class== "3") echo "selected";?> > LC </option>
+index.php:            <option value="4" <?php if ($call_class== "4") echo "selected";?> > BISAC </option>
+index.php:           <tr><td class="call_select"><input type="radio" id="call_num_range" name="call_method" value="range" <?php if($use_call_range) echo "checked"; ?> > <label>Range </label></td></tr>
+index.php:           <tr><td>Starting Call Number: </td>   <td> <input type="text" name="start_call" id ="start_call" class="stats" onchange="JavaScript:SetRadio(this.value, 'call_num_range')" <?php if($use_call_range) echo "value=\"".$call_start."\""; ?>></td></tr>
+index.php:           <tr><td>End Call Number: </td>   <td> <input type="text" name="end_call" id ="end_call" class="stats"  onchange="JavaScript:SetRadio(this.value, 'call_num_range')" <?php if($use_call_range) echo "value=\"".$call_end."\""; ?>></td></tr>
+index.php:           <tr><td class="call_select"><input type="radio" id="call_num_contains" name="call_method" value="contains" <?php if($use_call_contains) echo "checked"; ?> > <label> Call Number Contains </label></td></tr>
+index.php:           <tr><td>Text:</td>   <td>  <input type="text" name="contains_call" id ="contains_call" class="stats"  onchange="JavaScript:SetRadio(this.value, 'call_num_contains')" <?php if($use_call_contains) echo "value=\"".$call_contains."\""; ?> ></td></tr>
+index.php:        <tr><td class="call_select"><input type="radio" id="coll_topic" name="call_method" value="coll_topic" <?php if($use_coll_topic) echo "checked"; ?> > <label>Collection Topic</label></td></tr>
+index.php:       <tr><td class="call_select"><input type="radio" id="bisac_call" name="call_method" value="bisac" <?php if($bisac_set) echo "checked"; ?> > <label>Bisac Category </label></td></tr>
+index.php:							echo "<option value=\"".$bisac_id."\"";
+index.php:								echo " selected";
+index.php:							echo ">".$bisac_name."</option>\n";
+index.php:							echo "<option value=\"".$bisac_id."\"";
+index.php:								echo " selected";
+index.php:							echo ">".$bisac_name."</option>\n";
+index.php:							echo "<option value=\"".$bisac_id."\"";
+index.php:								echo " selected";
+index.php:							echo ">".$bisac_name."</option>\n";
+index.php:					   echo "NONE";
+index.php:							echo "<input type=\"checkbox\" id=\"".$prefix_id."\" name=\"prefix_checkboxes[]\" value=\"".$prefix_id."\" class=\"multi_check\" ";
+index.php:								echo " checked";
+index.php:							echo " /><label for=\"".$prefix_name."\" class=\"multi_cb_label\">".$prefix_name."</label><br/>\n";
+index.php:             echo "NONE\n";
+index.php:					   echo "NONE";
+index.php:							echo "<input type=\"checkbox\" id=\"".$suffix_id."\" name=\"suffix_checkboxes[]\" value=\"".$suffix_id."\" class=\"multi_check\" ";
+index.php:								echo " checked";
+index.php:							echo " /><label for=\"".$suffix_name."\" class=\"multi_cb_label\">".$suffix_name."</label><br/>\n";
+index.php:             echo "NONE\n";
+index.php:					   echo "NONE\n";
+index.php:							echo "<input type=\"checkbox\" id=\"".$circ_mod_code."\" name=\"circ_mod_checkboxes[]\" value=\"".$circ_mod_code."\" class=\"multi_check\" ";
+index.php:								echo " checked";
+index.php:							echo " /><label for=\"".$circ_mod_code."\" class=\"multi_cb_label\">".$circ_mod_code."</label><br/>\n";
+index.php:             echo "NONE\n";
+index.php:      <input type="checkbox" id="use_circ_count" name="use_circ_count" value="use_circ_count" <?php if($circ_count != -1) echo  "checked"; ?> >
+index.php:         <option value="more" <?php if($circ_count != -1 && $circ_count_compare == "more") echo "selected";?> > More than </option>
+index.php:         <option value="less" <?php if($circ_count != -1 && $circ_count_compare == "less") echo "selected";?>> Less than </option>
+index.php:      <input type="text" name="circ_count" id="circ_count" class="stats" size="3" onChange="JavaScript:SetCheckbox('this.value', 'use_circ_count')" <?php if($circ_count != -1) echo "value=\"".$circ_count."\""; ?>> in
+index.php:         <option value="lifetime" <? if($circ_count != -1 && $circ_date_type == "none") echo "selected";?> > Lifetime Circs </option>
+index.php:         <option value="circ_dates" <? if($circ_count != -1 && $circ_date_type != "none") echo "selected";?>>Configurable Dates </option>
+index.php:      <input type="checkbox" id="use_circ_dates" name="use_circ_dates" value="use_circ_dates" onChange="JavaScript:UpdateCircDates(this.checked)" <?php if ($circ_date_type !="none") echo "checked";?>>
+index.php:        <option value="absolute" <?php if($circ_date_type == "absolute") echo "selected"; ?>>Absolute</option>
+index.php:        <option value="relative" <?php if($circ_date_type == "relative") echo "selected"; ?>  >Relative</option>
+index.php:           <option value="between" <?php if($circ_time_type == "between") echo "selected"; ?>>Between</option>
+index.php:           <option value="before" <?php if($circ_time_type == "before") echo "selected"; ?> >Before</option>
+index.php:           <option value="after" <?php if($circ_time_type == "after") echo "selected"; ?> >After</option>
+index.php:         <input type="text" name="circ_start" maxlength="10" size="10" id="circ_start" class="stats circ_absolute" onChange="JavaScript:SetCheckbox('this.value', 'use_circ_dates')" <?php if($circ_date_type == "absolute") echo "value=\"".$circ_date."\""; ?> >
+index.php:         <input type="text" name="circ_start_relative" size="3" id="circ_start_relative"  class=" stats circ_relative" onChange="JavaScript:SetCheckbox('this.value', 'use_circ_dates')" <?php if($circ_date_type == "relative" ) echo "value=\"".$circ_value."\""; ?>>
+index.php:           <option value="days" <?php if($circ_time == "days") echo "selected"; ?> >Days</option>
+index.php:           <option value="weeks" <?php if($circ_time == "weeks") echo "selected"; ?> >Weeks</option>
+index.php:           <option value="months" <?php if($circ_time == "months") echo "selected"; ?> >Months</option>
+index.php:           <option value="years" <?php if($circ_time == "years") echo "selected"; ?> >Years</option>
+index.php:         <input type="text" name="circ_end" maxlength="10" size="10" id="circ_end" class="stats circ_absolute " <?php if($circ_date_type == "absolute" && $circ_time_type == "between") echo "value=\"".$circ_date2."\""; ?>>
+index.php:         <input type="text" name="circ_end_relative" size="3" id="circ_end_relative" class=" stats circ_relative " <?php if($circ_date_type == "relative" && $circ_time_type == "between") echo "value=\"".$circ_value2."\""; ?>>
+index.php:            <option value="days" <?php if($circ_time2 == "days") echo "selected"; ?> >Days</option>
+index.php:           <option value="weeks" <?php if($circ_time2 == "weeks") echo "selected"; ?> >Weeks</option>
+index.php:           <option value="months" <?php if($circ_time2 == "months") echo "selected"; ?> >Months</option>
+index.php:           <option value="years" <?php if($circ_time2 == "years") echo "selected"; ?> >Years</option>
+index.php:      <input type="checkbox" id="use_inventory_dates" name="use_inventory_dates" value="use_inventory_dates" <?php if ($inventory_date_type !="none") echo "checked";?>>
+index.php:        <option value="absolute" <?php if($inventory_date_type == "absolute") echo "selected"; ?>>Absolute</option>
+index.php:        <option value="relative" <?php if($inventory_date_type == "relative") echo "selected"; ?>  >Relative</option>
+index.php:           <option value="between" <?php if($inventory_time_type == "between") echo "selected"; ?>>Between</option>
+index.php:           <option value="before" <?php if($inventory_time_type == "before") echo "selected"; ?> >Before</option>
+index.php:           <option value="after" <?php if($inventory_time_type == "after") echo "selected"; ?> >After</option>
+index.php:         <input type="text" name="inventory_start" maxlength="10" size="10" id="inventory_start" class="stats inventory_absolute" onChange="JavaScript:SetCheckbox('this.value', 'use_inventory_dates')" <?php if($inventory_date_type == "absolute") echo "value=\"".$inventory_date."\""; ?> >
+index.php:         <input type="text" name="inventory_start_relative" size="3" id="inventory_start_relative"  class=" stats inventory_relative" onChange="JavaScript:SetCheckbox('this.value', 'use_inventory_dates')" <?php if($inventory_date_type == "relative" ) echo "value=\"".$inventory_value."\""; ?>>
+index.php:           <option value="days" <?php if($inventory_time == "days") echo "selected"; ?> >Days</option>
+index.php:           <option value="weeks" <?php if($inventory_time == "weeks") echo "selected"; ?> >Weeks</option>
+index.php:           <option value="months" <?php if($inventory_time == "months") echo "selected"; ?> >Months</option>
+index.php:           <option value="years" <?php if($inventory_time == "years") echo "selected"; ?> >Years</option>
+index.php:         <input type="text" name="inventory_end" maxlength="10" size="10" id="inventory_end" class="stats inventory_absolute " <?php if($inventory_date_type == "absolute" && $inventory_time_type == "between") echo "value=\"".$inventory_date2."\""; ?>>
+index.php:         <input type="text" name="inventory_end_relative" size="3" id="inventory_end_relative" class=" stats inventory_relative " <?php if($inventory_date_type == "relative" && $inventory_time_type == "between") echo "value=\"".$inventory_value2."\""; ?>>
+index.php:            <option value="days" <?php if($inventory_time2 == "days") echo "selected"; ?> >Days</option>
+index.php:           <option value="weeks" <?php if($inventory_time2 == "weeks") echo "selected"; ?> >Weeks</option>
+index.php:           <option value="months" <?php if($inventory_time2 == "months") echo "selected"; ?> >Months</option>
+index.php:           <option value="years" <?php if($inventory_time2 == "years") echo "selected"; ?> >Years</option>
+index.php:      <input type="checkbox" id="use_pub" name="use_pub" value="pub" <?php if ($pub_type !="none") echo "checked";?>>
+index.php:         <option value="before" <?php if($pub_type == "before") echo "selected"; ?> >Before</option>
+index.php:         <option value="after" <?php if($pub_type == "after") echo "selected"; ?> >After</option>
+index.php:         <option value="between" <?php if($pub_type == "between") echo "selected"; ?> >Between</option>
+index.php:        <input type="text" name="pub_date" maxlength="4" size="4" id="pub_date" class="stats" oninput="JavaScript:SetCheckbox(this.value, 'use_pub')"  <?php if($pub_type != "none") echo "value=\"".$pub_date."\""; ?> >
+index.php:        <input type="text" name="pub_date2" maxlength="4" size="4" id="pub_date2" class="stats pub_between" oninput="JavaScript:SetCheckbox(this.value, 'use_pub')" <?php if($pub_type == "between") echo "value=\"".$pub_date2."\""; ?> />
+index.php:           <option value="all_items" <?php if($only_holder =="all") echo "selected";?> >All Items </option>
+index.php:           <option value="true" <?php if($only_holder == "true") echo "selected";?> >Only Holder</option>
+index.php:           <option value="false" <?php if($only_holder =="false") echo "selected";?>  >Not the Only Holder </option>
+index.php:      <input type="checkbox" id="use_invoice_dates" name="use_invoice_dates" value="use_invoice_dates" <?php if ($invoice_date_type !="none") echo "checked";?>>
+index.php:        <option value="absolute" <?php if($invoice_date_type == "absolute") echo "selected"; ?>>Absolute</option>
+index.php:        <option value="relative" <?php if($invoice_date_type == "relative") echo "selected"; ?>  >Relative</option>
+index.php:           <option value="between" <?php if($invoice_time_type == "between") echo "selected"; ?>>Between</option>
+index.php:           <option value="before" <?php if($invoice_time_type == "before") echo "selected"; ?> >Before</option>
+index.php:           <option value="after" <?php if($invoice_time_type == "after") echo "selected"; ?> >After</option>
+index.php:         <input type="text" name="invoice_start" maxlength="10" size="10" id="invoice_start" class="stats invoice_absolute" onChange="JavaScript:SetCheckbox('this.value', 'use_invoice_dates')" <?php if($invoice_date_type == "absolute") echo "value=\"".$invoice_date."\""; ?> >
+index.php:         <input type="text" name="invoice_start_relative" size="3" id="invoice_start_relative"  class=" stats invoice_relative" onChange="JavaScript:SetCheckbox('this.value', 'use_invoice_dates')" <?php if($invoice_date_type == "relative" ) echo "value=\"".$invoice_value."\""; ?>>
+index.php:           <option value="days" <?php if($invoice_time == "days") echo "selected"; ?> >Days</option>
+index.php:           <option value="weeks" <?php if($invoice_time == "weeks") echo "selected"; ?> >Weeks</option>
+index.php:           <option value="months" <?php if($invoice_time == "months") echo "selected"; ?> >Months</option>
+index.php:           <option value="years" <?php if($invoice_time == "years") echo "selected"; ?> >Years</option>
+index.php:         <input type="text" name="invoice_end" maxlength="10" size="10" id="invoice_end" class="stats invoice_absolute " <?php if($invoice_date_type == "absolute" && $invoice_time_type == "between") echo "value=\"".$invoice_date2."\""; ?>>
+index.php:         <input type="text" name="invoice_end_relative" size="3" id="invoice_end_relative" class=" stats invoice_relative " <?php if($invoice_date_type == "relative" && $invoice_time_type == "between") echo "value=\"".$invoice_value2."\""; ?>>
+index.php:            <option value="days" <?php if($invoice_time2 == "days") echo "selected"; ?> >Days</option>
+index.php:           <option value="weeks" <?php if($invoice_time2 == "weeks") echo "selected"; ?> >Weeks</option>
+index.php:           <option value="months" <?php if($invoice_time2 == "months") echo "selected"; ?> >Months</option>
+index.php:           <option value="years" <?php if($invoice_time2 == "years") echo "selected"; ?> >Years</option>
+index.php:      <input type="checkbox" id="use_invoice_closed_dates" name="use_invoice_closed_dates" value="use_invoice_closed_dates" <?php if ($invoice_closed_date_type !="none") echo "checked";?>>
+index.php:        <option value="absolute" <?php if($invoice_closed_date_type == "absolute") echo "selected"; ?>>Absolute</option>
+index.php:        <option value="relative" <?php if($invoice_closed_date_type == "relative") echo "selected"; ?>  >Relative</option>
+index.php:           <option value="between" <?php if($invoice_closed_time_type == "between") echo "selected"; ?>>Between</option>
+index.php:           <option value="before" <?php if($invoice_closed_time_type == "before") echo "selected"; ?> >Before</option>
+index.php:           <option value="after" <?php if($invoice_closed_time_type == "after") echo "selected"; ?> >After</option>
+index.php:         <input type="text" name="invoice_closed_start" maxlength="10" size="10" id="invoice_closed_start" class="stats invoice_closed_absolute" onChange="JavaScript:SetCheckbox('this.value', 'use_invoice_closed_dates')" <?php if($invoice_closed_date_type == "absolute") echo "value=\"".$invoice_closed_date."\""; ?> >
+index.php:         <input type="text" name="invoice_closed_start_relative" size="3" id="invoice_closed_start_relative"  class=" stats invoice_closed_relative" onChange="JavaScript:SetCheckbox('this.value', 'use_invoice_closed_dates')" <?php if($invoice_closed_date_type == "relative" ) echo "value=\"".$invoice_closed_value."\""; ?>>
+index.php:           <option value="days" <?php if($invoice_closed_time == "days") echo "selected"; ?> >Days</option>
+index.php:           <option value="weeks" <?php if($invoice_closed_time == "weeks") echo "selected"; ?> >Weeks</option>
+index.php:           <option value="months" <?php if($invoice_closed_time == "months") echo "selected"; ?> >Months</option>
+index.php:           <option value="years" <?php if($invoice_closed_time == "years") echo "selected"; ?> >Years</option>
+index.php:         <input type="text" name="invoice_closed_end" maxlength="10" size="10" id="invoice_closed_end" class="stats invoice_closed_absolute " <?php if($invoice_closed_date_type == "absolute" && $invoice_closed_time_type == "between") echo "value=\"".$invoice_closed_date2."\""; ?>>
+index.php:         <input type="text" name="invoice_closed_end_relative" size="3" id="invoice_closed_end_relative" class=" stats invoice_closed_relative " <?php if($invoice_closed_date_type == "relative" && $invoice_closed_time_type == "between") echo "value=\"".$invoice_closed_value2."\""; ?>>
+index.php:            <option value="days" <?php if($invoice_closed_time2 == "days") echo "selected"; ?> >Days</option>
+index.php:           <option value="weeks" <?php if($invoice_closed_time2 == "weeks") echo "selected"; ?> >Weeks</option>
+index.php:           <option value="months" <?php if($invoice_closed_time2 == "months") echo "selected"; ?> >Months</option>
+index.php:           <option value="years" <?php if($invoice_closed_time2 == "years") echo "selected"; ?> >Years</option>
+index.php:      <input type="checkbox" id="use_order_dates" name="use_order_dates" value="use_order_dates"  <?php if ($order_date_type !="none") echo "checked";?>>
+index.php:        <option value="absolute" <?php if($order_date_type == "absolute") echo "selected"; ?>>Absolute</option>
+index.php:        <option value="relative" <?php if($order_date_type == "relative") echo "selected"; ?>  >Relative</option>
+index.php:           <option value="between" <?php if($order_time_type == "between") echo "selected"; ?>>Between</option>
+index.php:           <option value="before" <?php if($order_time_type == "before") echo "selected"; ?> >Before</option>
+index.php:           <option value="after" <?php if($order_time_type == "after") echo "selected"; ?> >After</option>
+index.php:         <input type="text" name="order_start" maxlength="10" size="10" id="order_start" class="stats order_absolute" onChange="JavaScript:SetCheckbox('this.value', 'use_order_dates')" <?php if($order_date_type == "absolute") echo "value=\"".$order_date."\""; ?> >
+index.php:         <input type="text" name="order_start_relative" size="3" id="order_start_relative"  class=" stats order_relative" onChange="JavaScript:SetCheckbox('this.value', 'use_order_dates')" <?php if($order_date_type == "relative" ) echo "value=\"".$order_value."\""; ?>>
+index.php:           <option value="days" <?php if($order_time == "days") echo "selected"; ?> >Days</option>
+index.php:           <option value="weeks" <?php if($order_time == "weeks") echo "selected"; ?> >Weeks</option>
+index.php:           <option value="months" <?php if($order_time == "months") echo "selected"; ?> >Months</option>
+index.php:           <option value="years" <?php if($order_time == "years") echo "selected"; ?> >Years</option>
+index.php:         <input type="text" name="order_end" maxlength="10" size="10" id="order_end" class="stats order_absolute " <?php if($order_date_type == "absolute" && $order_time_type == "between") echo "value=\"".$order_date2."\""; ?>>
+index.php:         <input type="text" name="order_end_relative" size="3" id="order_end_relative" class=" stats order_relative " <?php if($order_date_type == "relative" && $order_time_type == "between") echo "value=\"".$order_value2."\""; ?>>
+index.php:            <option value="days" <?php if($order_time2 == "days") echo "selected"; ?> >Days</option>
+index.php:           <option value="weeks" <?php if($order_time2 == "weeks") echo "selected"; ?> >Weeks</option>
+index.php:           <option value="months" <?php if($order_time2 == "months") echo "selected"; ?> >Months</option>
+index.php:           <option value="years" <?php if($order_time2 == "years") echo "selected"; ?> >Years</option>
+index.php:			   echo "<input type=\"checkbox\" id=\"".$li_status."\" name=\"line_item_status_checkboxes[]\" value=\"".$li_status."\" class=\"multi_check\" ";
+index.php:			   if($line_item_status_filter && in_array($li_status, $line_item_status_array)) echo " checked";
+index.php:			   echo " /><label for=\"".$li_status."\" class=\"multi_cb_label\">".$li_status_label."</label><br/>\n"; 
+index.php:				   echo "<span class =\"fund\">".$fund_row[2]."/".$fund_row[1]."<br /></span>\n";
+index.php:             echo "</div>";
+index.php:	          echo "<input type=\"hidden\" id=\"funds\" name=\"funds\" value=\"".$fund_list."\"/>";
+index.php:         <input type="checkbox" id="html" name="html" <?php if($use_html) echo "checked";?>/>
+index.php:        <input type="checkbox" id="spreadsheet" name="spreadsheet" onchange="JavaScript:SetCircDates(this.checked)"  <?php if($use_spreadsheet)  echo "checked";?>/>
+index.php:        <input type="checkbox" id="bookbag" name="bookbag"  <?php if($use_bookbag)  echo "checked";?>/>
+index.php:        <input type="checkbox" id="copy_bucket" name="copy_bucket"  <?php if($use_copy_bucket)  echo "checked";?>/>
+index.php:        <input type="checkbox" id="json" name="json"  onchange="JavaScript:SetRunNow(this.checked)" <?php if($use_json)  echo "checked";?>/>
+index.php:        <input type="checkbox" id="rss" name="rss" onchange="JavaScript:SetCircDates(this.checked)" <?php if($use_rss)  echo "checked";?>/>
+index.php:                            echo "<td id=\"html_order\" style='width: 70%;'>".$html_order."</td>\n";
+index.php:                           echo "<td id=\"html_order\" style='width: 70%;'>Call Number</td>\n";
+index.php:                                 echo $html_display;
+index.php:                        echo "<td id=\"html_layout\">".$html_layout."</td>\n";
+index.php:                        echo "<td id=\"html_layout\">Block</td>\n";
+index.php:                                 echo $html_options;
+index.php:                            echo "<td id=\"spreadsheet_order\" style='width: 68%;'>".$sheet_order."</td>\n";
+index.php:                           echo "<td id=\"spreadsheet_order\" style='width: 68%;'>Call Number</td>\n";
+index.php:                                 echo $sheet_display;
+index.php:                                 if ($circ_date_type !="none") echo " <li>Circs in Selected Dates</li>";
+index.php:                            echo "<td id=\"spreadsheet_format\">".$sheet_format."</td>\n";
+index.php:                           echo "<td id=\"spreadsheet_format\"> Excel </td>\n";
+index.php:                           if (strlen($sheet_options) > 0) echo "<ul>\n".$sheet_options."\n</ul>\n";
+index.php:                           echo "<ul><li>Count Sheet</li></ul>\n";
+index.php:                           echo $bookbag_update;
+index.php:                           echo $bookbag_name;
+index.php:                           echo $bookbag_desc;
+index.php:                           echo $bookbag_owner;
+index.php:                           echo $bookbag_id;
+index.php:                           echo $copy_bucket_update;
+index.php:                           echo $copy_bucket_name;
+index.php:                           echo $copy_bucket_desc;
+index.php:                           echo $copy_bucket_owner;
+index.php:                           echo $copy_bucket_id;
+index.php:                           echo $rss_list;
+index.php:                           echo $rss_desc;
+index.php:   <input type = "hidden" name="input_bag_id" id = "input_bag_id" <?php if ($use_bookbag) echo "value=\"".$bookbag_id."\"";?> >
+index.php:   <input type = "hidden" name="input_copy_bucket_id" id = "input_copy_bucket_id" <?php if ($use_copy_bucket) echo "value=\"".$copy_bucket_id."\"";?> >
+index.php:    <input type="checkbox" id="scope_links" name="scope_links" <?php if($use_scope)  echo "checked";?> />
+index.php:    <input type="checkbox" id="use_domain" name="use_domain"  <?php if($domain !="none")  echo "checked";?> />
+index.php:         <option value="BEVERLY" <?php if($domain =="BEVERLY") echo "selected";?> >Beverly</option>
+index.php:         <option value="BUNKERHILL" <?php if($domain =="BUNKERHILL") echo "selected";?>>Bunker Hill</option>
+index.php:         <option value="DANVERS" <?php if($domain =="DANVERS") echo "selected";?>>Danvers</option>
+index.php:         <option value="ENDICOTT" <?php if($domain =="ENDICOTT") echo "selected";?>>Endicott</option>
+index.php:         <option value="EVERETT" <?php if($domain =="EVERETT") echo "selected";?>>Everett</option>
+index.php:         <option value="GLOUCESTER" <?php if($domain =="GLOUCESTER") echo "selected";?>>Gloucester</option>
+index.php:         <option value="GORDON" <?php if($domain =="GORDON") echo "selected";?>>Gordon</option>
+index.php:         <option value="LYNN" <?php if($domain =="LYNN") echo "selected";?>>Lynn</option>
+index.php:         <option value="LYNNFIELD" <?php if($domain =="LYNNFIELD") echo "selected";?>>Lynnfield</option>
+index.php:         <option value="MARBLEHEAD" <?php if($domain =="MARBLEHEAD") echo "selected";?>>Marblehead</option>
+index.php:         <option value="BOARD" <?php if($domain =="BOARD") echo "selected";?>>MBLC Library</option>
+index.php:         <option value="MELROSE" <?php if($domain =="MELROSE") echo "selected";?>>Melrose</option>
+index.php:         <option value="MERRIMACK" <?php if($domain =="MERRIMACK") echo "selected";?>>Merrimack</option>
+index.php:         <option value="MONTSERRAT" <?php if($domain =="MONTSERRAT") echo "selected";?>>Montserrat</option>
+index.php:         <option value="PEABODY" <?php if($domain =="PEABODY") echo "selected";?>>Peabody</option>
+index.php:         <option value="PHILLIPS" <?php if($domain =="PHILLIPS") echo "selected";?>>Phillips</option>
+index.php:         <option value="READING" <?php if($domain =="READING") echo "selected";?>>Reading</option>
+index.php:         <option value="REVERE" <?php if($domain =="REVERE") echo "selected";?>>Revere</option>
+index.php:         <option value="SALEM" <?php if($domain =="SALEM") echo "selected";?>>Salem</option>
+index.php:         <option value="SALEMSTATE" <?php if($domain =="SALEMSTATE") echo "selected";?>>Salem State</option>
+index.php:         <option value="SAUGUS" <?php if($domain =="SAUGUS") echo "selected";?>>Saugus</option>
+index.php:         <option value="STONEHAM" <?php if($domain =="STONEHAM") echo "selected";?>>Stoneham</option>
+index.php:         <option value="SWAMPSCOTT" <?php if($domain =="SWAMPSCOTT") echo "selected";?>>Swampscott</option>
+index.php:         <option value="WAKEFIELD" <?php if($domain =="WAKEFIELD") echo "selected";?>>Wakefield</option>
+index.php:         <option value="WINTHROP" <?php if($domain =="WINTHROP") echo "selected";?>>Winthrop</option>
+index.php:    <input type="checkbox" id="search_links" name="search_links" <?php if($use_search_links)  echo "checked";?> />
+index.php:       <input type="text" name="email" id ="email" size=60 class="stats" <?php if ($use_email) echo "value=\"".$email."\"";?>/>
+index.php:       <input type="text" name="out_file" id ="out_file" class="stats" size ="50" autocomplete="new-password" <?php if ($use_out_file) echo "value=\"".$out_file."\" ";   if ($save_file_name) echo "disabled";?>  / >
+index.php:   <h3 class="weeding"> Report Name: <span class="note no_schedule"> (Optional) </span>  <span class="note schedule_only" <?php if ($use_name ) echo "value=\"".$report_name."\"";?>> (Required) </span>
+index.php:    <input type="input" id="report_name" name="report_name" class="stats" size ="50" autocomplete="new-password"  <?php if ($use_name) echo "value=\"".$report_name."\"";?>/>
+index.php:        echo "<span id=\"update_sched\"><input type=\"button\" value=\"Update Scheduled Report\" class=\"stats\" id=\"update_report\" onclick=\"JavaScript:CreateReport(true, false)\" >&nbsp; &nbsp;</span>";
+index.php:        echo "<input type=\"button\" value=\"Schedule New Report\" class=\"stats\" id=\"create_report\" onclick=\"JavaScript:CreateReport(false, true)\" >&nbsp; &nbsp;";
+index.php:	     echo "<input type=\"button\" value=\"Generate Report\" class=\"stats\" id=\"create_report\" onclick=\"JavaScript:CreateReport(false, false)\" />&nbsp; &nbsp";
+index.php:	     echo "<input type=\"button\" value=\"Generate Report\" class=\"stats\" id=\"create_report\" onclick=\"JavaScript:CreateReport(false, false)\" disabled/>&nbsp; &nbsp";
+list_form.php:<body onLoad="JavaScript:getCollManTopics(<?php echo "'".$coll_topic."'";?>)">
+list_form.php:   <input type="hidden" id="use_filters" name="use_filters" <?php echo"value=\"".$use_filters."\"";?> />
+list_form.php:   <input type="hidden" id="use_db" name="use_db" <?php echo"value=\"".$db_id."\"";?> />
+list_form.php:      <input type="radio" name="report_type" id="new_items" class="report_type" value="new_items" <?php if ($report_type == "new") echo "checked";?>  >
+list_form.php:      <input type="radio" name="report_type" id="inventory_report" class="report_type" value="inventory" <?php if ($report_type == "inventory") echo "checked";?> >
+list_form.php:       <span class="no-noble"><input type="radio" name="report_type" id="weeding_report" class="report_type" value="weeding" <?php if ($report_type == "shelf") echo "checked";?> >
+list_form.php:  <input type="radio" name="frequency" id="one_report" class="frequency" value="once" class="frequency" onchange="JavaScript:updateAllCircPreSuffix(this.value)" <?php if (!$use_schedule) echo "checked";?>>
+list_form.php:  <input type="radio" name="frequency" id="schedule_report" class="frequency" value="schedule"  class="frequency" onchange="JavaScript:updateAllCircPreSuffix(this.value)" <?php if ($use_schedule) echo "checked";?>>
+list_form.php:             <option value="daily" <?php if ($use_schedule && $schedule=="daily") echo selected;?> > Daily</option>
+list_form.php:             <option value="weekly" <?php if ($use_schedule && $schedule=="weekly") echo selected;?> > Weekly</option>
+list_form.php:             <option value="monthly" <?php if ($use_schedule && $schedule=="monthly") echo selected;?> > Monthly</option>
+list_form.php:             <option value="configure" <?php if ($use_schedule && $schedule=="relative") echo selected;?> >Relative</option>
+list_form.php:                Pick specific days: <input type="text" id="specific_days" class="stats" <?php if($use_schedule && $use_spec_days) echo "value=\"".$spec_days."\"";?> /> <span class="note">separate days (1-31) with commas</span>
+list_form.php:                   <option value="first" <?php if ($use_schedule && $use_rel_days && $rel_time=="first") echo selected;?> >First</option>
+list_form.php:                   <option value="second" <?php if ($use_schedule && $use_rel_days && $rel_time=="second")echo selected;?> >Second</option>
+list_form.php:                   <option value="third" <?php if ($use_schedule && $use_rel_days && $rel_time=="third") echo selected;?> >Third</option>
+list_form.php:                   <option value="fourth" <?php if ($use_schedule && $use_rel_days && $rel_time=="fourth") echo selected;?> >Fourth</option>
+list_form.php:                   <option value="last" <?php if ($use_schedule && $use_rel_days && $rel_time=="last") echo selected;?> >Last</option>
+list_form.php:                   <option value="monday" <?php if ($use_schedule && $use_rel_days && $rel_day=="monday") echo selected;?> >Monday</option>
+list_form.php:                   <option value="tuesday" <?php if ($use_schedule && $use_rel_days && $rel_day=="tuesday") echo selected;?> >Tuesday</option>
+list_form.php:                   <option value="wednesday" <?php if ($use_schedule && $use_rel_days && $rel_day=="wednesday") echo selected;?> >Wednesday</option>
+list_form.php:                   <option value="thursday" <?php if ($use_schedule && $use_rel_days && $rel_day=="thursday") echo selected;?> >Thursday</option>
+list_form.php:                   <option value="friday" <?php if ($use_schedule && $use_rel_days && $rel_day=="friday") echo selected;?> >Friday</option>
+list_form.php:                   <option value="saturday" <?php if ($use_schedule && $use_rel_days && $rel_day=="saturday") echo selected;?> >Saturday</option>
+list_form.php:                   <option value="sunday" <?php if ($use_schedule && $use_rel_days && $rel_day=="sunday") echo selected;?> >Sunday</option>
+list_form.php:                <td><input type="checkbox" id="monday" name="monday" value="monday" class="stats" <?php if ($use_schedule && $schedule=="weekly" && in_array("monday", $days)) echo checked;?> >
+list_form.php:                <td><input type="checkbox" id="tuesday" name="tuesday" value="tuesday" class="stats"  <?php if ($use_schedule && $schedule=="weekly" && in_array("tuesday", $days)) echo checked;?> >
+list_form.php:                <td><input type="checkbox" id="wednesday" name="wednesday" value="wednesday" class="stats"  <?php if ($use_schedule && $schedule=="weekly" && in_array("wednesday", $days)) echo checked;?> >
+list_form.php:                <td><input type="checkbox" id="thursday" name="thursday" value="thursday" class="stats"  <?php if ($use_schedule && $schedule=="weekly" && in_array("thursday", $days)) echo checked;?> >
+list_form.php:                <td><input type="checkbox" id="friday" name="friday" value="friday" class="stats"  <?php if ($use_schedule && $schedule=="weekly" && in_array("friday", $days)) echo checked;?> >
+list_form.php:                <td><input type="checkbox" id="saturday" name="saturday" value="saturday" class="stats"  <?php if ($use_schedule && $schedule=="weekly" && in_array("saturday", $days)) echo checked;?> >
+list_form.php:                <td><input type="checkbox" id="sunday" name="sunday" value="sunday" class="stats"  <?php if ($use_schedule && $schedule=="weekly" && in_array("sunday", $days)) echo checked;?> >
+list_form.php:              Every <input type="text" id="relative_time" size="3" class="stats" <?php if ($use_schedule && $schedule=="relative" ) echo "value=\"".$rel_day."\"";?> />
+list_form.php:                <option value="days" <?php if ($use_schedule && $schedule=="relative" && $rel_time=="days" ) echo selected;?> >Days</option>
+list_form.php:                <option value="weeks" <?php if ($use_schedule && $schedule=="relative" && $rel_time=="weeks" ) echo selected;?> >Weeks</option>
+list_form.php:                <option value="months" <?php if ($use_schedule && $schedule=="relative" && $rel_time=="months" ) echo selected;?> >Months</option>
+list_form.php:              Starting On  <input type="text" name="relative_start_date" id ="relative_start_date" maxlength="10" size="10" class="stats" <?php if ($use_schedule && $schedule=="relative" ) echo "value=\"".$start_date."\"";?>>
+list_form.php:         <input type="checkbox" id="run_now" name="run_now" class="stats" <?php if ($use_schedule && $use_json) echo checked; ?>/>
+list_form.php:               echo "<option value=\"".$shortname."\"";
+list_form.php:							 echo " selected";
+list_form.php:               echo ">".$name."</option>\n";
+list_form.php:               echo "<select name=\"branch_filter\" id=\"branch_filter\" class=\"stats\" onchange=\"JavaScript:UpdateCopyLocations(this.value)\" >\n";
+list_form.php:              echo " <option value=\"ALL\"";
+list_form.php:              if($has_branches)echo " selected";
+list_form.php:              echo ">ALL</option>\n";
+list_form.php:                 echo "<option value=\"".$shortname."\"";
+list_form.php:                 if($is_branch && $shortname == $library) echo " selected";
+list_form.php:                 echo ">".$display_name."</option>\n";
+list_form.php:              echo "</select>\n";
+list_form.php:				      echo "<input type=\"checkbox\" id=\"".$loc_id."\" name=\"copy_loc_checkboxes[]\" value=\"".$loc_id."\" class=\"multi_check\" ";
+list_form.php:				         echo " checked";
+list_form.php:				      echo " onclick=\"JavaScript:getCircModifierList(false)\" /><label for=\"".$loc_name."\" class=\"multi_cb_label\">".$loc_name."</label><br/>\n";
+list_form.php:             echo "NONE\n";
+list_form.php:       <select id="copy_loc_group" name="copy_loc_group" class="stats"  onchange="JavaScript:getCircModifierList(true)" <?php if ($use_all_loc) echo "disabled";?>>
+list_form.php:			   echo "<option value=\"-1\"></option>\n";
+list_form.php:				   echo "<option value=\"".$loc_id."\"";
+list_form.php:				      echo " selected";
+list_form.php:				   echo ">".$loc_name."</option>\n";
+list_form.php:             echo "<option value=\"-1\"> NONE </option>\n";
+list_form.php:        <input type="checkbox" id="all_locations" name="all_locations" value="all" onchange="JavaScript:getAllCircPreSuffix(this)" <?php if ($use_all_loc) echo "checked";?>>
+list_form.php:          <option value="absolute" <?php if($shelf_type == "absolute") echo "selected"; ?> >Absolute</option>
+list_form.php:          <option value="relative" <?php if($shelf_type == "relative") echo "selected"; ?>>Relative</option>
+list_form.php:       <input type="text" name="last_checkin_date" maxlength="10" size="10" id="last_checkin_date" class="stats checkin_absolute" <?php if($shelf_type == "absolute") echo "value=\"".$shelf_date."\""; ?>>
+list_form.php:       <input type="text" name="checkin_date_relative" size="3" id="checkin_date_relative" class=" stats checkin_relative" <?php if($shelf_type == "relative") echo "value=\"".$shelf_value."\""; ?>>
+list_form.php:           <option value="days" <?php if($shelf_time == "days") echo "selected"; ?> >Days</option>
+list_form.php:           <option value="weeks" <?php if($shelf_time == "weeks") echo "selected"; ?>>Weeks</option>
+list_form.php:           <option value="months" <?php if($shelf_time == "months") echo "selected"; ?>>Months</option>
+list_form.php:           <option value="years" <?php if($shelf_time == "years") echo "selected"; ?>>Years</option>
+list_form.php:       <span id="file_name"><?php if($file_data_type != "none") echo "File: ".$file_name."<br />"; ?></span>
+list_form.php:       <span id="data_type"><?php if($file_data_type != "none") echo "Data: ".$file_data_type."<br />"; ?></span>
+list_form.php:       <span id="file_type"><?php if($file_data_type != "none") echo "Format: ".$file_type."<br />"; ?></span>
+list_form.php:       <input type="hidden" id="input_file_name" name="input_file_name" <?php if($file_data_type != "none") echo "value=\"".$file_name."\""; else echo"value=\"-1\"";?> />
+list_form.php:	    <input type="hidden" id="input_data_type" name="input_data_type" <?php if($file_data_type != "none") echo "value=\"".$file_data_type."\""; else echo"value=\"-1\"";?> />
+list_form.php:	    <input type="hidden" id="input_file_type" name="input_file_type" <?php if($file_data_type != "none") echo "value=\"".$file_type."\""; else echo"value=\"-1\"";?> />
+list_form.php:      <input type="checkbox" id="use_active" name="use_active" value="use_active" onChange="JavaScript:SetElectronic(this.checked)" <?php if ($add_date_type !="none") echo "checked";?>>
+list_form.php:        <option value="absolute" <?php if($add_date_type == "absolute") echo "selected"; ?> >Absolute</option>
+list_form.php:        <option value="relative" <?php if($add_date_type == "relative") echo "selected"; ?> >Relative</option>
+list_form.php:           <option value="between" <?php if($add_time_type == "between") echo "selected"; ?>>Between</option>
+list_form.php:           <option value="before" <?php if($add_time_type == "before") echo "selected"; ?> >Before</option>
+list_form.php:           <option value="after" <?php if($add_time_type == "after") echo "selected"; ?> >After</option>
+list_form.php:         <input type="text" name="active_start" maxlength="10" size="10" id="active_start" onChange="JavaScript:SetCheckbox(this.value, 'use_active')" class="stats added_absolute" <?php if($add_date_type == "absolute") echo "value=\"".$add_date."\""; ?>>
+list_form.php:         <input type="text" name="active_start_relative" size="3" id="active_start_relative" onchange="JavaScript:SetCheckbox(this.value, 'use_active')" class="stats added_relative" <?php if($add_date_type == "relative" ) echo "value=\"".$add_value."\""; ?>>
+list_form.php:            <option value="days" <?php if($add_time == "days") echo "selected"; ?> >Days</option>
+list_form.php:            <option value="weeks" <?php if($add_time == "weeks") echo "selected"; ?> >Weeks</option>
+list_form.php:            <option value="months" <?php if($add_time == "months") echo "selected"; ?> >Months</option>
+list_form.php:            <option value="years" <?php if($add_time == "years") echo "selected"; ?> >Years</option>
+list_form.php:         <input type="text" name="active_end" maxlength="10" size="10" id="active_end" class="stats added_absolute " <?php if($add_date_type == "absolute" && $add_time_type == "between") echo "value=\"".$add_date2."\""; ?>>
+list_form.php:         <input type="text" name="active_end_relative" size="3" id="active_end_relative" class=" stats added_relative " <?php if($add_date_type == "relative" && $add_time_type == "between") echo "value=\"".$add_value2."\""; ?>>
+list_form.php:           <option value="days" <?php if($add_time2 == "days") echo "selected"; ?> >Days</option>
+list_form.php:           <option value="weeks" <?php if($add_time2 == "weeks") echo "selected"; ?> >Weeks</option>
+list_form.php:           <option value="months" <?php if($add_time2 == "months") echo "selected"; ?> >Months</option>
+list_form.php:           <option value="years" <?php if($add_time2 == "years") echo "selected"; ?> >Years</option>
+list_form.php:             <option value="active_only" <?php if($del_type == "active") echo "selected"; ?> >Active Items Only</option>
+list_form.php:             <option value="active_deleted" <?php if($del_type == "both") echo "selected"; ?> >All Items (active AND deleted)</option>
+list_form.php:             <option value="deleted_only" <?php if($del_type == "deleted") echo "selected"; ?> >Deleted Items Only</option>
+list_form.php:           <input type="checkbox" id="use_deleted_date" name="use_deleted_date" value="use_deleted_date" <?php if ($del_date_type !="none") echo "checked";?>>
+list_form.php:             <option value="absolute" <?php if($del_date_type == "absolute") echo "selected"; ?> >Absolute</option>
+list_form.php:             <option value="relative" <?php if($del_date_type == "relative") echo "selected"; ?> >Relative</option>
+list_form.php:              <option value="after" <?php if($del_time_type == "after") echo "selected"; ?> >After</option>
+list_form.php:              <option value="before" <?php if($del_time_type == "before") echo "selected"; ?> >Before</option>
+list_form.php:              <option value="between" <?php if($del_time_type == "between") echo "selected"; ?>>Between</option>
+list_form.php:            <input type="text" name="deleted_date_start" maxlength="10" size="10" id="deleted_date_start" onchange="JavaScript:SetCheckbox(this.value, 'use_deleted_date')" class="stats deleted_absolute" <?php if($del_date_type == "absolute") echo "value=\"".$del_date."\""; ?>>
+list_form.php:            <input type="text" name="deleted_date_start_relative" size="3" id="deleted_date_start_relative" onchange="JavaScript:SetCheckbox(this.value, 'use_deleted_date')" class=" stats deleted_relative" <?php if($del_date_type == "relative" ) echo "value=\"".$del_value."\""; ?>>
+list_form.php:              <option value="days" <?php if($del_time == "days") echo "selected"; ?> >Days</option>
+list_form.php:              <option value="weeks" <?php if($del_time == "weeks") echo "selected"; ?> >Weeks</option>
+list_form.php:              <option value="months" <?php if($del_time == "months") echo "selected"; ?> >Months</option>
+list_form.php:              <option value="years" <?php if($del_time == "years") echo "selected"; ?> >Years</option>
+list_form.php:             <input type="text" name="deleted_date_end" maxlength="10" size="10" id="deleted_date_end" class="stats deleted_absolute " <?php if($del_date_type == "absolute" && $del_time_type == "between") echo "value=\"".$del_date2."\""; ?>>
+list_form.php:            <input type="text" name="deleted_date_end_relative" size="3" id="deleted_date_end_relative" class=" stats deleted_relative " <?php if($del_date_type == "relative" && $del_time_type == "between") echo "value=\"".$del_value2."\""; ?>>
+list_form.php:              <option value="days" <?php if($del_time2 == "days") echo "selected"; ?>>Days</option>
+list_form.php:              <option value="weeks" <?php if($del_time2 == "weeks") echo "selected"; ?>>Weeks</option>
+list_form.php:              <option value="months" <?php if($del_time2 == "months") echo "selected"; ?>>Months</option>
+list_form.php:              <option value="years" <?php if($del_time2 == "years") echo "selected"; ?>>Years</option>
+list_form.php:        <select id="electronic" name="electronic" class="stats" onChange = "JavaScript:CheckCopyLocation(this.value)" <?php if( !($file_data_type == "bib" || $add_date_type !="none")) echo "disabled"; ?> >
+list_form.php:           <option value="physical_only" <?php if($elec_type =="physical") echo "selected"; ?> >Physical Items Only</option>
+list_form.php:           <option value="physical_electronic" <?php if($elec_type =="both") echo "selected"; ?> >All Items (physical AND electronic)</option>
+list_form.php:           <option value="electronic_only" <?php if($elec_type =="electronic") echo "selected"; ?>>Electronic Items Only</option>
+list_form.php:					   echo "NONE\n";
+list_form.php:							echo "<input type=\"checkbox\" id=\"".$stat_id."\" name=\"status_checkboxes[]\" value=\"".$stat_id."\" class=\"multi_check\" ";
+list_form.php:								echo " checked";
+list_form.php:							echo " /><label for=\"".$stat_name."\" class=\"multi_cb_label\">".$stat_name."</label><br/>\n";
+list_form.php:             echo "NONE\n";
+list_form.php:      <input type="checkbox" id="status_change_check" name="status_change_check" value="status_change_check" <?php if ($stat_date_type !="none") echo "checked";?>>
+list_form.php:          <option value="absolute" <?php if($stat_date_type == "absolute") echo "selected"; ?> >Absolute</option>
+list_form.php:          <option value="relative" <?php if($stat_date_type == "relative") echo "selected"; ?> >Relative</option>
+list_form.php:           <option value="before" <?php if($stat_time_type == "before") echo "selected"; ?> >Before</option>
+list_form.php:           <option value="after" <?php if($stat_time_type == "after") echo "selected"; ?> >After</option>
+list_form.php:           <option value="between" <?php if($stat_time_type == "between") echo "selected"; ?>  >Between</option>
+list_form.php:         <input type="text" name="status_date_start" maxlength="10" size="10" id="status_date_start" onchange="JavaScript:SetCheckbox(this.value, 'status_change_check')" class="stats stat_absolute" <?php if($stat_date_type == "absolute") echo "value=\"".$stat_date."\""; ?>>
+list_form.php:         <input type="text" name="status_date_start_relative" size="3" id="status_date_start_relative" onchange="JavaScript:SetCheckbox(this.value, 'status_change_check')" class=" stats stat_relative" <?php if($stat_date_type == "relative" ) echo "value=\"".$stat_value."\""; ?>>
+list_form.php:           <option value="days" <?php if($stat_time == "days") echo "selected"; ?>>Days</option>
+list_form.php:           <option value="weeks" <?php if($stat_time == "weeks") echo "selected"; ?> >Weeks</option>
+list_form.php:           <option value="months" <?php if($stat_time == "months") echo "selected"; ?>>Months</option>
+list_form.php:           <option value="years" <?php if($stat_time == "years") echo "selected"; ?>>Years</option>
+list_form.php:         <input type="text" name="status_date_end" maxlength="10" size="10" id="status_date_end" class="stats stat_absolute" <?php if($stat_date_type == "absolute" && $stat_time_type == "between") echo "value=\"".$stat_date2."\""; ?>>
+list_form.php:         <input type="text" name="status_date_end_relative" size="3" id="status_date_end_relative" class=" stats stat_relative" <?php if($stat_date_type == "relative" && $stat_time_type == "between") echo "value=\"".$stat_value2."\""; ?>>
+list_form.php:           <option value="days" <?php if($stat_time2 == "days") echo "selected"; ?>>Days</option>
+list_form.php:           <option value="weeks" <?php if($stat_time2 == "weeks") echo "selected"; ?> >Weeks</option>
+list_form.php:           <option value="months" <?php if($stat_time2 == "months") echo "selected"; ?>>Months</option>
+list_form.php:           <option value="years" <?php if($stat_time2 == "years") echo "selected"; ?>>Years</option>
+list_form.php:				   echo "<span class =\"stat\">".$stat_cat_row[0]." / ".$stat_cat_row[1]." <br /></span>\n";
+list_form.php:             echo "</div>";
+list_form.php:	          echo "<input type=\"hidden\" id=\"stat_cats\" name=\"stat_cats\" value=\"".$stat_cat."\"/>";
+list_form.php:            <option value="1" <?php if ($call_class== "1") echo "selected";?> > Generic </option>
+list_form.php:            <option value="2" <?php if ($call_class== "2") echo "selected";?>  > Dewey </option>
+list_form.php:            <option value="3" <?php if ($call_class== "3") echo "selected";?> > LC </option>
+list_form.php:            <option value="4" <?php if ($call_class== "4") echo "selected";?> > BISAC </option>
+list_form.php:           <tr><td class="call_select"><input type="radio" id="call_num_range" name="call_method" value="range" <?php if($use_call_range) echo "checked"; ?> > <label>Range </label></td></tr>
+list_form.php:           <tr><td>Starting Call Number: </td>   <td> <input type="text" name="start_call" id ="start_call" class="stats" onchange="JavaScript:SetRadio(this.value, 'call_num_range')" <?php if($use_call_range) echo "value=\"".$call_start."\""; ?>></td></tr>
+list_form.php:           <tr><td>End Call Number: </td>   <td> <input type="text" name="end_call" id ="end_call" class="stats"  onchange="JavaScript:SetRadio(this.value, 'call_num_range')" <?php if($use_call_range) echo "value=\"".$call_end."\""; ?>></td></tr>
+list_form.php:           <tr><td class="call_select"><input type="radio" id="call_num_contains" name="call_method" value="contains" <?php if($use_call_contains) echo "checked"; ?> > <label> Call Number Contains </label></td></tr>
+list_form.php:           <tr><td>Text:</td>   <td>  <input type="text" name="contains_call" id ="contains_call" class="stats"  onchange="JavaScript:SetRadio(this.value, 'call_num_contains')" <?php if($use_call_contains) echo "value=\"".$call_contains."\""; ?> ></td></tr>
+list_form.php:        <tr><td class="call_select"><input type="radio" id="coll_topic" name="call_method" value="coll_topic" <?php if($use_coll_topic) echo "checked"; ?> > <label>Collection Topic</label></td></tr>
+list_form.php:       <tr><td class="call_select"><input type="radio" id="bisac_call" name="call_method" value="bisac" <?php if($bisac_set) echo "checked"; ?> > <label>Bisac Category </label></td></tr>
+list_form.php:							echo "<option value=\"".$bisac_id."\"";
+list_form.php:								echo " selected";
+list_form.php:							echo ">".$bisac_name."</option>\n";
+list_form.php:							echo "<option value=\"".$bisac_id."\"";
+list_form.php:								echo " selected";
+list_form.php:							echo ">".$bisac_name."</option>\n";
+list_form.php:							echo "<option value=\"".$bisac_id."\"";
+list_form.php:								echo " selected";
+list_form.php:							echo ">".$bisac_name."</option>\n";
+list_form.php:					   echo "NONE";
+list_form.php:							echo "<input type=\"checkbox\" id=\"".$prefix_id."\" name=\"prefix_checkboxes[]\" value=\"".$prefix_id."\" class=\"multi_check\" ";
+list_form.php:								echo " checked";
+list_form.php:							echo " /><label for=\"".$prefix_name."\" class=\"multi_cb_label\">".$prefix_name."</label><br/>\n";
+list_form.php:             echo "NONE\n";
+list_form.php:					   echo "NONE";
+list_form.php:							echo "<input type=\"checkbox\" id=\"".$suffix_id."\" name=\"suffix_checkboxes[]\" value=\"".$suffix_id."\" class=\"multi_check\" ";
+list_form.php:								echo " checked";
+list_form.php:							echo " /><label for=\"".$suffix_name."\" class=\"multi_cb_label\">".$suffix_name."</label><br/>\n";
+list_form.php:             echo "NONE\n";
+list_form.php:					   echo "NONE\n";
+list_form.php:							echo "<input type=\"checkbox\" id=\"".$circ_mod_code."\" name=\"circ_mod_checkboxes[]\" value=\"".$circ_mod_code."\" class=\"multi_check\" ";
+list_form.php:								echo " checked";
+list_form.php:							echo " /><label for=\"".$circ_mod_code."\" class=\"multi_cb_label\">".$circ_mod_code."</label><br/>\n";
+list_form.php:             echo "NONE\n";
+list_form.php:      <input type="checkbox" id="use_circ_count" name="use_circ_count" value="use_circ_count" <?php if($circ_count != -1) echo  "checked"; ?> >
+list_form.php:         <option value="more" <?php if($circ_count != -1 && $circ_count_compare == "more") echo "selected";?> > More than </option>
+list_form.php:         <option value="less" <?php if($circ_count != -1 && $circ_count_compare == "less") echo "selected";?>> Less than </option>
+list_form.php:      <input type="text" name="circ_count" id="circ_count" class="stats" size="3" onChange="JavaScript:SetCheckbox('this.value', 'use_circ_count')" <?php if($circ_count != -1) echo "value=\"".$circ_count."\""; ?>> in
+list_form.php:         <option value="lifetime" <? if($circ_count != -1 && $circ_date_type == "none") echo "selected";?> > Lifetime Circs </option>
+list_form.php:         <option value="circ_dates" <? if($circ_count != -1 && $circ_date_type != "none") echo "selected";?>>Configurable Dates </option>
+list_form.php:      <input type="checkbox" id="use_circ_dates" name="use_circ_dates" value="use_circ_dates" onChange="JavaScript:UpdateCircDates(this.checked)" <?php if ($circ_date_type !="none") echo "checked";?>>
+list_form.php:        <option value="absolute" <?php if($circ_date_type == "absolute") echo "selected"; ?>>Absolute</option>
+list_form.php:        <option value="relative" <?php if($circ_date_type == "relative") echo "selected"; ?>  >Relative</option>
+list_form.php:           <option value="between" <?php if($circ_time_type == "between") echo "selected"; ?>>Between</option>
+list_form.php:           <option value="before" <?php if($circ_time_type == "before") echo "selected"; ?> >Before</option>
+list_form.php:           <option value="after" <?php if($circ_time_type == "after") echo "selected"; ?> >After</option>
+list_form.php:         <input type="text" name="circ_start" maxlength="10" size="10" id="circ_start" class="stats circ_absolute" onChange="JavaScript:SetCheckbox('this.value', 'use_circ_dates')" <?php if($circ_date_type == "absolute") echo "value=\"".$circ_date."\""; ?> >
+list_form.php:         <input type="text" name="circ_start_relative" size="3" id="circ_start_relative"  class=" stats circ_relative" onChange="JavaScript:SetCheckbox('this.value', 'use_circ_dates')" <?php if($circ_date_type == "relative" ) echo "value=\"".$circ_value."\""; ?>>
+list_form.php:           <option value="days" <?php if($circ_time == "days") echo "selected"; ?> >Days</option>
+list_form.php:           <option value="weeks" <?php if($circ_time == "weeks") echo "selected"; ?> >Weeks</option>
+list_form.php:           <option value="months" <?php if($circ_time == "months") echo "selected"; ?> >Months</option>
+list_form.php:           <option value="years" <?php if($circ_time == "years") echo "selected"; ?> >Years</option>
+list_form.php:         <input type="text" name="circ_end" maxlength="10" size="10" id="circ_end" class="stats circ_absolute " <?php if($circ_date_type == "absolute" && $circ_time_type == "between") echo "value=\"".$circ_date2."\""; ?>>
+list_form.php:         <input type="text" name="circ_end_relative" size="3" id="circ_end_relative" class=" stats circ_relative " <?php if($circ_date_type == "relative" && $circ_time_type == "between") echo "value=\"".$circ_value2."\""; ?>>
+list_form.php:            <option value="days" <?php if($circ_time2 == "days") echo "selected"; ?> >Days</option>
+list_form.php:           <option value="weeks" <?php if($circ_time2 == "weeks") echo "selected"; ?> >Weeks</option>
+list_form.php:           <option value="months" <?php if($circ_time2 == "months") echo "selected"; ?> >Months</option>
+list_form.php:           <option value="years" <?php if($circ_time2 == "years") echo "selected"; ?> >Years</option>
+list_form.php:      <input type="checkbox" id="use_inventory_dates" name="use_inventory_dates" value="use_inventory_dates" <?php if ($inventory_date_type !="none") echo "checked";?>>
+list_form.php:        <option value="absolute" <?php if($inventory_date_type == "absolute") echo "selected"; ?>>Absolute</option>
+list_form.php:        <option value="relative" <?php if($inventory_date_type == "relative") echo "selected"; ?>  >Relative</option>
+list_form.php:           <option value="between" <?php if($inventory_time_type == "between") echo "selected"; ?>>Between</option>
+list_form.php:           <option value="before" <?php if($inventory_time_type == "before") echo "selected"; ?> >Before</option>
+list_form.php:           <option value="after" <?php if($inventory_time_type == "after") echo "selected"; ?> >After</option>
+list_form.php:         <input type="text" name="inventory_start" maxlength="10" size="10" id="inventory_start" class="stats inventory_absolute" onChange="JavaScript:SetCheckbox('this.value', 'use_inventory_dates')" <?php if($inventory_date_type == "absolute") echo "value=\"".$inventory_date."\""; ?> >
+list_form.php:         <input type="text" name="inventory_start_relative" size="3" id="inventory_start_relative"  class=" stats inventory_relative" onChange="JavaScript:SetCheckbox('this.value', 'use_inventory_dates')" <?php if($inventory_date_type == "relative" ) echo "value=\"".$inventory_value."\""; ?>>
+list_form.php:           <option value="days" <?php if($inventory_time == "days") echo "selected"; ?> >Days</option>
+list_form.php:           <option value="weeks" <?php if($inventory_time == "weeks") echo "selected"; ?> >Weeks</option>
+list_form.php:           <option value="months" <?php if($inventory_time == "months") echo "selected"; ?> >Months</option>
+list_form.php:           <option value="years" <?php if($inventory_time == "years") echo "selected"; ?> >Years</option>
+list_form.php:         <input type="text" name="inventory_end" maxlength="10" size="10" id="inventory_end" class="stats inventory_absolute " <?php if($inventory_date_type == "absolute" && $inventory_time_type == "between") echo "value=\"".$inventory_date2."\""; ?>>
+list_form.php:         <input type="text" name="inventory_end_relative" size="3" id="inventory_end_relative" class=" stats inventory_relative " <?php if($inventory_date_type == "relative" && $inventory_time_type == "between") echo "value=\"".$inventory_value2."\""; ?>>
+list_form.php:            <option value="days" <?php if($inventory_time2 == "days") echo "selected"; ?> >Days</option>
+list_form.php:           <option value="weeks" <?php if($inventory_time2 == "weeks") echo "selected"; ?> >Weeks</option>
+list_form.php:           <option value="months" <?php if($inventory_time2 == "months") echo "selected"; ?> >Months</option>
+list_form.php:           <option value="years" <?php if($inventory_time2 == "years") echo "selected"; ?> >Years</option>
+list_form.php:      <input type="checkbox" id="use_pub" name="use_pub" value="pub" <?php if ($pub_type !="none") echo "checked";?>>
+list_form.php:         <option value="before" <?php if($pub_type == "before") echo "selected"; ?> >Before</option>
+list_form.php:         <option value="after" <?php if($pub_type == "after") echo "selected"; ?> >After</option>
+list_form.php:         <option value="between" <?php if($pub_type == "between") echo "selected"; ?> >Between</option>
+list_form.php:        <input type="text" name="pub_date" maxlength="4" size="4" id="pub_date" class="stats" oninput="JavaScript:SetCheckbox(this.value, 'use_pub')"  <?php if($pub_type != "none") echo "value=\"".$pub_date."\""; ?> >
+list_form.php:        <input type="text" name="pub_date2" maxlength="4" size="4" id="pub_date2" class="stats pub_between" oninput="JavaScript:SetCheckbox(this.value, 'use_pub')" <?php if($pub_type == "between") echo "value=\"".$pub_date2."\""; ?> />
+list_form.php:           <option value="all_items" <?php if($only_holder =="all") echo "selected";?> >All Items </option>
+list_form.php:           <option value="true" <?php if($only_holder == "true") echo "selected";?> >Only Holder</option>
+list_form.php:           <option value="false" <?php if($only_holder =="false") echo "selected";?>  >Not the Only Holder </option>
+list_form.php:      <input type="checkbox" id="use_invoice_dates" name="use_invoice_dates" value="use_invoice_dates" <?php if ($invoice_date_type !="none") echo "checked";?>>
+list_form.php:        <option value="absolute" <?php if($invoice_date_type == "absolute") echo "selected"; ?>>Absolute</option>
+list_form.php:        <option value="relative" <?php if($invoice_date_type == "relative") echo "selected"; ?>  >Relative</option>
+list_form.php:           <option value="between" <?php if($invoice_time_type == "between") echo "selected"; ?>>Between</option>
+list_form.php:           <option value="before" <?php if($invoice_time_type == "before") echo "selected"; ?> >Before</option>
+list_form.php:           <option value="after" <?php if($invoice_time_type == "after") echo "selected"; ?> >After</option>
+list_form.php:         <input type="text" name="invoice_start" maxlength="10" size="10" id="invoice_start" class="stats invoice_absolute" onChange="JavaScript:SetCheckbox('this.value', 'use_invoice_dates')" <?php if($invoice_date_type == "absolute") echo "value=\"".$invoice_date."\""; ?> >
+list_form.php:         <input type="text" name="invoice_start_relative" size="3" id="invoice_start_relative"  class=" stats invoice_relative" onChange="JavaScript:SetCheckbox('this.value', 'use_invoice_dates')" <?php if($invoice_date_type == "relative" ) echo "value=\"".$invoice_value."\""; ?>>
+list_form.php:           <option value="days" <?php if($invoice_time == "days") echo "selected"; ?> >Days</option>
+list_form.php:           <option value="weeks" <?php if($invoice_time == "weeks") echo "selected"; ?> >Weeks</option>
+list_form.php:           <option value="months" <?php if($invoice_time == "months") echo "selected"; ?> >Months</option>
+list_form.php:           <option value="years" <?php if($invoice_time == "years") echo "selected"; ?> >Years</option>
+list_form.php:         <input type="text" name="invoice_end" maxlength="10" size="10" id="invoice_end" class="stats invoice_absolute " <?php if($invoice_date_type == "absolute" && $invoice_time_type == "between") echo "value=\"".$invoice_date2."\""; ?>>
+list_form.php:         <input type="text" name="invoice_end_relative" size="3" id="invoice_end_relative" class=" stats invoice_relative " <?php if($invoice_date_type == "relative" && $invoice_time_type == "between") echo "value=\"".$invoice_value2."\""; ?>>
+list_form.php:            <option value="days" <?php if($invoice_time2 == "days") echo "selected"; ?> >Days</option>
+list_form.php:           <option value="weeks" <?php if($invoice_time2 == "weeks") echo "selected"; ?> >Weeks</option>
+list_form.php:           <option value="months" <?php if($invoice_time2 == "months") echo "selected"; ?> >Months</option>
+list_form.php:           <option value="years" <?php if($invoice_time2 == "years") echo "selected"; ?> >Years</option>
+list_form.php:      <input type="checkbox" id="use_invoice_closed_dates" name="use_invoice_closed_dates" value="use_invoice_closed_dates" <?php if ($invoice_closed_date_type !="none") echo "checked";?>>
+list_form.php:        <option value="absolute" <?php if($invoice_closed_date_type == "absolute") echo "selected"; ?>>Absolute</option>
+list_form.php:        <option value="relative" <?php if($invoice_closed_date_type == "relative") echo "selected"; ?>  >Relative</option>
+list_form.php:           <option value="between" <?php if($invoice_closed_time_type == "between") echo "selected"; ?>>Between</option>
+list_form.php:           <option value="before" <?php if($invoice_closed_time_type == "before") echo "selected"; ?> >Before</option>
+list_form.php:           <option value="after" <?php if($invoice_closed_time_type == "after") echo "selected"; ?> >After</option>
+list_form.php:         <input type="text" name="invoice_closed_start" maxlength="10" size="10" id="invoice_closed_start" class="stats invoice_closed_absolute" onChange="JavaScript:SetCheckbox('this.value', 'use_invoice_closed_dates')" <?php if($invoice_closed_date_type == "absolute") echo "value=\"".$invoice_closed_date."\""; ?> >
+list_form.php:         <input type="text" name="invoice_closed_start_relative" size="3" id="invoice_closed_start_relative"  class=" stats invoice_closed_relative" onChange="JavaScript:SetCheckbox('this.value', 'use_invoice_closed_dates')" <?php if($invoice_closed_date_type == "relative" ) echo "value=\"".$invoice_closed_value."\""; ?>>
+list_form.php:           <option value="days" <?php if($invoice_closed_time == "days") echo "selected"; ?> >Days</option>
+list_form.php:           <option value="weeks" <?php if($invoice_closed_time == "weeks") echo "selected"; ?> >Weeks</option>
+list_form.php:           <option value="months" <?php if($invoice_closed_time == "months") echo "selected"; ?> >Months</option>
+list_form.php:           <option value="years" <?php if($invoice_closed_time == "years") echo "selected"; ?> >Years</option>
+list_form.php:         <input type="text" name="invoice_closed_end" maxlength="10" size="10" id="invoice_closed_end" class="stats invoice_closed_absolute " <?php if($invoice_closed_date_type == "absolute" && $invoice_closed_time_type == "between") echo "value=\"".$invoice_closed_date2."\""; ?>>
+list_form.php:         <input type="text" name="invoice_closed_end_relative" size="3" id="invoice_closed_end_relative" class=" stats invoice_closed_relative " <?php if($invoice_closed_date_type == "relative" && $invoice_closed_time_type == "between") echo "value=\"".$invoice_closed_value2."\""; ?>>
+list_form.php:            <option value="days" <?php if($invoice_closed_time2 == "days") echo "selected"; ?> >Days</option>
+list_form.php:           <option value="weeks" <?php if($invoice_closed_time2 == "weeks") echo "selected"; ?> >Weeks</option>
+list_form.php:           <option value="months" <?php if($invoice_closed_time2 == "months") echo "selected"; ?> >Months</option>
+list_form.php:           <option value="years" <?php if($invoice_closed_time2 == "years") echo "selected"; ?> >Years</option>
+list_form.php:      <input type="checkbox" id="use_order_dates" name="use_order_dates" value="use_order_dates"  <?php if ($order_date_type !="none") echo "checked";?>>
+list_form.php:        <option value="absolute" <?php if($order_date_type == "absolute") echo "selected"; ?>>Absolute</option>
+list_form.php:        <option value="relative" <?php if($order_date_type == "relative") echo "selected"; ?>  >Relative</option>
+list_form.php:           <option value="between" <?php if($order_time_type == "between") echo "selected"; ?>>Between</option>
+list_form.php:           <option value="before" <?php if($order_time_type == "before") echo "selected"; ?> >Before</option>
+list_form.php:           <option value="after" <?php if($order_time_type == "after") echo "selected"; ?> >After</option>
+list_form.php:         <input type="text" name="order_start" maxlength="10" size="10" id="order_start" class="stats order_absolute" onChange="JavaScript:SetCheckbox('this.value', 'use_order_dates')" <?php if($order_date_type == "absolute") echo "value=\"".$order_date."\""; ?> >
+list_form.php:         <input type="text" name="order_start_relative" size="3" id="order_start_relative"  class=" stats order_relative" onChange="JavaScript:SetCheckbox('this.value', 'use_order_dates')" <?php if($order_date_type == "relative" ) echo "value=\"".$order_value."\""; ?>>
+list_form.php:           <option value="days" <?php if($order_time == "days") echo "selected"; ?> >Days</option>
+list_form.php:           <option value="weeks" <?php if($order_time == "weeks") echo "selected"; ?> >Weeks</option>
+list_form.php:           <option value="months" <?php if($order_time == "months") echo "selected"; ?> >Months</option>
+list_form.php:           <option value="years" <?php if($order_time == "years") echo "selected"; ?> >Years</option>
+list_form.php:         <input type="text" name="order_end" maxlength="10" size="10" id="order_end" class="stats order_absolute " <?php if($order_date_type == "absolute" && $order_time_type == "between") echo "value=\"".$order_date2."\""; ?>>
+list_form.php:         <input type="text" name="order_end_relative" size="3" id="order_end_relative" class=" stats order_relative " <?php if($order_date_type == "relative" && $order_time_type == "between") echo "value=\"".$order_value2."\""; ?>>
+list_form.php:            <option value="days" <?php if($order_time2 == "days") echo "selected"; ?> >Days</option>
+list_form.php:           <option value="weeks" <?php if($order_time2 == "weeks") echo "selected"; ?> >Weeks</option>
+list_form.php:           <option value="months" <?php if($order_time2 == "months") echo "selected"; ?> >Months</option>
+list_form.php:           <option value="years" <?php if($order_time2 == "years") echo "selected"; ?> >Years</option>
+list_form.php:			   echo "<input type=\"checkbox\" id=\"".$li_status."\" name=\"line_item_status_checkboxes[]\" value=\"".$li_status."\" class=\"multi_check\" ";
+list_form.php:			   if($line_item_status_filter && in_array($li_status, $line_item_status_array)) echo " checked";
+list_form.php:			   echo " /><label for=\"".$li_status."\" class=\"multi_cb_label\">".$li_status_label."</label><br/>\n";
+list_form.php:				   echo "<span class =\"fund\">".$fund_row[2]."/".$fund_row[1]."<br /></span>\n";
+list_form.php:             echo "</div>";
+list_form.php:	          echo "<input type=\"hidden\" id=\"funds\" name=\"funds\" value=\"".$fund_list."\"/>";
+list_form.php:         <input type="checkbox" id="html" name="html" <?php if($use_html) echo "checked";?>/>
+list_form.php:        <input type="checkbox" id="spreadsheet" name="spreadsheet" onchange="JavaScript:SetCircDates(this.checked)"  <?php if($use_spreadsheet)  echo "checked";?>/>
+list_form.php:        <input type="checkbox" id="bookbag" name="bookbag"  <?php if($use_bookbag)  echo "checked";?>/>
+list_form.php:        <input type="checkbox" id="copy_bucket" name="copy_bucket"  <?php if($use_copy_bucket)  echo "checked";?>/>
+list_form.php:        <input type="checkbox" id="json" name="json"  onchange="JavaScript:SetRunNow(this.checked)" <?php if($use_json)  echo "checked";?>/>
+list_form.php:        <input type="checkbox" id="rss" name="rss" onchange="JavaScript:SetCircDates(this.checked)" <?php if($use_rss)  echo "checked";?>/>
+list_form.php:                            echo "<td id=\"html_order\" style='width: 70%;'>".$html_order."</td>\n";
+list_form.php:                           echo "<td id=\"html_order\" style='width: 70%;'>Call Number</td>\n";
+list_form.php:                                 echo $html_display;
+list_form.php:                        echo "<td id=\"html_layout\">".$html_layout."</td>\n";
+list_form.php:                        echo "<td id=\"html_layout\">Block</td>\n";
+list_form.php:                                 echo $html_options;
+list_form.php:                            echo "<td id=\"spreadsheet_order\" style='width: 68%;'>".$sheet_order."</td>\n";
+list_form.php:                           echo "<td id=\"spreadsheet_order\" style='width: 68%;'>Call Number</td>\n";
+list_form.php:                                 echo $sheet_display;
+list_form.php:                                 if ($circ_date_type !="none") echo " <li>Circs in Selected Dates</li>";
+list_form.php:                            echo "<td id=\"spreadsheet_format\">".$sheet_format."</td>\n";
+list_form.php:                           echo "<td id=\"spreadsheet_format\"> Excel </td>\n";
+list_form.php:                           if (strlen($sheet_options) > 0) echo "<ul>\n".$sheet_options."\n</ul>\n";
+list_form.php:                           echo "<ul><li>Count Sheet</li></ul>\n";
+list_form.php:                           echo $bookbag_update;
+list_form.php:                           echo $bookbag_name;
+list_form.php:                           echo $bookbag_desc;
+list_form.php:                           echo $bookbag_owner;
+list_form.php:                           echo $bookbag_id;
+list_form.php:                           echo "yes";
+list_form.php:                           echo $copy_bucket_update;
+list_form.php:                           echo $copy_bucket_name;
+list_form.php:                           echo $copy_bucket_desc;
+list_form.php:                           echo $copy_bucket_owner;
+list_form.php:                           echo $copy_bucket_id;
+list_form.php:                        if ($use_json) echo $json_data_type;
+list_form.php:                        else echo "ISBN";
+list_form.php:                           echo $rss_list;
+list_form.php:                           echo $rss_desc;
+list_form.php:   <input type = "hidden" name="input_bag_id" id = "input_bag_id" <?php if ($use_bookbag) echo "value=\"".$bookbag_id."\"";?> >
+list_form.php:   <input type = "hidden" name="input_copy_bucket_id" id = "input_copy_bucket_id" <?php if ($use_copy_bucket) echo "value=\"".$copy_bucket_id."\"";?> >
+list_form.php:   <input type = "hidden" name="input_carousel" id = "input_carousel" <?php if ($use_bookbag) echo "value=\"".$make_carousel."\"";?>  >
+list_form.php:    <input type="checkbox" id="scope_links" name="scope_links" <?php if($use_scope)  echo "checked";?> />
+list_form.php:    <input type="checkbox" id="use_domain" name="use_domain"  <?php if($domain !="none")  echo "checked";?> />
+list_form.php:         <option value="BEVERLY" <?php if($domain =="BEVERLY") echo "selected";?> >Beverly</option>
+list_form.php:         <option value="BUNKERHILL" <?php if($domain =="BUNKERHILL") echo "selected";?>>Bunker Hill</option>
+list_form.php:         <option value="DANVERS" <?php if($domain =="DANVERS") echo "selected";?>>Danvers</option>
+list_form.php:         <option value="ENDICOTT" <?php if($domain =="ENDICOTT") echo "selected";?>>Endicott</option>
+list_form.php:         <option value="EVERETT" <?php if($domain =="EVERETT") echo "selected";?>>Everett</option>
+list_form.php:         <option value="GLOUCESTER" <?php if($domain =="GLOUCESTER") echo "selected";?>>Gloucester</option>
+list_form.php:         <option value="GORDON" <?php if($domain =="GORDON") echo "selected";?>>Gordon</option>
+list_form.php:         <option value="LYNN" <?php if($domain =="LYNN") echo "selected";?>>Lynn</option>
+list_form.php:         <option value="LYNNFIELD" <?php if($domain =="LYNNFIELD") echo "selected";?>>Lynnfield</option>
+list_form.php:         <option value="MARBLEHEAD" <?php if($domain =="MARBLEHEAD") echo "selected";?>>Marblehead</option>
+list_form.php:         <option value="BOARD" <?php if($domain =="BOARD") echo "selected";?>>MBLC Library</option>
+list_form.php:         <option value="MELROSE" <?php if($domain =="MELROSE") echo "selected";?>>Melrose</option>
+list_form.php:         <option value="MERRIMACK" <?php if($domain =="MERRIMACK") echo "selected";?>>Merrimack</option>
+list_form.php:         <option value="MONTSERRAT" <?php if($domain =="MONTSERRAT") echo "selected";?>>Montserrat</option>
+list_form.php:         <option value="PEABODY" <?php if($domain =="PEABODY") echo "selected";?>>Peabody</option>
+list_form.php:         <option value="PHILLIPS" <?php if($domain =="PHILLIPS") echo "selected";?>>Phillips</option>
+list_form.php:         <option value="READING" <?php if($domain =="READING") echo "selected";?>>Reading</option>
+list_form.php:         <option value="REVERE" <?php if($domain =="REVERE") echo "selected";?>>Revere</option>
+list_form.php:         <option value="SALEM" <?php if($domain =="SALEM") echo "selected";?>>Salem</option>
+list_form.php:         <option value="SALEMSTATE" <?php if($domain =="SALEMSTATE") echo "selected";?>>Salem State</option>
+list_form.php:         <option value="SAUGUS" <?php if($domain =="SAUGUS") echo "selected";?>>Saugus</option>
+list_form.php:         <option value="STONEHAM" <?php if($domain =="STONEHAM") echo "selected";?>>Stoneham</option>
+list_form.php:         <option value="SWAMPSCOTT" <?php if($domain =="SWAMPSCOTT") echo "selected";?>>Swampscott</option>
+list_form.php:         <option value="WAKEFIELD" <?php if($domain =="WAKEFIELD") echo "selected";?>>Wakefield</option>
+list_form.php:         <option value="WINTHROP" <?php if($domain =="WINTHROP") echo "selected";?>>Winthrop</option>
+list_form.php:    <input type="checkbox" id="search_links" name="search_links" <?php if($use_search_links)  echo "checked";?> />
+list_form.php:       <input type="text" name="email" id ="email" size=60 class="stats" <?php if ($use_email) echo "value=\"".$email."\"";?>/>
+list_form.php:       <input type="text" name="out_file" id ="out_file" class="stats" size ="50" autocomplete="new-password" <?php if ($use_out_file) echo "value=\"".$out_file."\" ";   if ($save_file_name) echo "disabled";?>  / >
+list_form.php:   <h3 class="weeding"> Report Name: <span class="note no_schedule"> (Optional) </span>  <span class="note schedule_only" <?php if ($use_name ) echo "value=\"".$report_name."\"";?>> (Required) </span>
+list_form.php:    <input type="input" id="report_name" name="report_name" class="stats" size ="50" autocomplete="new-password"  <?php if ($use_name) echo "value=\"".$report_name."\"";?>/>
+list_form.php:        echo "<span id=\"update_sched\"><input type=\"button\" value=\"Update Scheduled Report\" class=\"stats\" id=\"update_report\" onclick=\"JavaScript:CreateReport(true, false)\" >&nbsp; &nbsp;</span>";
+list_form.php:        echo "<input type=\"button\" value=\"Schedule New Report\" class=\"stats\" id=\"create_report\" onclick=\"JavaScript:CreateReport(false, true)\" >&nbsp; &nbsp;";
+list_form.php:	     echo "<input type=\"button\" value=\"Generate Report\" class=\"stats\" id=\"create_report\" onclick=\"JavaScript:CreateReport(false, false)\" />&nbsp; &nbsp";
+list_form.php:	     echo "<input type=\"button\" value=\"Generate Report\" class=\"stats\" id=\"create_report\" onclick=\"JavaScript:CreateReport(false, false)\" disabled/>&nbsp; &nbsp";
+list_functions.php:				//echo $value . 'x' . $multiplier . ' + ';
+list_functions.php:			//echo ' = ' . $runningTotal;
+Output_Options.php:            // echo "Looking at bucket owner\n";
+Output_Options.php:      echo "Filename is ".$filename."\n";
+Output_Options.php:      echo "Filename prefix is ".$relative_name."\n";
+preview_output.php:			  echo "/****************** COPY #".$count."*******************\n";*/
+preview_output.php:           echo "<h3>Your completed report contains".number_format($total_bibs)." records which is larger than the Maximum of 5,000.";
+preview_output.php:           echo "Please try your Quick Preview with more filters. Or run as an Inventory/Booklist which allows for 50,000 record output";
+preview_output.php:           echo "</h3>";
+preview_output.php:			  echo "<div class=\"preview_out\">";
+preview_output.php:			  echo "<p>".$filters->GetTextForPreview()."</p>";
+preview_output.php:			  echo "<p>".$output->GetTextForPreview()."</p>";
+preview_output.php:			  echo "</div>";
+preview_output.php:			  echo "<h3>Your completed report is below. It contains ".number_format($count)." copies attached to ".number_format($bib_count)." unique bibs.";
+preview_output.php:			  if ($online_bib_count > 0 ) echo "<br/>There are ".number_format($online_link_count)." links attached to ".number_format($online_bib_count)." unique online bibs.";
+preview_output.php:			  echo "</h3>";
+preview_output.php:			  echo "<div class=\"preview_out\">";
+preview_output.php:			  echo "<p>".$filters->GetTextForPreview()."</p>";
+preview_output.php:			  echo "<p>".$output->GetTextForPreview()."</p>";
+preview_output.php:			  echo "</div>";
+preview_output.php:			  echo $output->GetHTML($bib_list);
+RSS_Output_Options.php:      echo "Writing HTML Report  -- ".$write_filename."\n";
+run_scheduled_lists.php:		echo "RUNNING -- ".$cmd."\n\n";
+run_scheduled_lists.php:		echo "RUNNING -- ".$cmd."\n\n";
+run_scheduled_lists.php:		echo "RUNNING -- ".$cmd."\n\n";
+run_scheduled_lists.php:		   echo "RUNNING -- ".$cmd."\n\n";
+run_scheduled_lists.php:		   echo "RUNNING -- ".$cmd."\n\n";
+setPrevFunds.php:   echo "fund_year_obj.options[fund_year_obj.options.length] = new Option('Select','-1');\n";       
+setPrevFunds.php:         echo "fund_year_obj.options[fund_year_obj.options.length] = new Option(\"".$row[0]."\",\"".$row[0]."***".$branch_id."\");\n";
+setPrevFunds.php:      echo "var new_html ='';\n";
+setPrevFunds.php:      echo "new_html  += \"<span id='".$node_name."' class='stat_row'>\";\n";
+setPrevFunds.php:      echo "new_html += \"<span id='".str_replace("'","*", $fund_words)."' name='fund_words'>".$fund_words."</span>\";\n";
+setPrevFunds.php:      echo "new_html += \"<input type='hidden' name='fund_vals' value='".$fund_val."' />\";";
+setPrevFunds.php:      echo "new_html +=\"<input type=\\\"button\\\"  value=\\\"Remove\\\" class=\\\"remove_stat\\\" onClick=\\\"RemoveFund('".$node_name."')\\\"/>\";";
+setPrevFunds.php:      echo "new_html += \"</span>\";";
+setPrevFunds.php:      echo "selected_fund_div.innerHTML += new_html;";    
+setPrevStatCats.php:   echo "stat_obj.options[stat_obj.options.length] = new Option('Select','-1');\n";   
+setPrevStatCats.php:         echo "stat_obj.options[stat_obj.options.length] = new Option(\"".$row[1]."\",\"".$row[1]."***".$row[0]."\");\n";
+setPrevStatCats.php:      echo "var new_html ='';\n";
+setPrevStatCats.php:      echo "new_html  += \"<span id='".$node_name."' class='stat_row'>\";\n";
+setPrevStatCats.php:      echo "new_html += \"<span id='".$cat_words."/".str_replace("'","*", $entry_words)."' name='stat_words'>".$cat_words."/".$entry_words."</span>\";\n";
+setPrevStatCats.php:      echo "new_html += \"<input type='hidden' name='stat_vals' value='".$cat_id."(".$entry_id.")' />\";";
+setPrevStatCats.php:      echo "new_html +=\"<input type=\\\"button\\\"  value=\\\"Remove\\\" class=\\\"remove_stat\\\" onClick=\\\"RemoveStatCat('".$node_name."')\\\"/>\";";
+setPrevStatCats.php:      echo "new_html += \"</span>\";";
+setPrevStatCats.php:      echo "selected_stats.innerHTML += new_html;";    
+stat_cat.php:   var LibName = "<?php echo $_GET['lib'] ?>";
+stat_cat.php:   var Branch = "<?php echo $_GET['branch'] ?>";
+stat_cat.php:   var preset_stat = "<?php echo $_GET['stat'] ?>";
+upload_confirm.php:    echo "<body onunload=\"return submitFile('".$display_name."','".$data_type ."','".$file_type."')\">\n";
+upload_confirm.php:    echo "<div id=\"content\">";
+upload_confirm.php:    echo "<h1 class=\"stat_cats\"> File Upload </h1>\n";
+upload_confirm.php:         echo "<h3>Filenames cannot contain parenteses<br />";
+upload_confirm.php:         echo "<a href=\"upload_file.php\">Try Again</a></h3>";
+upload_confirm.php:         echo "<input type=\"hidden\" id=\"failure\" value=\"failure\" >";
+upload_confirm.php:                   //echo "Found ".$header." id= ".$idx."<br />";
+upload_confirm.php:                   //echo "Found ".$header." id= ".$idx."<br />";
+upload_confirm.php:          echo "<h3> File ".$display_name." was not uploaded. Error: ".$error_message."<br />";
+upload_confirm.php:          echo "<a href=\"upload_file.php\">Try Again</a></h3>";
+upload_confirm.php:          echo "<h3> File ".$display_name." was successfully uploaded. </h3><br />";
+upload_confirm.php:          echo "<input type=\"hidden\" id=\"failure\" value=\"success\" >";
+upload_confirm.php:          echo "<input type=\"button\" value=\"Done\" class=\"stats\" onClick=\"return submitFile('".$display_name."','".$data_type ."','".$file_type."')\"/>";
+upload_confirm.php:         echo "<h3>No File was supplied! <br />";
+upload_confirm.php:         echo "<a href=\"upload_file.php\">Try Again</a></h3>";
+upload_confirm.php:         echo "<input type=\"hidden\" id=\"failure\" value=\"failure\" >";
+writeFunds.php:   echo "cat_obj.value= ' ".$stat_cat_id." ' ;\n ";
+writeFunds.php:   echo "entry_obj.value= ' ".$stat_cat_entries." ' ;\n ";
+writeFunds.php:      echo "text_obj.innerHTML+= ' <span class=\"stat\"> ".$stat_cat_name." / ALL <br /></span>' ;\n";
+writeFunds.php:         echo "text_obj.innerHTML+= ' <span class=\"stat\"> ".$stat_cat_name." / ".$display." <br /></span>' ;\n";
+writeStatCats.php:   echo "cat_obj.value= ' ".$stat_cat_id." ' ;\n ";
+writeStatCats.php:   echo "entry_obj.value= ' ".$stat_cat_entries." ' ;\n ";
+writeStatCats.php:      echo "text_obj.innerHTML+= ' <span class=\"stat\"> ".$stat_cat_name." / ALL <br /></span>' ;\n";
+writeStatCats.php:         echo "text_obj.innerHTML+= ' <span class=\"stat\"> ".$stat_cat_name." / ".$display." <br /></span>' ;\n";

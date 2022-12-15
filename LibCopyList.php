@@ -69,7 +69,10 @@ class LibCopyList
 	  $this->total_circs += $one_to_one->GetTotalCircs();
 	  $this->total_copies++;
 	  
-	  if($this->count_circs_between) $this->total_circs_between += $one_to_one->GetCircsBetween();
+	  if($this->count_circs_between) 
+	  {  
+	     $this->circs_between += $one_to_one->GetCircsBetween();
+	  }
 	  
 	  $this->circ_vals[] =$one_to_one->GetTotalCircs();
 	  
@@ -88,7 +91,7 @@ class LibCopyList
       $this->lib_shortname = $shortname;
       $this->lib_id = $id;
       
-      if ($shortname == "BEVERLY" || $shortname == "EVERETT" || $shortname == "NORTHERNESSEX" 
+      if ($shortname == "BEVERLY" || $shortname == "EVERETT" 
        || $shortname == "PEABODY" || $shortname == "PHILLIPS" || $shortname == "SALEMSTATE")
       {
          $this->has_branches = true;

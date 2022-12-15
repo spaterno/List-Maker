@@ -3,13 +3,13 @@
 function GetFiscalStart($fy)
 {
    $start = "7/1";
-   
+
    $first_of_year = date('d-m-Y', strtotime(date($fy.'-1-1')));
-    
+
    $year = date("Y", strtotime($first_of_year."-1 year"));
-   
+
    $start_string = $start."/".$year;
-   
+
    $fystart = date("Y-m-d", strtotime($start_string));
 
    return $fystart;
@@ -18,15 +18,15 @@ function GetFiscalStart($fy)
 function GetFiscalEnd($fy)
 {
    $end = "6/30";
-   
+
    $first_of_year = date('d-m-Y', strtotime(date($fy.'-1-1')));
-    
+
    $year = date("Y", strtotime($first_of_year));
-   
+
    $end_string = $end."/".$year;
-   
+
    $fyend = date("Y-m-d", strtotime($end_string));
-   
+
    return $fyend;
 }
 
@@ -34,13 +34,13 @@ function CalculateFiscalYear()
 {
    $fyStart = "7/1";
    $fyEnd = "6/30";
-    
+
    $date = strtotime( date("Y-m-d") );
    $inputyear = strftime('%Y',$date);
-   
+
    $fystartdate = strtotime($fyStart.$inputyear);
    $fyenddate = strtotime($fyEnd.$inputyear);
- 
+
    if($date < $fyenddate)
    {
        $fy = intval($inputyear);
@@ -49,13 +49,13 @@ function CalculateFiscalYear()
    {
        $fy = intval(intval($inputyear) + 1);
    }
-    
+
    return $fy;
 }
 
 function FindDomain($lib_name)
 {
-   switch($lib_name) 
+   switch($lib_name)
    {
       case "BEVERLY":
       {
@@ -155,21 +155,6 @@ function FindDomain($lib_name)
       case "NOBLE":
       {
          $domain ="evergreen";
-         break;
-      }
-      case "NORTHERNESSEX":
-      {
-         $domain ="northernessex";
-         break;
-      }
-      case "NEH":
-      {
-         $domain ="northernessex";
-         break;
-      }
-      case "NEL":
-      {
-         $domain ="northernessex";
          break;
       }
       case "PEABODY":
@@ -288,13 +273,13 @@ function FindDomain($lib_name)
          break;
       }
    }
-   
+
    return $domain;
 }
 
 function FindScope($lib_name)
 {
-   switch($lib_name) 
+   switch($lib_name)
    {
       case "BEVERLY":
       {
@@ -394,21 +379,6 @@ function FindScope($lib_name)
       case "NOBLE":
       {
          $locg=1;
-         break;
-      }
-      case "NORTHERNESSEX":
-      {
-         $locg=42;
-         break;
-      }
-      case "NEH":
-      {
-         $locg=43;
-         break;
-      }
-      case "NEL":
-      {
-         $locg=44;
          break;
       }
       case "PEABODY":
@@ -527,36 +497,36 @@ function FindScope($lib_name)
          break;
       }
    }
-   
+
    return $locg;
 }
 
 function MakeUpdateReportLink($cmd_line)
 {
    $link = "https://tools.noblenet.org/list_maker/list_form.php?";
-   
+
    $filter_str = "filters=";
    $report_name = "";
    $emails= array();
    $output_str = "output=";
-   
-   
+
+
    $get_filters = false;
    $get_name = false;
    $get_email = false;
    $get_output = false;
-   
+
    //get filters
    for ($i=0; $i < count($cmd_line); $i++)
    {
       $arg = $cmd_line[$i];
-      
+
       if ($arg == "report_name")
       {
          $get_filters = false;
          $get_email = false;
          $get_output = false;
-          
+
          $report_name = "name=".urlencode($cmd_line[++$i]);
       }
       else if ($arg == "email")
@@ -565,20 +535,24 @@ function MakeUpdateReportLink($cmd_line)
          $get_output = false;
          $get_email = true;
          $emails[] =urlencode($cmd_line[++$i]);
-         //check for extra emails   
+         //check for extra emails
       }
       else if ($arg == "lib")
       {
          $get_filters = true;
          $filter_str .= $arg."*";
       }
-      else if ($arg == "spreadsheet" || $arg == "html" || $arg == "rss")
+      else if ($arg == "spreadsheet" || $arg == "html" || $arg == "rss" || $arg == "bookbag" || $arg == "bucket" || $arg == "copy_bucket" || $arg == "json")
       {
           $get_filters = false;
           $get_email = false;
           $get_output = true;
-          
+
           $output_str .= $arg."*";
+      }
+      else if ($arg == "rss_list" || $arg == "rss_desc" || $arg == "bag_name" || $arg == "bag_desc" || $arg == "bucket_name" || $arg == "bucket_desc")
+      {
+          $output_str .= $arg."*".urlencode($cmd_line[++$i])."*";
       }
       else if ($get_filters)
       {
@@ -588,16 +562,16 @@ function MakeUpdateReportLink($cmd_line)
       {
          $output_str .= $arg."*";
       }
-   
+
    }
-   
+
    $email_str = "email=".implode(",",$emails);
    $link .=$filter_str."&".$email_str."&".$output_str;
    if(strlen($report_name))
    {
       $link.="&".$report_name;
    }
-   
+
    return $link;
 }
 
@@ -621,20 +595,20 @@ function MakeUpdateReportLink($cmd_line)
 			$runningTotal = 0;
 			$r = 1;
 			$multiplier = 1;
-			
+
 			for ($i = 0; $i < 13 ; $i++)
 			{
 				$nums[$r] = substr($input, $i, 1);
 				$r++;
 			}
 			$inputChecksum = array_pop($nums);
-			
+
 			foreach($nums as $key => $value)
 			{
 				$runningTotal += $value * $multiplier;
 				$multiplier = $multiplier == 3 ? 1 : 3;
 			}
-			
+
 			$div = $runningTotal / 10;
 			$remainder = $runningTotal % 10;
 
@@ -642,7 +616,7 @@ function MakeUpdateReportLink($cmd_line)
 
 			$output = array('checksum'=>$checksum);
 			$output['isbn13'] = substr($input, 0, 12) . $checksum;
-			
+
 			if ($convert)
 			{
 				$output['isbn10'] = isbn13to10($output['isbn13']);
@@ -671,19 +645,19 @@ function MakeUpdateReportLink($cmd_line)
 		{
 			$output = array('error'=>'ISBN too long.');
 		}
-		
+
 		if (!$output)
 		{
 			$runningTotal = 0;
 			$r = 1;
 			$multiplier = 10;
-			
+
 			for ($i = 0; $i < 10 ; $i++)
 			{
 				$nums[$r] = substr($input, $i, 1);
 				$r++;
 			}
-			
+
 			$inputChecksum = array_pop($nums);
 			foreach($nums as $key => $value)
 			{
@@ -695,14 +669,14 @@ function MakeUpdateReportLink($cmd_line)
 					break;
 				}
 			}
-			
+
 			//echo ' = ' . $runningTotal;
 			$remainder = $runningTotal % 11;
 			$checksum = $remainder == 1 ? 'X' : 11 - $remainder;
 			$checksum = $checksum == 11 ? 0 : $checksum;
 			$output = array('checksum'=>$checksum);
 			$output['isbn10'] = substr($input, 0, 9) . $checksum;
-			
+
 			if ($convert)
 			{
 				$output['isbn13'] = isbn10to13($output['isbn10']);
@@ -732,4 +706,363 @@ function MakeUpdateReportLink($cmd_line)
 	}
 
 
-?>    
+   function GetListMakerUserId($system_id)
+   {
+      switch($system_id)
+      {
+         case 1:
+         {
+            //nobe
+            $id =2132485;
+            break;
+         }
+         case 2:
+         {
+            //beverly
+            $id =2536094;
+            break;
+         }
+         case 6:
+         {
+            //bunkerhill
+            $id =2536096;
+            break;
+         }
+         case 8:
+         {
+            //board
+            $id =2536095;
+            break;
+         }
+         case 10:
+         {
+            //danvers
+            $id =2536097;
+            break;
+         }
+         case 12:
+         {
+            //endicott
+            $id =2536098;
+            break;
+         }
+         case 14:
+         {
+            //everett
+            $id =2536099;
+            break;
+         }
+         case 17:
+         {
+            //gloucester
+            $id =2536100;
+            break;
+         }
+         case 19:
+         {
+            //gordon
+            $id =2536101;
+            break;
+         }
+         case 21:
+         {
+            //lynnfield
+            $id =2536103;
+            break;
+         }
+         case 23:
+         {
+            //lynn
+            $id =2536104;
+            break;
+         }
+         case 25:
+         {
+            //marblehead
+            $id =2536105;
+            break;
+         }
+         case 27:
+         {
+            //melrose
+            $id =2536106;
+            break;
+         }
+         case 29:
+         {
+            //merrimack
+            $id =2536108;
+            break;
+         }
+         case 34:
+         {
+            //montserrat
+            $id =2536109;
+            break;
+         }
+         case 45:
+         {
+            //peabody
+            $id =2536111;
+            break;
+         }
+         case 49:
+         {
+            //phillips
+            $id =2536112;
+            break;
+         }
+         case 58:
+         {
+            //reading
+            $id =2536113;
+            break;
+         }
+         case 60:
+         {
+            //revere
+            $id =2536114;
+            break;
+         }
+         case 62:
+         {
+            //salem
+            $id =2536115;
+            break;
+         }
+         case 64:
+         {
+            //salemstate
+            $id =2536116;
+            break;
+         }
+         case 67:
+         {
+            //saugus
+            $id =2536117;
+            break;
+         }
+         case 69:
+         {
+            //stoneham
+            $id =2536118;
+            break;
+         }
+         case 71:
+         {
+            //swampscott
+            $id =2536119;
+            break;
+         }
+         case 73:
+         {
+            //wakefield
+            $id =2536120;
+            break;
+         }
+         case 75:
+         {
+            //winthrop
+            $id =2536121;
+            break;
+         }
+         default:
+         {
+             $id =2132485;
+            break;
+         }
+
+      }
+
+      return $id;
+   }
+
+   function GetListMakerUserIdFromName($library)
+   {
+      switch($library)
+      {
+         case "NOBLE":
+         {
+            //nobe
+            $id =2132485;
+            break;
+         }
+         case "BEVERLY":
+         case "BEB":
+         case "BEF":
+         case "BEV":
+         {
+            //beverly
+            $id =2536094;
+            break;
+         }
+         case "BUNKERHILL":
+         {
+            //bunkerhill
+            $id =2536096;
+            break;
+         }
+         case "BOARD":
+         {
+            //board
+            $id =2536095;
+            break;
+         }
+         case "DANVERS":
+         {
+            //danvers
+            $id =2536097;
+            break;
+         }
+         case "ENDICOTT":
+         {
+            //endicott
+            $id =2536098;
+            break;
+         }
+         case "EVERETT":
+         case "EVP":
+         case "EVS":
+         {
+            //everett
+            $id =2536099;
+            break;
+         }
+         case "GLOUCESTER":
+         {
+            //gloucester
+            $id =2536100;
+            break;
+         }
+         case "GORDON":
+         {
+            //gordon
+            $id =2536101;
+            break;
+         }
+         case "LYNNFIELD":
+         {
+            //lynnfield
+            $id =2536103;
+            break;
+         }
+         case "LYNN":
+         {
+            //lynn
+            $id =2536104;
+            break;
+         }
+         case "MARBLEHEAD":
+         {
+            //marblehead
+            $id =2536105;
+            break;
+         }
+         case "MELROSE":
+         {
+            //melrose
+            $id =2536106;
+            break;
+         }
+         case "MERRIMACK":
+         {
+            //merrimack
+            $id =2536108;
+            break;
+         }
+         case "MONTESERRAT":
+         {
+            //montserrat
+            $id =2536109;
+            break;
+         }
+         case "PEABODY":
+         case "PEA":
+         case "PES":
+         case "PEW":
+         {
+            //peabody
+            $id =2536111;
+            break;
+         }
+         case "PHILLIPS":
+         case "PANA":
+         case "PANB":
+         case "PANC":
+         case "PANG":
+         case "PANI":
+         case "PANK":
+         case "PANO":
+         case "PANP":
+         {
+            //phillips
+            $id =2536112;
+            break;
+         }
+         case "READING":
+         {
+            //reading
+            $id =2536113;
+            break;
+         }
+         case "REVERE":
+         {
+            //revere
+            $id =2536114;
+            break;
+         }
+         case "SALEM":
+         {
+            //salem
+            $id =2536115;
+            break;
+         }
+         case "SALEMSTATE":
+         {
+            //salemstate
+            $id =2536116;
+            break;
+         }
+         case "SAUGUS":
+         {
+            //saugus
+            $id =2536117;
+            break;
+         }
+         case "STONEHAM":
+         {
+            //stoneham
+            $id =2536118;
+            break;
+         }
+         case "SWAMPSCOTT":
+         {
+            //swampscott
+            $id =2536119;
+            break;
+         }
+         case "WAKEFIELD":
+         {
+            //wakefield
+            $id =2536120;
+            break;
+         }
+         case "WINTHROP":
+         {
+            //winthrop
+            $id =2536121;
+            break;
+         }
+         default:
+         {
+             $id =2132485;
+            break;
+         }
+
+      }
+
+      return $id;
+   }
+
+
+?>

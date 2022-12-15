@@ -75,8 +75,7 @@
          <option value="BOARD">MBLC Library</option>
          <option value="MELROSE">Melrose</option>
          <option value="MERRIMACK">Merrimack</option>
-         <option value="MONTSERRAT">Montserrat</option>
-         <option value="NORTHERNESSEX">Northern Essex</option>      
+         <option value="MONTSERRAT">Montserrat</option>  
          <option value="PEABODY">Peabody</option>
          <option value="PHILLIPS">Phillips</option>
          <option value="READING">Reading</option>

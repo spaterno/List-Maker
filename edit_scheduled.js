@@ -8,7 +8,7 @@ function getBranches(LibName)
    
     
    //based on libName set the branch box
-   if( LibName=="BEVERLY" || LibName=="EVERETT" || LibName=="NORTHERNESSEX" || LibName=="PEABODY" || LibName=="PHILLIPS" || LibName=="SALEMSTATE" )
+   if( LibName=="BEVERLY" || LibName=="EVERETT" || LibName=="PEABODY" || LibName=="PHILLIPS" || LibName=="SALEMSTATE" )
    {
       filter_branch.disabled = false;
          
@@ -25,12 +25,6 @@ function getBranches(LibName)
         filter_branch.options[filter_branch.options.length] = new Option('ALL','ALL');
         filter_branch.options[filter_branch.options.length] = new Option('Parlin','EVP');
         filter_branch.options[filter_branch.options.length] = new Option('Shute','EVS');
-      }
-      else if(LibName=="NORTHERNESSEX")
-      {
-         filter_branch.options[filter_branch.options.length] = new Option('ALL','ALL');
-         filter_branch.options[filter_branch.options.length] = new Option('Haverhill','NEH');
-         filter_branch.options[filter_branch.options.length] = new Option('Lawrence','NEL');
       }
       else if(LibName=="PEABODY")
       {
